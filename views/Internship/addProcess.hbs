@@ -63,7 +63,7 @@
         .then(response => response.json())
         .then(data => {
           if (data[0] != undefined) {
-            CKEDITOR.instances.content.insertHtml(data[0].Content);
+            CKEDITOR.instances.content.insertHtml(data[0].Process);
           }
         });
    

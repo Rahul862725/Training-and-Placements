@@ -23,7 +23,7 @@ router.get('/process', (req, res) => {
 });
 //Insight Route
 router.get('/insight', (req, res) => {
-    processModel.find()
+    studentModel.find()
         .then(insight => res.json(insight))
         .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -35,7 +35,12 @@ router.post('/add_policy',  async(req, res, next) => {
     var obj = {
         Policy:req.body.Content
       }
-      
+      const data=await policyModel.find({});
+       
+      if(data!=null){
+         
+      await policyModel.remove({});
+      }
       await policyModel.create(obj, (err, item) => {
           if (err) {
               console.log(err);
@@ -52,7 +57,9 @@ router.post('/add_process',  async(req, res, next) => {
     var obj = {
         Process:req.body.Content
       }
-      
+      const data=await processModel.findOne({});
+      if(data!=null)
+      await processModel.remove({});
       processModel.create(obj, (err, item) => {
           if (err) {
               console.log(err);

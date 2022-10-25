@@ -75,14 +75,9 @@
 
   <body>
     <!-- navbar -->
-    <iframe
-      id="header"
-      class="w-full z-50"
-      frameborder="0"
-      scrolling="no"
-      onload="resizeIframe(this)"
-      src="./components/header.html"
-    ></iframe>
+    <div>
+      {{>header}}
+    </div>
 
     <!-- backgroud pic and heading -->
     <div class="relative flex w-full item-center justify-center">
@@ -121,13 +116,8 @@
     </div>
 
     <!-- footer -->
-    <iframe
-      id="footer"
-      class="w-full"
-      frameborder="0"
-      scrolling="no"
-      onload="resizeIframe(this)"
-      src="./components/footer.html"
-    ></iframe>
+      <div>
+      {{>footer}}
+    </div>
   </body>
 </html>

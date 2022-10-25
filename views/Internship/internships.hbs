@@ -61,11 +61,11 @@
       </p>
     </div>
     <div class="flex items-center justify-center space-x-10">
-      <a href="http://localhost:8085/internship/process"> <button
+        <button id="policy"
           class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md">
           Process
         </button>
-      </a>
+      
       <a href="http://localhost:8085/internship/policy"> <button
           class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md">
           Policy
@@ -77,6 +77,9 @@
         </button>
       </a>
     </div>
+    <div id="data">
+
+    </div>
 
   </div>
 <br><br><br><br><br><br><br>
@@ -85,5 +88,20 @@
     {{>footer}}
   </div>
 </body>
+
+<script>
+const link = `{{URL}}/Internship/policy`;
+let data1=document.getElementById("data");
+fetch(link).then(response =>response.json()).then(
+  data=>{
+    console.log(data);
+    const policy=document.getElementById("polciy");
+    policy.addEventListener("clik",()=>{
+    data1.innerHtml=data[0].Policy;
+    })
+  }
+)
+
+</script>
 
 </html>
