@@ -39,7 +39,7 @@ router.post('/add_policy',  async(req, res, next) => {
        
       if(data!=null){
          
-      await policyModel.remove({});
+      await policyModel.deleteMany({});
       }
       await policyModel.create(obj, (err, item) => {
           if (err) {
@@ -59,7 +59,7 @@ router.post('/add_process',  async(req, res, next) => {
       }
       const data=await processModel.findOne({});
       if(data!=null)
-      await processModel.remove({});
+      await processModel.deleteMany({});
       processModel.create(obj, (err, item) => {
           if (err) {
               console.log(err);

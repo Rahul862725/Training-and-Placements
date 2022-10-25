@@ -48,11 +48,11 @@
 </head>
 
 <body>
-   
+
   <div>
     {{>header}}
   </div>
-  <br><br><br><br><br><br> 
+  <br><br><br><br><br><br>
   <div class="bg-[#002A51] text-white py-24 space-y-8">
     <div class="text-center space-y-3">
       <h6 class="text-7xl text-center font-bold">Internships</h6>
@@ -61,14 +61,13 @@
       </p>
     </div>
     <div class="flex items-center justify-center space-x-10">
-        <button id="policy"
-          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md">
-          Process
-        </button>
-      
+      <button id="policy1" class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md">
+        Policy
+      </button>
+
       <a href="http://localhost:8085/internship/policy"> <button
           class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md">
-          Policy
+          Process
         </button>
       </a>
       <a href="http://localhost:8085/internship/insights"> <button
@@ -77,30 +76,32 @@
         </button>
       </a>
     </div>
-    <div id="data">
-
-    </div>
+    
 
   </div>
-<br><br><br><br><br><br><br>
-   
+   <div id="data">
+
+    </div>
+  <br><br><br><br><br><br><br>
+
   <div>
     {{>footer}}
   </div>
 </body>
 
 <script>
-const link = `{{URL}}/Internship/policy`;
-let data1=document.getElementById("data");
-fetch(link).then(response =>response.json()).then(
-  data=>{
-    console.log(data);
-    const policy=document.getElementById("polciy");
-    policy.addEventListener("clik",()=>{
-    data1.innerHtml=data[0].Policy;
-    })
-  }
-)
+  const link = `{{URL}}/Internship/policy`;
+  let data1 = document.getElementById("data");
+  fetch(link).then(response => response.json()).then(
+    data => {
+      console.log(data[0].Policy);
+      const policy = document.getElementById("policy1");
+      policy.addEventListener("click", () => {
+        data1.innerHTML = data[0].Policy;
+        console.log(data[0].Policy)
+      })
+    }
+  )
 
 </script>
 
