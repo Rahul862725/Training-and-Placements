@@ -136,6 +136,9 @@
       fetch(link)
         .then((response) => response.json())
         .then((data) => {
+
+          console.log(data);
+
           content.innerHTML = "";
           let str1 = `
           <div>
@@ -149,14 +152,25 @@
           <div class="flex items-center justify-center">
             <canvas
               id="barChart"
-              style="width: 100%; max-width: 800px"
+              style="width: 700px; max-width: 800px"
               class="bg-gradient-to-b from-[#ffe9ec] via-white to-[#e2effa] p-5 rounded-lg shadow-lg"
             ></canvas>
           </div>
+          `;
 
-          <script>
 
-            var companies = [
+          let str3 = `
+              </div>
+            </div>
+          </div>`;
+
+          content.innerHTML += str1 + str2 + str3;
+
+          var script = document.createElement('script');
+
+          
+
+          script.innerHTML = `  var companies = [
               "Microsoft",
               "Amazon",
               "DE Shaw",
@@ -199,16 +213,10 @@
                   ],
                 },
               },
-            });
-          <\/script>
-          `;
+            });`
 
-          let str3 = `
-              </div>
-            </div>
-          </div>`;
 
-          content.innerHTML += str1 + str2 + str3;
+          document.head.appendChild(script);
         });
     }
   </script>
