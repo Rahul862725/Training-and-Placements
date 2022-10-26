@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Placements</title>
-     <link rel="icon" type="image/x-icon" href="/img/favicon-16x16.png" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon-16x16.png" />
 
     <link
       href="https://fonts.googleapis.com/css?family=Poppins"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-  <style>
+    <style>
       * {
         box-sizing: border-box;
         padding: 0;
@@ -28,14 +29,12 @@
         top: 0;
       }
     </style>
-   
-</head>
-<body>
-    <div>
-        {{>header}}
-    </div>
-    <br><br><br><br><br><br> 
-     {{!-- Write code here. --}}
+  </head>
+
+  <body>
+    <div>{{>header}}</div>
+    <br /><br /><br /><br /><br /><br />
+    {{!-- Write code here. --}}
     <div class="bg-[#002A51] text-white py-24 space-y-8">
       <div class="text-center space-y-3">
         <h6 class="text-7xl text-center font-extrabold">Internships</h6>
@@ -52,7 +51,7 @@
         </button>
         <button
           class="border-2 py-2 w-[10rem] rounded-md bg-[#2167A7] hover:bg-[#002A51]"
-          onclick="pointToStats()"
+          onclick="statsClick()"
         >
           Stats
         </button>
@@ -70,66 +69,147 @@
         </button>
       </div>
     </div>
-    <div id="content">
-  </div>
-    <br><br><br><br><br><br><br>
-    <div>
-        {{>footer}}
-    </div>
-</body>
-<script>
- const content = document.getElementById('content')
-  function processClick() {
-    let pro_link = `{{URL}}/Placement/process`
-    fetch(pro_link)
-      .then(response => response.json())
-      .then(data => {
-         console.log(data)
-        for(let i=0;i<data.length;i++){
-          if(data[i].PProcess!=null)
-        content.innerHTML = data[i].PProcess;
-        }
-      })
-  }
+    <div id="content"></div>
+    <br /><br /><br /><br /><br /><br /><br />
+    <div>{{>footer}}</div>
+  </body>
+  <script>
+    const content = document.getElementById("content");
+    function processClick() {
+      let pro_link = `{{URL}}/Placement/process`;
+      fetch(pro_link)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          for (let i = 0; i < data.length; i++) {
+            if (data[i].PProcess != null) content.innerHTML = data[i].PProcess;
+          }
+        });
+    }
 
-  function policyClick() {
-    const p_link = `{{URL}}/Placement/policy`
-    fetch(p_link)
-      .then(response => response.json())
-      .then(data => {
-       for(let i=0;i<data.length;i++){
-          if(data[i].PPolicy!=null)
-        content.innerHTML = data[i].PPolicy;
-        }
-      })
-  }
-  function insightClick() {
-    const link = `{{URL}}/Internship/insight`
-    fetch(link)
-      .then(response => response.json())
-      .then(data => {
-        
-        content.innerHTML = "";
-        let str1 = `<div>
+    function policyClick() {
+      const p_link = `{{URL}}/Placement/policy`;
+      fetch(p_link)
+        .then((response) => response.json())
+        .then((data) => {
+          for (let i = 0; i < data.length; i++) {
+            if (data[i].PPolicy != null) content.innerHTML = data[i].PPolicy;
+          }
+        });
+    }
+    function insightClick() {
+      const link = `{{URL}}/Internship/insight`;
+      fetch(link)
+        .then((response) => response.json())
+        .then((data) => {
+          content.innerHTML = "";
+          let str1 = `
         <div class="flex justify-center items-center">
           <div class="my-20 max-w-[72vw]">
-            <h6 class="text-6xl text-center font-bold">Internship Insights</h6>
-            <div class="mt-6 space-y-2 text-center">`
+            <h6 class="text-6xl text-center font-bold">Placement Insights</h6>
+            <div class="mt-6 space-y-2 text-center">`;
 
-        let str2 = "";
-        for (let i = 0; i < data.length; i++) {
-          var student = data[i];
-          str2 += `<p> ` + student.date.substr(0, 10) + `      ` + student.Name + `      ` + student.RollNo + `</p>`;
-        }
+          let str2 = "";
+          for (let i = 0; i < data.length; i++) {
+            var student = data[i];
+            str2 +=
+              `<p> ` +
+              student.date.substr(0, 10) +
+              `      ` +
+              student.Name +
+              `      ` +
+              student.RollNo +
+              `</p>`;
+          }
 
-        let str3 = `</div>
+          let str3 = `</div>
               </div>
             </div>
-          </div>`
+          </div>`;
 
-        content.innerHTML += str1 + str2 + str3;
-      })
-  }
+          content.innerHTML += str1 + str2 + str3;
+        });
+    }
 
-</script>
+    function statsClick() {
+      const link = `{{URL}}/Internship/insight`;
+      fetch(link)
+        .then((response) => response.json())
+        .then((data) => {
+          content.innerHTML = "";
+          let str1 = `
+          <div>
+          <div class="flex justify-center items-center">
+            <div class="h-fit my-20 space-y-20">
+              <div class="max-w-[72vw]">
+                <h6 class="text-6xl text-center font-bold">Placements Stats</h6>
+              </div>`;
+
+          let str2 = `
+          <div class="flex items-center justify-center">
+            <canvas
+              id="barChart"
+              style="width: 100%; max-width: 800px"
+              class="bg-gradient-to-b from-[#ffe9ec] via-white to-[#e2effa] p-5 rounded-lg shadow-lg"
+            ></canvas>
+          </div>
+
+          <script>
+
+            var companies = [
+              "Microsoft",
+              "Amazon",
+              "DE Shaw",
+              "Increff",
+              "Flipkart",
+              "Reliance",
+            ];
+
+            var thisYear = [69, 45, 34, 74, 90, 10];
+            var lastYear = [55, 49, 44, 24, 40, 20];
+
+            new Chart("barChart", {
+              type: "bar",
+              data: {
+                labels: companies,
+                datasets: [
+                  {
+                    label: "This Year",
+                    backgroundColor: "#2167A7",
+                    data: thisYear,
+                  },
+                  {
+                    label: "Last Year",
+                    backgroundColor: "#FF9E5E",
+                    data: lastYear,
+                  },
+                ],
+              },
+
+              options: {
+                scales: {
+                  yAxes: [
+                    {
+                      ticks: {
+                        display: false,
+                        beginAtZero: true,
+                        suggestedMax: 100,
+                      },
+                    },
+                  ],
+                },
+              },
+            });
+          <\/script>
+          `;
+
+          let str3 = `
+              </div>
+            </div>
+          </div>`;
+
+          content.innerHTML += str1 + str2 + str3;
+        });
+    }
+  </script>
 </html>
