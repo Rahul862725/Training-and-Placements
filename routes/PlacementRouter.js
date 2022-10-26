@@ -1,3 +1,4 @@
+
 const router = require('express').Router();
 const multer = require('multer');
 const fs = require('fs');
@@ -11,13 +12,13 @@ let policyModel = require('../models/PolicyModel');
 
 // Policy Route
 router.get('/policy', (req, res) => {
-    policyModel.find()
+    policyModel.find().sort({date:-1})
         .then(policy => res.json(policy))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 //Process Route
 router.get('/process', (req, res) => {
-    processModel.find()
+    processModel.find().sort({date:-1})
         .then(process => res.json(process))
         .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -33,7 +34,7 @@ router.get('/insight', (req, res) => {
 // For Policy
 router.post('/add_policy',  async(req, res, next) => {
     var obj = {
-        Policy:req.body.Content
+        PPolicy:req.body.Content
       }
       
       await policyModel.create(obj, (err, item) => {
@@ -50,7 +51,7 @@ router.post('/add_policy',  async(req, res, next) => {
 //For Process
 router.post('/add_process',  async(req, res, next) => {
     var obj = {
-        Process:req.body.Content
+        PProcess:req.body.Content
       }
       
       processModel.create(obj, (err, item) => {

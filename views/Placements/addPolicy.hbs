@@ -23,8 +23,8 @@
 <body>
 
   <div class="container" style="align-items: center; display: flex; justify-content: center; margin-top: 100px;">
-    <form id="myform" action="/Internship/add_policy" method="POST" style="margin: 40px;">
-      <h1>Add  Internship Policies</h1>
+    <form id="myform" action="/Placement/add_policy" method="POST" style="margin: 40px;">
+      <h1>Add Placement Policies</h1>
       
       <div>
         Content:
@@ -59,22 +59,24 @@
   let Form=document.getElementById("myform");
 
   function myFunction(){ 
-    let flag=confirm("Check  Internship Policy Before Sumbit!");
-  
+    let flag=confirm("Check Placement Policy before Submit!");
+ //console.log("Call");
   if(flag){
  
  Form.submit();
  }
   }
+  
       const link = `{{URL}}/Internship/policy`;
       //console.log(link)
       fetch(link)
         .then(response => response.json())
         .then(data => {
-          //console.log(data);
+           //console.log(data)
              for(let i=0;i<data.length;i++){
-          if (data[i].IPolicy != null) {
-            CKEDITOR.instances.content.insertHtml(data[i].IPolicy);
+              //console.log(data[i].PPolicy);
+          if (data[i].PPolicy != null) {
+            CKEDITOR.instances.content.insertHtml(data[i].PPolicy);
             break;
           }
           }

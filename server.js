@@ -77,33 +77,52 @@ app.get("/", (req, res) =>{
 app.get("/add_SData",(req,res)=>{
     res.render("Internship/addStudentData.hbs",{URL:process.env.URL});
 })
-app.get("/add_process",(req,res)=>{
-    res.render("Internship/addProcess.hbs",{URL:process.env.URL});
-})
-app.get("/add_policy",(req,res)=>{
-    res.render("Internship/addPolicy.hbs",{URL:process.env.URL});
-})
+ 
  
       //  ****** Internship Page *******
 
 app.use('/Internship',internshipRouter );
 app.get("/index_internship",(req,res)=>{
     res.render("Internship/internships.hbs",{URL:process.env.URL})
+
+})
+app.get("/add_iprocess",(req,res)=>{
+    res.render("Internship/addProcess.hbs",{URL:process.env.URL});
+})
+app.get("/add_ipolicy",(req,res)=>{
+    res.render("Internship/addPolicy.hbs",{URL:process.env.URL});
 })
 
-      //  ****** Pacements Page *******
+      //  ****** Placements Page *******
 app.use('/Placement',placementrouter );
 app.get("/index_placements",(req,res)=>{
-    res.render("Internship/placements.hbs",{URL:process.env.URL})
+    res.render("Placements/placements.hbs",{URL:process.env.URL})
+})
+app.get("/add_pprocess",(req,res)=>{
+    res.render("Placements/addProcess.hbs",{URL:process.env.URL});
+})
+app.get("/add_ppolicy",(req,res)=>{
+    res.render("Placements/addPolicy.hbs",{URL:process.env.URL});
 })
 
 
-      //  ****** Pacements Page *******
+
+      //  ****** Why_Recruit Page *******
 app.use('/Why_Recruit',whyrecruitRouter);
-app.get("/index_placements",(req,res)=>{
-    res.render("Internship/recruit.hbs",{URL:process.env.URL})
+app.get("/index_wrecruit",(req,res)=>{
+    res.render("why_recruit/recruit.hbs",{URL:process.env.URL})
 })
- 
+
+      //  ****** Download Page *******
+app.get("/index_download",(req,res)=>{
+    res.render("Download/downloads.hbs",{URL:process.env.URL})
+})
+
+
+      //  ****** People Page *******
+app.get("/index_people",(req,res)=>{
+    res.render("People/people.hbs",{URL:process.env.URL})
+})
  
 
 

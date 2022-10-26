@@ -4,7 +4,9 @@ const Schema = mongoose.Schema;
 
 
 const policySchema = new Schema({
-     Policy:{type:String,required:true},
+     IPolicy:{type:String,required:false},
+     PPolicy:{type:String,required:false},
+      
   
   date: { type: Date, required: false  , default: Date.now},
 }, {

@@ -24,7 +24,7 @@
 
   <div class="container" style="align-items: center; display: flex; justify-content: center; margin-top: 100px;">
     <form id="myform" action="/Internship/add_process" method="POST" style="margin: 40px;">
-      <h1>Add Process</h1>
+      <h1>Add Internship Process</h1>
       
       <div>
         Content:
@@ -40,7 +40,7 @@
 
 
 
-      <button type="submit" class="btn btn-outline-success" style="margin: 20px;">Submit</button>
+      <button type="submit" onclick="myFunction()" class="btn btn-outline-success" style="margin: 20px;">Submit</button>
     </form>
   </div>
 </body>
@@ -56,13 +56,26 @@
     enterMode: CKEDITOR.ENTER_BR
   });
   
+  let Form=document.getElementById("myform");
+
+  function myFunction(){ 
+    let flag=confirm("Check Internship Process Before Sumbit!");
+  
+  if(flag){
+ 
+ Form.submit();
+ }
+  }
       const link = `{{URL}}/Internship/process`;
       //console.log(link)
       fetch(link)
         .then(response => response.json())
         .then(data => {
-          if (data[0] != undefined) {
-            CKEDITOR.instances.content.insertHtml(data[0].Process);
+          for(let i=0;i<data.length;i++){
+          if (data[i].IProcess != null) {
+            CKEDITOR.instances.content.insertHtml(data[i].IProcess);
+            break;
+          }
           }
         });
    

@@ -11,13 +11,13 @@ let policyModel = require('../models/PolicyModel');
 
 // Policy Route
 router.get('/policy', (req, res) => {
-    policyModel.find()
+    policyModel.find().sort({date:-1})
         .then(policy => res.json(policy))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 //Process Route
 router.get('/process', (req, res) => {
-    processModel.find()
+    processModel.find().sort({date:-1})
         .then(process => res.json(process))
         .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -33,14 +33,9 @@ router.get('/insight', (req, res) => {
 // For Policy
 router.post('/add_policy',  async(req, res, next) => {
     var obj = {
-        Policy:req.body.Content
+        IPolicy:req.body.Content
       }
-      const data=await policyModel.find({});
        
-      if(data!=null){
-         
-      await policyModel.deleteMany({});
-      }
       await policyModel.create(obj, (err, item) => {
           if (err) {
               console.log(err);
@@ -55,11 +50,11 @@ router.post('/add_policy',  async(req, res, next) => {
 //For Process
 router.post('/add_process',  async(req, res, next) => {
     var obj = {
-        Process:req.body.Content
+        IProcess:req.body.Content
       }
-      const data=await processModel.findOne({});
-      if(data!=null)
-      await processModel.deleteMany({});
+    //   const data=await processModel.findOne({});
+    //   if(data!=null)
+    //   await processModel.deleteMany({});
       processModel.create(obj, (err, item) => {
           if (err) {
               console.log(err);

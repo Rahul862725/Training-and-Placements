@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 
 const processSchema = new Schema({
-    Process:{type:String,required:true},
+    IProcess:{type:String,required:false},
+    PProcess:{type:String,required:false},
   
   date: { type: Date, required: false  , default: Date.now},
 }, {

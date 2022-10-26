@@ -66,7 +66,10 @@
   <body>
 
     <!-- navbar -->
+    <div> 
    {{>header}}
+   </div>
+   <br><br><br><br><br><br> 
     <!-- option section -->
     <div class="bg-[#002A51] text-white py-24 space-y-8">
       <div class="text-center space-y-3">
@@ -129,24 +132,9 @@
         </div>
       </div>
     </div>
-
-    
-
-    <iframe
-      id="iframe"
-      class="w-full"
-      frameborder="0"
-      scrolling="no"
-      onload="resizeIframe(this)"
-      src="./process.html"
-    ></iframe>
-    <iframe
-      id="footer"
-      class="w-full"
-      frameborder="0"
-      scrolling="no"
-      onload="resizeIframe(this)"
-      src="./components/footer.html"
-    ></iframe>
+<br><br><br><br><br><br><br>
+    <div>
+      {{>footer}}
+    </div>
   </body>
 </html>
