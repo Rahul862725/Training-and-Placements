@@ -211,23 +211,7 @@
           console.log(currentYearPlacements);
           console.log(previousYearPlacements);
 
-          let x = [
-              "Microsoft",
-              "Amazon",
-              "DE Shaw",
-              "Increff",
-              "Flipkart",
-              "Reliance",
-            ]; 
-
-          script.innerHTML = `  var companies = [
-              "Microsoft",
-              "Amazon",
-              "DE Shaw",
-              "Increff",
-              "Flipkart",
-              "Reliance",
-            ]; 
+          script.innerHTML = `  var companies = ${currentYearCompanies}
 
             var currentData = [69, 45, 34, 74, 90, 10];
             var lastYear = [55, 49, 44, 24, 40, 20];
