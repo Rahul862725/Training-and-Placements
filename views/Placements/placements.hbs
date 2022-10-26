@@ -5,6 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Placements</title>
+     <link rel="icon" type="image/x-icon" href="/img/favicon-16x16.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        font-family: "Poppins";
+      }
+
+      #header {
+        position: sticky;
+        top: 0;
+      }
+    </style>
+   
 </head>
 <body>
     <div>
@@ -12,10 +36,100 @@
     </div>
     <br><br><br><br><br><br> 
      {{!-- Write code here. --}}
-     <div></div>
+    <div class="bg-[#002A51] text-white py-24 space-y-8">
+      <div class="text-center space-y-3">
+        <h6 class="text-7xl text-center font-extrabold">Internships</h6>
+        <p class="font">
+          A collection of resources for students at NIT Jalandhar
+        </p>
+      </div>
+      <div class="flex items-center justify-center space-x-10">
+        <button
+          class="border-2 py-2 w-[10rem] rounded-md bg-[#2167A7] hover:bg-[#002A51]"
+          onclick="insightClick()"
+        >
+          Insights
+        </button>
+        <button
+          class="border-2 py-2 w-[10rem] rounded-md bg-[#2167A7] hover:bg-[#002A51]"
+          onclick="pointToStats()"
+        >
+          Stats
+        </button>
+        <button
+          class="border-2 py-2 w-[10rem] bg-[#2167A7] rounded-md hover:bg-[#002A51]"
+          onclick="processClick()"
+        >
+          Process
+        </button>
+        <button
+          class="border-2 py-2 w-[10rem] rounded-md bg-[#2167A7] hover:bg-[#002A51]"
+          onclick="policyClick()"
+        >
+          Policy
+        </button>
+      </div>
+    </div>
+    <div id="content">
+  </div>
     <br><br><br><br><br><br><br>
     <div>
         {{>footer}}
     </div>
 </body>
+<script>
+ const content = document.getElementById('content')
+  function processClick() {
+    let pro_link = `{{URL}}/Placement/process`
+    fetch(pro_link)
+      .then(response => response.json())
+      .then(data => {
+         console.log(data)
+        for(let i=0;i<data.length;i++){
+          if(data[i].PProcess!=null)
+        content.innerHTML = data[i].PProcess;
+        }
+      })
+  }
+
+  function policyClick() {
+    const p_link = `{{URL}}/Placement/policy`
+    fetch(p_link)
+      .then(response => response.json())
+      .then(data => {
+       for(let i=0;i<data.length;i++){
+          if(data[i].PPolicy!=null)
+        content.innerHTML = data[i].PPolicy;
+        }
+      })
+  }
+  function insightClick() {
+    const link = `{{URL}}/Internship/insight`
+    fetch(link)
+      .then(response => response.json())
+      .then(data => {
+        
+        content.innerHTML = "";
+        let str1 = `<div>
+        <div class="flex justify-center items-center">
+          <div class="my-20 max-w-[72vw]">
+            <h6 class="text-6xl text-center font-bold">Internship Insights</h6>
+            <div class="mt-6 space-y-2 text-center">`
+
+        let str2 = "";
+        for (let i = 0; i < data.length; i++) {
+          var student = data[i];
+          str2 += `<p> ` + student.date.substr(0, 10) + `      ` + student.Name + `      ` + student.RollNo + `</p>`;
+        }
+
+        let str3 = `</div>
+              </div>
+            </div>
+          </div>`
+
+        content.innerHTML += str1 + str2 + str3;
+      })
+  }
+
+</script>
 </html>

@@ -11,6 +11,7 @@ const informationRouter=require('./routes/InformationRouter');
 const internshipRouter=require('./routes/InternshipRouter');
 const placementrouter=require('./routes/PlacementRouter');
 const whyrecruitRouter=require('./routes/WhyRecruitRouter');
+const peopleRouter=require('./routes/FacultyRouter');
  
 require('dotenv').config();
 const hbs = require('hbs')
@@ -22,7 +23,7 @@ app.use(cors());
 app.use(express.json());
 
 
-// mongo db connection
+// mongo db connections
 const uri = process.env.ATLAS_URI;
  
 mongoose.connect(uri, {
@@ -120,6 +121,10 @@ app.get("/index_download",(req,res)=>{
 
 
       //  ****** People Page *******
+app.use('/People',peopleRouter);
+app.get('/add_Faculty',(req,res)=>{
+    res.render("People/addFaculty.hbs",{URL:process.env.URL})
+})
 app.get("/index_people",(req,res)=>{
     res.render("People/people.hbs",{URL:process.env.URL})
 })

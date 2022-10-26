@@ -23,24 +23,28 @@
 <body>
 
   <div class="container" style="align-items: center; display: flex; justify-content: center; margin-top: 100px;">
-    <form id="myform" action="/Internship/add_policy" method="POST" style="margin: 40px;">
-      <h1>Add  Internship Policies</h1>
-      
-      <div>
-        Content:
-      </div>
+    <form id="myform" action="/People/add_faculty" method="POST" style="margin: 40px;">
+      <h1>Add Faculty Data</h1>
+    
+     <label for="exampleInputCName" class="form-label">Name: </label>
+        <input name="name" type="text" class="form-control" id="exampleInputCName" 
+          required>
 
-      <textarea id="content" name="Content" rows="3"> </textarea>
+     <label for="exampleInputCName1" class="form-label">Department: </label>
+        <input name="department" type="text" class="form-control" id="exampleInputCName1" 
+          required>
 
-      <div id="addMoreMembers">
-      </div>
-
-      {{!-- <button type="button" onclick="funcn()">Add more members</button> &nbsp; &nbsp;
-      <button type="button" onclick="funcn1()">Delete members</button> --}}
-
-
-
-
+     <label for="exampleInputCName2" class="form-label">Mobile Number: </label>
+        <input name="mob_no" type="text" class="form-control" id="exampleInputCName" 
+          required>
+     <label for="exampleInputCName3" class="form-label">Email: </label>
+        <input name="email" type="email" class="form-control" id="exampleInputCName3" 
+          required>
+    
+     <label for="exampleInputCName4" class="form-label">Designation    </label>
+        <input name="designation" type="text" class="form-control" id="exampleInputCName4" 
+          required>
+    
       <button type="submit" onclick="myFunction()" class="btn btn-outline-success" style="margin: 20px;">Submit</button>
     </form>
   </div>
@@ -59,28 +63,15 @@
   let Form=document.getElementById("myform");
 
   function myFunction(){ 
-    let flag=confirm("Check  Internship Policy Before Sumbit!");
-  
+    let flag=confirm("Check Placement Policy before Submit!");
+ //console.log("Call");
   if(flag){
  
  Form.submit();
  }
   }
-      const link = `{{URL}}/Internship/policy`;
-      //console.log(link)
-      fetch(link)
-        .then(response => response.json())
-        .then(data => {
-           console.log(data.length)
-             for(let i=0;i<data.length;i++){
-          if (data[i].IPolicy != null) {
-            console.log(data[i]);
-            CKEDITOR.instances.content.insertHtml(data[i].IPolicy);
-            break;
-          }
-          }
-        });
-   
+  
+      
   document.getElementById("myform").onkeypress = function (e) {
     var key = e.charCode || e.keyCode || 0;
     if (key == 13) {

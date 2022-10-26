@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Downloads</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon-16x16.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        font-family: "Poppins";
+      }
+
+      #header {
+        position: sticky;
+        top: 0;
+      }
+    </style>
+
+    <script>
+      function resizeIframe(obj) {
+        obj.style.height =
+          obj.contentWindow.document.documentElement.scrollHeight + "px";
+      }
+      function pointToInsights() {
+        ifrm = document.getElementById("iframe");
+        ifrm.setAttribute("src", "./iframes/insights.html");
+      }
+      function pointToStats() {
+        ifrm = document.getElementById("iframe");
+        ifrm.setAttribute("src", "./iframes/stats.html");
+      }
+      function pointToProcess() {
+        ifrm = document.getElementById("iframe");
+        ifrm.setAttribute("src", "./iframes/process.html");
+      }
+      function pointToPolicy() {
+        ifrm = document.getElementById("iframe");
+        ifrm.setAttribute("src", "./iframes/policy.html");
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- navbar -->
+    <iframe
+      id="header"
+      class="w-full z-50"
+      frameborder="0"
+      scrolling="no"
+      onload="resizeIframe(this)"
+      src="./components/header.html"
+    ></iframe>
+
+    <!-- content -->
+
+    <div class="bg-[#002A51] text-white py-24 space-y-8">
+      <div class="text-center space-y-3">
+        <h6 class="text-7xl text-center font-extrabold">Internships</h6>
+        <p class="font">
+          A collection of resources for students at NIT Jalandhar
+        </p>
+      </div>
+      <div class="flex items-center justify-center space-x-10">
+        <button
+          class="border-2 py-2 w-[10rem] rounded-md bg-[#2167A7] hover:bg-[#002A51]"
+          onclick="pointToInsights()"
+        >
+          Insights
+        </button>
+        <button
+          class="border-2 py-2 w-[10rem] rounded-md bg-[#2167A7] hover:bg-[#002A51]"
+          onclick="pointToStats()"
+        >
+          Stats
+        </button>
+        <button
+          class="border-2 py-2 w-[10rem] bg-[#2167A7] rounded-md hover:bg-[#002A51]"
+          onclick="pointToProcess()"
+        >
+          Process
+        </button>
+        <button
+          class="border-2 py-2 w-[10rem] rounded-md bg-[#2167A7] hover:bg-[#002A51]"
+          onclick="pointToPolicy()"
+        >
+          Policy
+        </button>
+      </div>
+    </div>
+    <iframe
+      id="iframe"
+      class="w-full"
+      frameborder="0"
+      scrolling="no"
+      onload="resizeIframe(this)"
+      src="./iframes/insights.html"
+    ></iframe>
+
+    <!-- footer -->
+    <iframe
+      id="footer"
+      class="w-full"
+      frameborder="0"
+      scrolling="no"
+      onload="resizeIframe(this)"
+      src="./components/footer.html"
+    ></iframe>
+  </body>
+</html>
