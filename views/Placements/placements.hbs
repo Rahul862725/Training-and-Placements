@@ -167,50 +167,53 @@
           var script = document.createElement("script");
 
           let currentData = {};
-          let previousData = {};
 
           for (let i = 0; i < data.length; i++) {
             let student = data[i];
             let studentBatch = student.Batch.trim().split("-")[1];
             let key = student.Company;
 
+            if(!currentData[key]){
+                currentData[key] = {};
+                currentData[key]['currentYear'] = 0;
+                currentData[key]['previousYear'] = 0;
+            }
+
             // checking if it is currentYear
 
             let currYear = new Date().getFullYear().toString().slice(-2);
             if (Number(studentBatch) === Number(currYear)) {
-              currentData[key] = currentData[key] + 1 || 1;
+
+              
+              currentData[key]['currentYear'] +=1;
             }
             if (Number(studentBatch) === Number(currYear) - 1) {
-              previousData[key] = previousData[key] + 1 || 1;
+              currentData[key]['previousYear'] += 1;
             }
           }
 
-          console.log(currentData);
-          console.log(previousData);
-
-          let currentYearCompanies = [];
-          let previousYearCompanies = [];
+          let companies = [];
           let currentYearPlacements = [];
           let previousYearPlacements = [];
 
-          for (let k in currentData) {
-            currentYearCompanies.push(k);
-            currentYearPlacements.push(currentData[k]);
-          }
-          for (let k in previousData) {
-            previousYearCompanies.push(k);
-            previousYearPlacements.push(previousData[k]);
-          }
+          let i = 0;
 
-          console.log(currentYearCompanies);
-          console.log(previousYearCompanies);
-          console.log(currentYearPlacements);
-          console.log(previousYearPlacements);
+          for (let k in currentData) {
+            if(i === 7){
+              break;
+            }
+            companies.push(k);
+            currentYearPlacements.push(currentData[k]['currentYear']);
+            previousYearPlacements.push(currentData[k]['previousYear']);
+            i++;
+          }
+          
+          console.log(currentData);
 
           new Chart("barChart", {
             type: "bar",
             data: {
-              labels: currentYearCompanies,
+              labels: companies,
               datasets: [
                 {
                   label: "This Year",
