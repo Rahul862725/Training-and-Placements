@@ -168,7 +168,57 @@
 
           var script = document.createElement('script');
 
-          
+          let currentData = {}
+          let previousData = {}
+
+          for (let i = 0; i < data.length; i++){
+            let student = data[i];
+            let studentBatch = student.Batch.trim().split('-')[1];
+            let key = student.Company;
+
+            // checking if it is currentYear
+
+            let currYear =  (new Date().getFullYear()).toString().slice(-2);
+            if(Number(studentBatch) === Number(currYear) ){
+              currentData[key] = (currentData[key]+1) || 1 ;
+            }
+            if(Number(studentBatch) === Number(currYear)-1){
+
+              previousData[key] = (previousData[key]+1) || 1 ;
+            }
+
+          }
+
+          console.log(currentData);
+          console.log(previousData);
+
+          let currentYearCompanies = [];
+          let previousYearCompanies = [];
+          let currentYearPlacements = [];
+          let previousYearPlacements = [];
+
+          for(let k in currentData){
+            currentYearCompanies.push(k);
+            currentYearPlacements.push(currentData[k]);
+          }          
+          for(let k in previousData){
+            previousYearCompanies.push(k);
+            previousYearPlacements.push(previousData[k]);
+          }          
+
+          console.log(currentYearCompanies);
+          console.log(previousYearCompanies);
+          console.log(currentYearPlacements);
+          console.log(previousYearPlacements);
+
+          let x = [
+              "Microsoft",
+              "Amazon",
+              "DE Shaw",
+              "Increff",
+              "Flipkart",
+              "Reliance",
+            ]; 
 
           script.innerHTML = `  var companies = [
               "Microsoft",
@@ -177,9 +227,9 @@
               "Increff",
               "Flipkart",
               "Reliance",
-            ];
+            ]; 
 
-            var thisYear = [69, 45, 34, 74, 90, 10];
+            var currentData = [69, 45, 34, 74, 90, 10];
             var lastYear = [55, 49, 44, 24, 40, 20];
 
             new Chart("barChart", {
@@ -190,7 +240,7 @@
                   {
                     label: "This Year",
                     backgroundColor: "#2167A7",
-                    data: thisYear,
+                    data: currentData,
                   },
                   {
                     label: "Last Year",
