@@ -136,7 +136,6 @@
       fetch(link)
         .then((response) => response.json())
         .then((data) => {
-
           console.log(data);
 
           content.innerHTML = "";
@@ -158,7 +157,6 @@
           </div>
           `;
 
-
           let str3 = `
               </div>
             </div>
@@ -166,27 +164,25 @@
 
           content.innerHTML += str1 + str2 + str3;
 
-          var script = document.createElement('script');
+          var script = document.createElement("script");
 
-          let currentData = {}
-          let previousData = {}
+          let currentData = {};
+          let previousData = {};
 
-          for (let i = 0; i < data.length; i++){
+          for (let i = 0; i < data.length; i++) {
             let student = data[i];
-            let studentBatch = student.Batch.trim().split('-')[1];
+            let studentBatch = student.Batch.trim().split("-")[1];
             let key = student.Company;
 
             // checking if it is currentYear
 
-            let currYear =  (new Date().getFullYear()).toString().slice(-2);
-            if(Number(studentBatch) === Number(currYear) ){
-              currentData[key] = (currentData[key]+1) || 1 ;
+            let currYear = new Date().getFullYear().toString().slice(-2);
+            if (Number(studentBatch) === Number(currYear)) {
+              currentData[key] = currentData[key] + 1 || 1;
             }
-            if(Number(studentBatch) === Number(currYear)-1){
-
-              previousData[key] = (previousData[key]+1) || 1 ;
+            if (Number(studentBatch) === Number(currYear) - 1) {
+              previousData[key] = previousData[key] + 1 || 1;
             }
-
           }
 
           console.log(currentData);
@@ -197,60 +193,51 @@
           let currentYearPlacements = [];
           let previousYearPlacements = [];
 
-          for(let k in currentData){
+          for (let k in currentData) {
             currentYearCompanies.push(k);
             currentYearPlacements.push(currentData[k]);
-          }          
-          for(let k in previousData){
+          }
+          for (let k in previousData) {
             previousYearCompanies.push(k);
             previousYearPlacements.push(previousData[k]);
-          }          
+          }
 
           console.log(currentYearCompanies);
           console.log(previousYearCompanies);
           console.log(currentYearPlacements);
           console.log(previousYearPlacements);
 
-          script.innerHTML = `  var companies = ${currentYearCompanies}
+          new Chart("barChart", {
+            type: "bar",
+            data: {
+              labels: currentYearCompanies,
+              datasets: [
+                {
+                  label: "This Year",
+                  backgroundColor: "#2167A7",
+                  data: currentYearPlacements,
+                },
+                {
+                  label: "Last Year",
+                  backgroundColor: "#FF9E5E",
+                  data: previousYearPlacements,
+                },
+              ],
+            },
 
-            var currentData = [69, 45, 34, 74, 90, 10];
-            var lastYear = [55, 49, 44, 24, 40, 20];
-
-            new Chart("barChart", {
-              type: "bar",
-              data: {
-                labels: companies,
-                datasets: [
+            options: {
+              scales: {
+                yAxes: [
                   {
-                    label: "This Year",
-                    backgroundColor: "#2167A7",
-                    data: currentData,
-                  },
-                  {
-                    label: "Last Year",
-                    backgroundColor: "#FF9E5E",
-                    data: lastYear,
+                    ticks: {
+                      display: false,
+                      beginAtZero: true,
+                    },
                   },
                 ],
               },
-
-              options: {
-                scales: {
-                  yAxes: [
-                    {
-                      ticks: {
-                        display: false,
-                        beginAtZero: true,
-                        suggestedMax: 100,
-                      },
-                    },
-                  ],
-                },
-              },
-            });`
-
-
-          document.head.appendChild(script);
+            },
+          });
         });
     }
   </script>
