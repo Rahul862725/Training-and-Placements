@@ -46,6 +46,7 @@
         <button
           class="border-2 py-2 w-[10rem] rounded-md bg-[#2167A7] hover:bg-[#002A51]"
           onclick="insightClick()"
+          id = "insight"
         >
           Insights
         </button>
@@ -74,6 +75,9 @@
     <div>{{>footer}}</div>
   </body>
   <script>
+
+    document.getElementById("insight").click();
+
     const content = document.getElementById("content");
     function processClick() {
       let pro_link = `{{URL}}/Placement/process`;
