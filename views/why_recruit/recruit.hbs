@@ -1,157 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Why Recruit</title>
-    <link rel="icon" type="image/x-icon" href="/img/favicon-16x16.png">
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Recruit</title>
+  <link rel="icon" type="image/x-icon" href="/img/favicon-16x16.png">
 
-    <style>
-      * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-      }
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-      body {
-        font-family: "Poppins";
-      }
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
 
-      #header{
-        position: sticky;
-        top: 0;
-      }
-    </style>
+    body {
+      font-family: "Poppins";
+    }
 
-    <script>
-      function resizeIframe(obj) {
-        obj.style.height =
-          obj.contentWindow.document.documentElement.scrollHeight + "px";
-      }
-      function pointToPolicy() {
-        ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./policy.hbs");
-        document.getElementById("come_here").scrollIntoView({behavior: 'smooth'});
-      }
-      function pointToProcess() {
-        ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./process.hbs");
-        document.getElementById("come_here").scrollIntoView({behavior: 'smooth'});
-      }
-      function pointToForms() {
-        ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./form.hbs");
-        document.getElementById("come_here").scrollIntoView({behavior: 'smooth'});
-      }
-      function pointToResources() {
-        ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./resources.hbs");
-        document.getElementById("come_here").scrollIntoView({behavior: 'smooth'});
-      }
-      function pointToFAQ() {
-        ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./faqs.hbs");
-        document.getElementById("come_here").scrollIntoView({behavior: 'smooth'});
-      }
-    </script>
-  </head>
-
-  <body>
-
-    <!-- navbar -->
-    <div> 
-   {{>header}}
-   </div>
-   <br><br><br><br><br><br> 
-    <!-- option section -->
-    <div class="bg-[#002A51] text-white py-24 space-y-8">
-      <div class="text-center space-y-3">
-        <h6 class="text-7xl text-center font-bold">Why recruit</h6>
-        <p class="font">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        </p>
-      </div>
-
-      <div class="flex items-center justify-center space-x-10">
-        <!-- Process -->
-        <button class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="processClick()">
-          Process
-        </button>
-        <!-- Policy -->
-        <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="policyClick()">
-          Policy
-        </button>
-        <!-- Form -->
-        <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="pointToForms()">
-          Forms
-        </button>
-        <!-- Resources -->
-        <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="pointToResources()">
-          Resources
-        </button>
-        <!-- Form -->
-        <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="pointToFAQ()">
-          FAQ's
-        </button>
-      </div>
-
-      <div class="text-center mx-auto container space-y-7" style="margin-top: 100px;">
-        <h6 class="text-3xl text-center font-bold">Why NIT Jalandhar</h6>
-        <p class="text-sm text-center container justify-center mx-auto w-5/6">
-          Established in 1987, right from its inception the institute has played pivotal role in delivering to the technocratic demands of the world. The alumni of the institute have proved its worth in global arena and many of them hold senior positions at highly respected institutions. 0.05% of the total aspirants which is about 1.3 million who appear for JEE. In a country like India where total number of engineering aspirants is more than population of some countries this percentage marks the quality and caliber of students in the Institute. Most of the faculty in the Institute hold a PhD degree and are themselves from institutes of high repute. The Government pampers use with great funds, the country envisions its future in us. As per our achievements and performance, we can conclude that Our Institute is one of the best in North India region, which explains our increasing overall rankings over the years on multiple platforms.
-        </p>
-      </div>
-
-      <div class="flex items-center justify-center space-x-10 mx-auto w-5/6" style="margin-top: 70px;">
-        <div class="flex-col items-center justify-center text-center space-y-3">
-          <img class="mx-auto" src="./img/alumni.png" alt="alumni">
-          <h3 class="text-lg" style="color: #3FA3FF;">Alumni</h3>
-          <p>The institute recognises alumni who have distinguished themselves through their work and done the institute proud. The institute also involves the alumni in its educational activities, whenever possible, by inviting them to participate on its advisory boards as visiting faculty or as guest speakers.</p>
-        </div>
-        <div class="flex-col items-center justify-center text-center space-y-3">
-          <img class="mx-auto" src="./img/ranking.png" alt="ranking">
-          <h3 class="text-lg" style="color: #3FA3FF;">Ranking</h3>
-          <p>According to NIRF ranking 2022 we ranked 52<sup>nd</sup> in Engineering Ranking and 85<sup>th</sup> in overall ranking. Also according to Indian Institutional Ranking Framework 2022 (IIRF) we ranked 47<sup>th</sup> amongst all Govt. Engineering Institutes and stood 2<sup>nd</sup> rank in Punjab.</p>
-        </div>
-        <div class="flex-col items-center justify-center text-center space-y-3">
-          <img class="mx-auto" src="./img/selection.png" alt="selection_process">
-          <h3 class="text-lg" style="color: #3FA3FF;">Selection Process</h3>
-          <p>In NIT Jalandhar B.Tech students are admitted through there JEE MAINS score or through DASA. M.Tech students get admission on basis of there score in GATE exam. In addition, admission to MSc and MBA programmes is done basis CCMT counselling and CAT/MAT/GMAT/CMAT scores.</p>
-        </div>
-        <div class="flex-col items-center justify-center text-center space-y-3">
-          <img class="mx-auto" src="./img/development.png" alt="development">
-          <h3 class="text-lg" style="color: #3FA3FF;">Development</h3>
-          <p id="come_here">There are 15 departments which consist of highly educated and experienced staff with teaching assistants. There are total 10 clubs which perform varoius activities and improve the social/cultural skills of students. There are two famous fest of NITJ i.e. techNITi and Utkansh</p>
-        </div>
-      </div>
-    </div>
-    <div id="content">
-  </div>
-<br><br><br><br><br><br><br>
-    <div>
-      {{>footer}}
-    </div>
-  </body>
+    #header {
+      position: sticky;
+      top: 0;
+    }
+  </style>
 
   <script>
-const content = document.getElementById('content')
+    function resizeIframe(obj) {
+      obj.style.height =
+        obj.contentWindow.document.documentElement.scrollHeight + "px";
+    }
+    function pointToPolicy() {
+      ifrm = document.getElementById("iframe");
+      ifrm.setAttribute("src", "./policy.hbs");
+      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
+    }
+    function pointToProcess() {
+      ifrm = document.getElementById("iframe");
+      ifrm.setAttribute("src", "./process.hbs");
+      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
+    }
+    function pointToForms() {
+      ifrm = document.getElementById("iframe");
+      ifrm.setAttribute("src", "./form.hbs");
+      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
+    }
+    function pointToResources() {
+      ifrm = document.getElementById("iframe");
+      ifrm.setAttribute("src", "./resources.hbs");
+      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
+    }
+    function pointToFAQ() {
+      ifrm = document.getElementById("iframe");
+      ifrm.setAttribute("src", "./faqs.hbs");
+      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- navbar -->
+  <div>
+    {{>header}}
+  </div>
+  <br><br><br><br><br><br>
+  <!-- option section -->
+  <div class="bg-[#002A51] text-white py-24 space-y-8">
+    <div class="text-center space-y-3">
+      <h6 class="text-7xl text-center font-bold">Why recruit</h6>
+      <p class="font">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+      </p>
+    </div>
+
+    <div class="flex items-center justify-center space-x-10">
+      <!-- Process -->
+      <button class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="processClick()">
+        Process
+      </button>
+      <!-- Policy -->
+      <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="policyClick()">
+        Policy
+      </button>
+      <!-- Form -->
+      <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="pointToForms()">
+        Forms
+      </button>
+      <!-- Resources -->
+      <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="pointToResources()">
+        Resources
+      </button>
+      <!-- Form -->
+      <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="pointToFAQ()">
+        FAQ's
+      </button>
+    </div>
+
+    <div class="text-center mx-auto container space-y-7" style="margin-top: 100px;">
+      <h6 class="text-3xl text-center font-bold">Why NIT Jalandhar</h6>
+      <p class="text-sm text-center container justify-center mx-auto w-5/6">
+        Established in 1987, right from its inception the institute has played pivotal role in delivering to the
+        technocratic demands of the world. The alumni of the institute have proved its worth in global arena and many of
+        them hold senior positions at highly respected institutions. 0.05% of the total aspirants which is about 1.3
+        million who appear for JEE. In a country like India where total number of engineering aspirants is more than
+        population of some countries this percentage marks the quality and caliber of students in the Institute. Most of
+        the faculty in the Institute hold a PhD degree and are themselves from institutes of high repute. The Government
+        pampers use with great funds, the country envisions its future in us. As per our achievements and performance,
+        we can conclude that Our Institute is one of the best in North India region, which explains our increasing
+        overall rankings over the years on multiple platforms.
+      </p>
+    </div>
+
+    <div class="flex items-center justify-center space-x-10 mx-auto w-5/6" style="margin-top: 70px;">
+      <div class="flex-col items-center justify-center text-center space-y-3">
+        <img class="mx-auto" src="./img/alumni.png" alt="alumni">
+        <h3 class="text-lg" style="color: #3FA3FF;">Alumni</h3>
+        <p>The institute recognises alumni who have distinguished themselves through their work and done the institute
+          proud. The institute also involves the alumni in its educational activities, whenever possible, by inviting
+          them to participate on its advisory boards as visiting faculty or as guest speakers.</p>
+      </div>
+      <div class="flex-col items-center justify-center text-center space-y-3">
+        <img class="mx-auto" src="./img/ranking.png" alt="ranking">
+        <h3 class="text-lg" style="color: #3FA3FF;">Ranking</h3>
+        <p>According to NIRF ranking 2022 we ranked 52<sup>nd</sup> in Engineering Ranking and 85<sup>th</sup> in
+          overall ranking. Also according to Indian Institutional Ranking Framework 2022 (IIRF) we ranked
+          47<sup>th</sup> amongst all Govt. Engineering Institutes and stood 2<sup>nd</sup> rank in Punjab.</p>
+      </div>
+      <div class="flex-col items-center justify-center text-center space-y-3">
+        <img class="mx-auto" src="./img/selection.png" alt="selection_process">
+        <h3 class="text-lg" style="color: #3FA3FF;">Selection Process</h3>
+        <p>In NIT Jalandhar B.Tech students are admitted through there JEE MAINS score or through DASA. M.Tech students
+          get admission on basis of there score in GATE exam. In addition, admission to MSc and MBA programmes is done
+          basis CCMT counselling and CAT/MAT/GMAT/CMAT scores.</p>
+      </div>
+      <div class="flex-col items-center justify-center text-center space-y-3">
+        <img class="mx-auto" src="./img/development.png" alt="development">
+        <h3 class="text-lg" style="color: #3FA3FF;">Development</h3>
+        <p id="come_here">There are 15 departments which consist of highly educated and experienced staff with teaching
+          assistants. There are total 10 clubs which perform varoius activities and improve the social/cultural skills
+          of students. There are two famous fest of NITJ i.e. techNITi and Utkansh</p>
+      </div>
+    </div>
+  </div>
+  <div id="content">
+  </div>
+  <br><br><br><br><br><br><br>
+  <div>
+    {{>footer}}
+  </div>
+</body>
+
+<script>
+  const content = document.getElementById('content')
   function processClick() {
-    let pro_link = `{{URL}}/Internship/process`
+    let pro_link = `{{URL}}/recruit_policy`
     fetch(pro_link)
       .then(response => response.json())
       .then(data => {
-         console.log(data)
-        for(let i=0;i<data.length;i++){
-          if(data[i].IProcess!=null)
-        content.innerHTML = data[i].IProcess;
-        }
+        console.log("Data is: ")
+       
+         
       })
   }
 
@@ -160,13 +172,14 @@ const content = document.getElementById('content')
     fetch(p_link)
       .then(response => response.json())
       .then(data => {
-       for(let i=0;i<data.length;i++){
-          if(data[i].IPolicy!=null)
-        content.innerHTML = data[i].IPolicy;
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].IPolicy != null)
+            content.innerHTML = data[i].IPolicy;
         }
       })
   }
- 
 
-  </script>
+
+</script>
+
 </html>

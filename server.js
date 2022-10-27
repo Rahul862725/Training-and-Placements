@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const Handlebars = require("handlebars");
 var path = require('path');
 const handlebars = require("express-handlebars");
+var hb = require('express-handlebars').create();
 
 // All routes
 const informationRouter=require('./routes/InformationRouter');
@@ -12,6 +13,7 @@ const internshipRouter=require('./routes/InternshipRouter');
 const placementrouter=require('./routes/PlacementRouter');
 const whyrecruitRouter=require('./routes/WhyRecruitRouter');
 const peopleRouter=require('./routes/FacultyRouter');
+const faqRouter=require('./routes/FAQRouter');
  
 require('dotenv').config();
 const hbs = require('hbs')
@@ -110,6 +112,19 @@ app.get("/add_ppolicy",(req,res)=>{
 
       //  ****** Why_Recruit Page *******
 app.use('/Why_Recruit',whyrecruitRouter);
+app.use('/FAQ',faqRouter);
+// add faq Question and Answer
+app.get('/add_faq',(req,res)=>{
+    res.render('why_recruit/faqadd.hbs',{URL:process.env.URL})
+})
+app.get('/recruit_policy',(req,res)=>{
+    hb.render("why_recruit/faqadd.hbs",{URL:process.env.URL} );
+     
+});
+app.get('/recruit_process',(req,res)=>{
+    hb.render("why_recruit/faqadd.hbs",{URL:process.env.URL} );
+     
+});
 app.get("/index_wrecruit",(req,res)=>{
     res.render("why_recruit/recruit.hbs",{URL:process.env.URL})
 })

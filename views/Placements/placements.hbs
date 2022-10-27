@@ -113,17 +113,12 @@
             <h6 class="text-6xl text-center font-bold">Placement Insights</h6>
             <div class="mt-6 space-y-2 text-center">`;
 
-          let str2 = "";
-          for (let i = 0; i < data.length; i++) {
+        let str2 = "";
+          for(let i=0; i<data.length; i++){
             var student = data[i];
-            str2 +=
-              `<p> ` +
-              student.date.substr(0, 10) +
-              `      ` +
-              student.Name +
-              `      ` +
-              student.RollNo +
-              `</p>`;
+            if(student.TwoMInternship || student.SixMInternship){
+              str2 += `<p> `+ student.date.substr(0,10) + ` <span>      </span> ` + student.Name + `      ` + student.RollNo + ` of batch ` + student.Batch + ` from `+ student.Branch + ` branch got Internship at `+ student.Company+` with Stipend of `+ student.Package + `</p>`;
+            }
           }
 
           let str3 = `</div>
