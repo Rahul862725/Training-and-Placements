@@ -35,54 +35,19 @@
         obj.style.height =
           obj.contentWindow.document.documentElement.scrollHeight + "px";
       }
-      function pointToPolicy() {
-        ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./policy.html");
-        document
-          .getElementById("come_here")
-          .scrollIntoView({ behavior: "smooth" });
-      }
-      function pointToProcess() {
-        ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./process.html");
-        document
-          .getElementById("come_here")
-          .scrollIntoView({ behavior: "smooth" });
-      }
-      function pointToForms() {
-        ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./form.html");
-        document
-          .getElementById("come_here")
-          .scrollIntoView({ behavior: "smooth" });
-      }
-      function pointToResources() {
-        ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./resources.html");
-        document
-          .getElementById("come_here")
-          .scrollIntoView({ behavior: "smooth" });
-      }
-      function pointToFAQ() {
-        ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./faqs.html");
-        document
-          .getElementById("come_here")
-          .scrollIntoView({ behavior: "smooth" });
-      }
     </script>
   </head>
 
   <body>
     <!-- navbar -->
-    <div>
-      {{>header}}
-    </div>
-
+    <div> 
+   {{>header}}
+   </div>
+   <br><br><br><br><br><br>
     <!-- backgroud pic and heading -->
     <div class="relative flex w-full item-center justify-center">
       <img
-        src="./img/bg_img.png"
+        src="./img/bg_new.png"
         alt="bg_img"
         class="w-full h-full"
       />
@@ -96,19 +61,19 @@
     <!-- option section -->
     <div class="flex flex-row w-full my-20">
         <div class="mx-auto px-20 py-10" style="background-color: #E8E8E8;border: 1px solid #E8E8E8; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 2px;">
-            <a href="./static_files/Placement_Report.pdf" class="flex-col item-center justify-content " download >
+            <a href="/pr.pdf" class="flex-col item-center justify-content " download="Placement_Report">
                 <img src="./img/placement_reports.png" alt="reports" class="mx-auto px-4 py-4">
                 <h6 class="text-md text-center font-bold">Placement Report</h6>
             </a>
         </div>
         <div class="mx-auto px-20 py-10" style="background-color: #E8E8E8;border: 1px solid #E8E8E8; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 2px;">
-            <a href="./static_files/Placement_Brochure_2021-2022_89344.pdf" class="flex-col item-center justify-content" download>
+            <a href="/pb.pdf" class="flex-col item-center justify-content" download="Placement_Brochures">
                 <img src="./img/brochures.png" alt="brochures" class="mx-auto px-4 py-4">
                 <h6 class="text-md text-center font-bold">Brochures</h6>
             </a>
         </div>
         <div class="mx-auto px-20 py-10" style="background-color: #E8E8E8;border: 1px solid #E8E8E8; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 2px;">
-            <a href="./static_files/Policies.pdf" class="flex-col item-center justify-content" download>
+            <a href="/p.pdf" class="flex-col item-center justify-content" download="Policies">
                 <img src="./img/policies.png" alt="policies" class="mx-auto px-4 py-4">
                 <h6 class="text-md text-center font-bold">Policies</h6>
             </a>
@@ -116,7 +81,8 @@
     </div>
 
     <!-- footer -->
-      <div>
+    <br>
+    <div>
       {{>footer}}
     </div>
   </body>

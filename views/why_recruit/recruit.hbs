@@ -37,27 +37,27 @@
       }
       function pointToPolicy() {
         ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./policy.html");
+        ifrm.setAttribute("src", "./policy.hbs");
         document.getElementById("come_here").scrollIntoView({behavior: 'smooth'});
       }
       function pointToProcess() {
         ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./process.html");
+        ifrm.setAttribute("src", "./process.hbs");
         document.getElementById("come_here").scrollIntoView({behavior: 'smooth'});
       }
       function pointToForms() {
         ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./form.html");
+        ifrm.setAttribute("src", "./form.hbs");
         document.getElementById("come_here").scrollIntoView({behavior: 'smooth'});
       }
       function pointToResources() {
         ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./resources.html");
+        ifrm.setAttribute("src", "./resources.hbs");
         document.getElementById("come_here").scrollIntoView({behavior: 'smooth'});
       }
       function pointToFAQ() {
         ifrm = document.getElementById("iframe");
-        ifrm.setAttribute("src", "./faqs.html");
+        ifrm.setAttribute("src", "./faqs.hbs");
         document.getElementById("come_here").scrollIntoView({behavior: 'smooth'});
       }
     </script>
@@ -132,7 +132,10 @@
         </div>
       </div>
     </div>
-<br><br><br><br><br><br><br>
+    <div id="content">
+      
+    </div>
+<br>
     <div>
       {{>footer}}
     </div>

@@ -26,33 +26,14 @@
       top: 0;
     }
   </style>
-
-  <script>
-    function resizeIframe(obj) {
-      obj.style.height =
-        obj.contentWindow.document.documentElement.scrollHeight + "px";
-    }
-    function pointToPolicy() {
-      ifrm = document.getElementById("iframe");
-      ifrm.setAttribute("src", "./policy.html");
-    }
-    function pointToProcess() {
-      ifrm = document.getElementById("iframe");
-      ifrm.setAttribute("src", "./process.html");
-    }
-    function pointToInsights() {
-      ifrm = document.getElementById("iframe");
-      ifrm.setAttribute("src", "./insights.html");
-    }
-  </script>
 </head>
 
 <body>
-
+   
   <div>
     {{>header}}
   </div>
-  <br><br><br><br><br><br>
+  <br><br><br><br><br><br> 
   <div class="bg-[#002A51] text-white py-24 space-y-8">
     <div class="text-center space-y-3">
       <h6 class="text-7xl text-center font-bold">Internships</h6>
@@ -61,47 +42,88 @@
       </p>
     </div>
     <div class="flex items-center justify-center space-x-10">
-      <button id="policy1" class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md">
-        Policy
-      </button>
-
-      <a href="http://localhost:8085/internship/policy"> <button
-          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md">
+      <button
+          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="processClick()">
           Process
         </button>
-      </a>
-      <a href="http://localhost:8085/internship/insights"> <button
-          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md">
+      <button
+          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="policyClick()">
+          Policy
+        </button>
+      <button
+          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="insightClick()">
           Insights
         </button>
-      </a>
     </div>
-    
-
   </div>
-   <div id="data">
 
-    </div>
-  <br><br><br><br><br><br><br>
-
+  <div id="content">
+  </div>
+<br>
+  
   <div>
     {{>footer}}
   </div>
 </body>
 
 <script>
-  const link = `{{URL}}/Internship/policy`;
-  let data1 = document.getElementById("data");
-  fetch(link).then(response => response.json()).then(
-    data => {
-      console.log(data[0].Policy);
-      const policy = document.getElementById("policy1");
-      policy.addEventListener("click", () => {
-        data1.innerHTML = data[0].Policy;
-        console.log(data[0].Policy)
+
+  const link = `{{URL}}/Internship/process`
+  const content = document.getElementById('content')
+
+  fetch(link)
+  .then(response => response.json())
+  .then(data => {
+    content.innerHTML = data[1].IProcess
+  })
+
+  function processClick() {
+    let pro_link = `{{URL}}/Internship/process`
+      fetch(pro_link)
+      .then(response => response.json())
+      .then(data => {
+        content.innerHTML = data[1].IProcess;
       })
-    }
-  )
+  }
+
+  function policyClick() {
+    const p_link = `{{URL}}/Internship/policy`
+      fetch(p_link)
+      .then(response => response.json())
+      .then(data => {
+        content.innerHTML = data[1].IPolicy;
+      })
+  }
+
+  function insightClick() {
+    const link = `{{URL}}/Internship/insight`
+      fetch(link)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        content.innerHTML = "";
+        let str1= `<div>
+        <div class="flex justify-center items-center">
+          <div class="my-20 max-w-[72vw]">
+            <h6 class="text-6xl text-center font-bold">Internship Insights</h6>
+            <div class="mt-6 space-y-2 text-center">`
+
+        let str2 = "";
+          for(let i=0; i<data.length; i++){
+            var student = data[i];
+            if(student.TwoMInternship || student.SixMInternship){
+              str2 += `<p> `+ student.date.substr(0,10) + ` <span>      </span> ` + student.Name + `      ` + student.RollNo + ` of batch ` + student.Batch + ` from `+ student.Branch + ` branch got Internship at `+ student.Company+` with Stipend of `+ student.Package + `</p>`;
+            }
+          }
+
+        let str3 = `</div>
+              </div>
+            </div>
+          </div>`
+
+        content.innerHTML += str1 + str2 + str3;
+      })
+  }
 
 </script>
 

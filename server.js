@@ -78,7 +78,7 @@ app.get("/add_SData",(req,res)=>{
     res.render("Internship/addStudentData.hbs",{URL:process.env.URL});
 })
  
- 
+
       //  ****** Internship Page *******
 
 app.use('/Internship',internshipRouter );
