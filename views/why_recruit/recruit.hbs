@@ -81,11 +81,11 @@
 
       <div class="flex items-center justify-center space-x-10">
         <!-- Process -->
-        <button class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="pointToProcess()">
+        <button class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="processClick()">
           Process
         </button>
         <!-- Policy -->
-        <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="pointToPolicy()">
+        <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="policyClick()">
           Policy
         </button>
         <!-- Form -->
@@ -133,11 +133,46 @@
       </div>
     </div>
     <div id="content">
+<<<<<<< HEAD
       
     </div>
 <br>
+=======
+  </div>
+<br><br><br><br><br><br><br>
+>>>>>>> 63371d3f6459e5b135283a67134865bda1e3d727
     <div>
       {{>footer}}
     </div>
   </body>
+
+  <script>
+const content = document.getElementById('content')
+  function processClick() {
+    let pro_link = `{{URL}}/Internship/process`
+    fetch(pro_link)
+      .then(response => response.json())
+      .then(data => {
+         console.log(data)
+        for(let i=0;i<data.length;i++){
+          if(data[i].IProcess!=null)
+        content.innerHTML = data[i].IProcess;
+        }
+      })
+  }
+
+  function policyClick() {
+    const p_link = `{{URL}}/Internship/policy`
+    fetch(p_link)
+      .then(response => response.json())
+      .then(data => {
+       for(let i=0;i<data.length;i++){
+          if(data[i].IPolicy!=null)
+        content.innerHTML = data[i].IPolicy;
+        }
+      })
+  }
+ 
+
+  </script>
 </html>
