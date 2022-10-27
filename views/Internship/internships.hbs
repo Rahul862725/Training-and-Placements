@@ -42,7 +42,6 @@
       </p>
     </div>
     <div class="flex items-center justify-center space-x-10">
-<<<<<<< HEAD
       <button
           class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="processClick()">
           Process
@@ -57,23 +56,6 @@
         </button>
     </div>
   </div>
-=======
-      <button class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="processClick()">
-        Process
-      </button>
-      <button class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="policyClick()">
-        Policy
-      </button>
-      <button class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="insightClick()">
-        Insights
-      </button>
-    </div>
-  </div>
-
-  <div id="content">
-  </div>
-  <br><br><br><br><br><br><br>
->>>>>>> 63371d3f6459e5b135283a67134865bda1e3d727
 
   <div id="content">
   </div>
@@ -85,7 +67,6 @@
 </body>
 
 <script>
-<<<<<<< HEAD
 
   const link = `{{URL}}/Internship/process`
   const content = document.getElementById('content')
@@ -102,25 +83,11 @@
       .then(response => response.json())
       .then(data => {
         content.innerHTML = data[1].IProcess;
-=======
- const content = document.getElementById('content')
-  function processClick() {
-    let pro_link = `{{URL}}/Internship/process`
-    fetch(pro_link)
-      .then(response => response.json())
-      .then(data => {
-         console.log(data)
-        for(let i=0;i<data.length;i++){
-          if(data[i].IProcess!=null)
-        content.innerHTML = data[i].IProcess;
-        }
->>>>>>> 63371d3f6459e5b135283a67134865bda1e3d727
       })
   }
 
   function policyClick() {
     const p_link = `{{URL}}/Internship/policy`
-<<<<<<< HEAD
       fetch(p_link)
       .then(response => response.json())
       .then(data => {
@@ -136,44 +103,18 @@
         console.log(data)
         content.innerHTML = "";
         let str1= `<div>
-=======
-    fetch(p_link)
-      .then(response => response.json())
-      .then(data => {
-       for(let i=0;i<data.length;i++){
-          if(data[i].IPolicy!=null)
-        content.innerHTML = data[i].IPolicy;
-        }
-      })
-  }
-  function insightClick() {
-    const link = `{{URL}}/Internship/insight`
-    fetch(link)
-      .then(response => response.json())
-      .then(data => {
-        
-        content.innerHTML = "";
-        let str1 = `<div>
->>>>>>> 63371d3f6459e5b135283a67134865bda1e3d727
         <div class="flex justify-center items-center">
           <div class="my-20 max-w-[72vw]">
             <h6 class="text-6xl text-center font-bold">Internship Insights</h6>
             <div class="mt-6 space-y-2 text-center">`
 
         let str2 = "";
-<<<<<<< HEAD
           for(let i=0; i<data.length; i++){
             var student = data[i];
             if(student.TwoMInternship || student.SixMInternship){
               str2 += `<p> `+ student.date.substr(0,10) + ` <span>      </span> ` + student.Name + `      ` + student.RollNo + ` of batch ` + student.Batch + ` from `+ student.Branch + ` branch got Internship at `+ student.Company+` with Stipend of `+ student.Package + `</p>`;
             }
           }
-=======
-        for (let i = 0; i < data.length; i++) {
-          var student = data[i];
-          str2 += `<p> ` + student.date.substr(0, 10) + `      ` + student.Name + `      ` + student.RollNo + `</p>`;
-        }
->>>>>>> 63371d3f6459e5b135283a67134865bda1e3d727
 
         let str3 = `</div>
               </div>
