@@ -36,7 +36,7 @@ router.post('/add_policy',  async(req, res, next) => {
               res.send('Error!');
           } else {
               item.save();
-              res.send('Policy added successfully!');
+              res.send('Recruit Policy added successfully!');
           }
       });
 });
@@ -53,7 +53,7 @@ router.post('/add_process',  async(req, res, next) => {
               res.send('Error!');
           } else {
               item.save();
-              res.send('Process added successfully!');
+              res.send('Recruit Process added successfully!');
           }
       });
 });

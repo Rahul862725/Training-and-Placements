@@ -4946,7 +4946,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 {{!--  Attach Backend with frontend --}}
 <script>
-  
+  const link="{{URL}}/Information/get"
    
   console.log(link);
   fetch(link)
@@ -4956,6 +4956,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       let annoucemnts = document.getElementById('annoucements');
       let notes = document.getElementById("notes");
       let itr = 0;
+      console.log(data[0])
       for (let i = data[0].Annoucement.length - 1; i >= 0; i--) {
         let el = document.createElement('li');
         el.classList.add("ml-3")

@@ -117,13 +117,12 @@ app.use('/FAQ',faqRouter);
 app.get('/add_faq',(req,res)=>{
     res.render('why_recruit/faqadd.hbs',{URL:process.env.URL})
 })
-app.get('/recruit_policy',(req,res)=>{
-    res.render("why_recruit/addPolicy.hbs",{URL:process.env.URL} );
-     
-});
-app.get('/recruit_process',(req,res)=>{
-    res.render("why_recruit/addProcess.hbs",{URL:process.env.URL} );  
-});
+app.get("/add_rprocess",(req,res)=>{
+    res.render("why_recruit/addProcess.hbs",{URL:process.env.URL});
+})
+app.get("/add_rpolicy",(req,res)=>{
+    res.render("why_recruit/addPolicy.hbs",{URL:process.env.URL});
+})
 app.get("/index_wrecruit",(req,res)=>{
     res.render("why_recruit/recruit.hbs",{URL:process.env.URL})
 })
