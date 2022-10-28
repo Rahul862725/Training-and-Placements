@@ -22,43 +22,28 @@
       font-family: "Poppins";
     }
 
+    @media (max-width:800px){
+      #faqgrid{
+        grid-template-columns: 300px 300px;
+      }
+    }
+    @media (min-width:800px) and (max-width:1350px){
+      #faqgrid{
+        grid-template-columns: 350px 350px;
+      }
+    }
+    @media (min-width:1350px){
+      #faqgrid{
+        grid-template-columns: 350px 350px 350px;
+      }
+    }
     #header {
       position: sticky;
       top: 0;
     }
   </style>
 
-  <script>
-    function resizeIframe(obj) {
-      obj.style.height =
-        obj.contentWindow.document.documentElement.scrollHeight + "px";
-    }
-    function pointToPolicy() {
-      ifrm = document.getElementById("iframe");
-      ifrm.setAttribute("src", "./policy.hbs");
-      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
-    }
-    function pointToProcess() {
-      ifrm = document.getElementById("iframe");
-      ifrm.setAttribute("src", "./process.hbs");
-      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
-    }
-    function pointToForms() {
-      ifrm = document.getElementById("iframe");
-      ifrm.setAttribute("src", "./form.hbs");
-      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
-    }
-    function pointToResources() {
-      ifrm = document.getElementById("iframe");
-      ifrm.setAttribute("src", "./resources.hbs");
-      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
-    }
-    function pointToFAQ() {
-      ifrm = document.getElementById("iframe");
-      ifrm.setAttribute("src", "./faqs.hbs");
-      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
+  
 </head>
 
 <body>
@@ -87,15 +72,15 @@
         Policy
       </button>
       <!-- Form -->
-      <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="pointToForms()">
+      <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="formClick()">
         Forms
       </button>
       <!-- Resources -->
-      <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="pointToResources()">
+      <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="resourceClick()">
         Resources
       </button>
       <!-- Form -->
-      <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="pointToFAQ()">
+      <button class="border-2 py-2 w-[10rem] rounded-md hover:bg-[#2069aa]" onclick="faqClick()">
         FAQ's
       </button>
     </div>
@@ -148,38 +133,122 @@
   </div>
   <div id="content">
   </div>
-  <br><br><br><br><br><br><br>
+  <br>
   <div>
     {{>footer}}
   </div>
 </body>
 
 <script>
-  const content = document.getElementById('content')
-  function processClick() {
-    let pro_link = `{{URL}}/recruit_policy`
-    fetch(pro_link)
-      .then(response => response.json())
-      .then(data => {
-        console.log("Data is: ")
-       
-         
-      })
-  }
+    const link = `{{URL}}/Internship/process`
+    const content = document.getElementById('content')
 
-  function policyClick() {
-    const p_link = `{{URL}}/Internship/policy`
-    fetch(p_link)
+    fetch(link)
+    .then(response => response.json())
+    .then(data => {
+      for(let i = 0; i < data.length; i++) {
+        if (data[i].RProcess != null) content.innerHTML = data[i].RProcess;
+      }
+    })
+
+    function policyClick() {
+      const p_link = `{{URL}}/Internship/policy`
+      fetch(p_link)
       .then(response => response.json())
       .then(data => {
         for (let i = 0; i < data.length; i++) {
-          if (data[i].IPolicy != null)
-            content.innerHTML = data[i].IPolicy;
+          if (data[i].RPolicy != null) content.innerHTML = data[i].RPolicy;
         }
       })
-  }
+      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function processClick() {
+      let pro_link = `{{URL}}/Internship/process`
+      fetch(pro_link)
+      .then(response => response.json())
+      .then(data => {
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].RProcess != null) content.innerHTML = data[i].RProcess;
+        }
+      })
+      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
+    }
 
 
-</script>
+    function formClick() {
+      content.innerHTML = `<iframe src="/jobForm.pdf" width="90%" height="1000px" style=" margin: auto; margin-top: 10px;"></iframe>`
+      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
+    }
+
+
+    function resourceClick() {
+      content.innerHTML = `<div class="flex flex-col space-y-7 px-3 py-3 mx-auto my-5">
+        <div class="flex flex-col space-y-3 justify-center items-center px-5 py-5">
+            <img class="h-[400px] w-[750px]" src="/it.jpeg" alt="">
+            <h4 class="text-2xl font-bold">IT Building</h4>
+        </div>
+        <div class="flex flex-col space-y-3 justify-center items-center">
+            <img class="h-[400px] w-[750px]" src="/guest.jpg" alt="">
+            <h4 class="text-2xl font-bold">Guest House</h4>
+        </div>
+        <div class="flex flex-col space-y-3 justify-center items-center">
+            <img class="h-[400px] w-[750px]" src="/canteen.jpg" alt="">
+            <h4 class="text-2xl font-bold">Canteen</h4>
+        </div>
+        <div class="flex flex-col space-y-3 justify-center items-center">
+            <img class="h-[400px] w-[750px]" src="/lawn.jpg" alt="">
+            <h4 class="text-2xl font-bold">Central Lawn</h4>
+        </div>
+    </div>`
+      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function faqClick() {
+      let faq_link = `{{URL}}/FAQ`
+      fetch(faq_link)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        content.innerHTML = "";
+        let str1= `<div class="flex justify-center items-center">
+        <div class="my-20 max-w-[72vw]">
+          <h6 class="text-6xl text-center font-bold">FAQ's</h6>
+          <div id="faqgrid" class="grid grid-cols-1 gap-8 mt-8 lg:mt-16 md:grid-cols-2 xl:grid-cols-3" style="display: grid;">`
+
+        let str2 = "";
+          for(let i=0; i<data.length; i++){
+            var faq = data[i];
+            if(faq.Related == "company"){
+              str2 += `<div> <div class="inline-block p-2 text-white bg-blue-600 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+
+                <div>
+                    <h1 class="text-xl font-semibold text-gray-700 dark:text-white">`;
+
+              str2 += faq.Question;
+
+              str2 += `</h1> <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">`;
+
+              str2 += faq.Answer;
+
+              str2 += `</p>
+                    </div>
+                </div>`
+            }
+          }
+
+        let str3 = `</div>
+              </div>
+            </div>`
+
+        content.innerHTML += str1 + str2 + str3;
+      })
+      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 
 </html>

@@ -21,19 +21,13 @@ router.get('/process', (req, res) => {
         .then(process => res.json(process))
         .catch(err => res.status(400).json('Error: ' + err));
 });
-//Insight Route
-router.get('/insight', (req, res) => {
-    processModel.find()
-        .then(insight => res.json(insight))
-        .catch(err => res.status(400).json('Error: ' + err));
-});
 
 //            *****Add Data*****
 
 // For Policy
 router.post('/add_policy',  async(req, res, next) => {
     var obj = {
-        Policy:req.body.Content
+        RPolicy:req.body.Content
       }
       
       await policyModel.create(obj, (err, item) => {
@@ -50,7 +44,7 @@ router.post('/add_policy',  async(req, res, next) => {
 //For Process
 router.post('/add_process',  async(req, res, next) => {
     var obj = {
-        Process:req.body.Content
+        RProcess:req.body.Content
       }
       
       processModel.create(obj, (err, item) => {

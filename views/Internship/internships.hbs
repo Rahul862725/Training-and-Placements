@@ -75,7 +75,9 @@
   fetch(link)
   .then(response => response.json())
   .then(data => {
-    content.innerHTML = data[1].IProcess
+    for(let i = 0; i < data.length; i++) {
+      if (data[i].IProcess != null) content.innerHTML = data[i].IProcess;
+    }
   })
 
   function processClick() {
@@ -83,7 +85,9 @@
       fetch(pro_link)
       .then(response => response.json())
       .then(data => {
-        content.innerHTML = data[1].IProcess;
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].IProcess != null) content.innerHTML = data[i].IProcess;
+        }
       })
   }
 
@@ -92,7 +96,9 @@
       fetch(p_link)
       .then(response => response.json())
       .then(data => {
-        content.innerHTML = data[1].IPolicy;
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].IPolicy != null) content.innerHTML = data[i].IPolicy;
+        }
       })
   }
 

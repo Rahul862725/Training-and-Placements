@@ -118,12 +118,11 @@ app.get('/add_faq',(req,res)=>{
     res.render('why_recruit/faqadd.hbs',{URL:process.env.URL})
 })
 app.get('/recruit_policy',(req,res)=>{
-    hb.render("why_recruit/faqadd.hbs",{URL:process.env.URL} );
+    res.render("why_recruit/addPolicy.hbs",{URL:process.env.URL} );
      
 });
 app.get('/recruit_process',(req,res)=>{
-    hb.render("why_recruit/faqadd.hbs",{URL:process.env.URL} );
-     
+    res.render("why_recruit/addProcess.hbs",{URL:process.env.URL} );  
 });
 app.get("/index_wrecruit",(req,res)=>{
     res.render("why_recruit/recruit.hbs",{URL:process.env.URL})
