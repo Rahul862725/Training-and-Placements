@@ -7,7 +7,7 @@ const xlsx=require('xlsx');
 let facultyModel=require('../models/FacultyModel');
 
 //Get Data
-router.get('/policy', (req, res) => {
+router.get('/', (req, res) => {
     facultyModel.find().sort({date:-1})
         .then(policy => res.json(policy))
         .catch(err => res.status(400).json('Error: ' + err));
