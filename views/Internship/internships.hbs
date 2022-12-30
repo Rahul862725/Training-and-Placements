@@ -85,8 +85,12 @@
       fetch(pro_link)
       .then(response => response.json())
       .then(data => {
+        
         for (let i = 0; i < data.length; i++) {
-          if (data[i].IProcess != null) content.innerHTML = data[i].IProcess;
+          
+          if (data[i].IProcess != null) {
+            console.log(data[i].IProcess)
+            content.innerHTML = data[i].IProcess;break;}
         }
       })
   }
@@ -97,7 +101,7 @@
       .then(response => response.json())
       .then(data => {
         for (let i = 0; i < data.length; i++) {
-          if (data[i].IPolicy != null) content.innerHTML = data[i].IPolicy;
+          if (data[i].IPolicy != null){ content.innerHTML = data[i].IPolicy;break;}
         }
       })
   }
@@ -108,27 +112,50 @@
       .then(response => response.json())
       .then(data => {
         console.log(data)
-        content.innerHTML = "";
-        let str1= `<div>
-        <div class="flex justify-center items-center">
-          <div class="my-20 max-w-[72vw]">
-            <h6 class="text-6xl text-center font-bold">Internship Insights</h6>
-            <div class="mt-6 space-y-2 text-center">`
+        
+          content.innerHTML = "";
+          let str1 = ` 
+          <div `;
 
         let str2 = "";
-          for(let i=0; i<data.length; i++){
+        let c=0;
+        let pr=-1;
+
+           for(let i=0; i<data.length; i++){
             var student = data[i];
+             if(c%2===0&&pr!=c)
+             {
+              pr=c;
+              console.log(i)
+              str2+=`<div class="row mb-2"  style="padding: 10px;">`
+             }
+               
             if(student.TwoMInternship || student.SixMInternship){
-              str2 += `<p> `+ student.date.substr(0,10) + ` <span>      </span> ` + student.Name + `      ` + student.RollNo + ` of batch ` + student.Batch + ` from `+ student.Branch + ` branch got Internship at `+ student.Company+` with Stipend of `+ student.Package + `</p>`;
+              str2+=`<div class="col-md-5" style="margin-right: 110px;">
+          <div class="row g-0 border border-primary rounded overflow-hidden flex-md-row mb-4 shadow h-md-250 position-relative">
+            <div class="col p-3 d-flex flex-column position-static">`
+              c++;
+              str2 += `<h3 class="mb-0">` +student.Name+ ` </h3><div class="mb-1 text-info">` + student.Package + `k</div><h6 class="card-text mb-auto">` + student.Course+` student, `+student.Branch+` Stream Intern in `+student.Company+`</h6>`;
+              str2+=`</div>
+          </div>
+        </div>`
+
             }
+            if(c%2==0&&pr==c-2)
+             {
+              str2+=`</div>`
+             }
+            if(c>=15)
+            break;
           }
+          if(c%2!=0)
+          str2+=`</div>`
 
-        let str3 = `</div>
-              </div>
-            </div>
-          </div>`
 
-        content.innerHTML += str1 + str2 + str3;
+          let str3 = `</div>
+              `;
+          //console.log(str2);
+          content.innerHTML = str1 + str2 + str3;
       })
   }
 

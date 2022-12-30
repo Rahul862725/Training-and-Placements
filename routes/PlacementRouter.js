@@ -24,7 +24,7 @@ router.get('/process', (req, res) => {
 });
 //Insight Route
 router.get('/insight', (req, res) => {
-    processModel.find()
+    studentModel.find().sort({Package:-1}).collation({locale:"en_US_POSIX", numericOrdering:true})
         .then(insight => res.json(insight))
         .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -83,6 +83,29 @@ router.post('/add_SData', upload.single("Excel_file"), async(req, res, next) => 
      let workbook=xlsx.readFile(req.file.path);
      let sheet_namelist=workbook.SheetNames;
      let x=0;
+     function camelCase(str) {
+        let st="";
+        let ans="";
+        for(let i=0;i<str.length;i++)
+        {
+            if(str[i]==' ')
+            {
+                st=st.toLowerCase();
+                if(st!="")
+                st=st[0].toUpperCase()+st.substring(1);
+                ans+=st;
+                ans+=" ";
+                st="";
+            }
+            else
+            st+=str[i];
+        }
+        st=st.toLowerCase();
+        if(st!="")
+                st=st[0].toUpperCase()+st.substring(1);
+                ans+=st;
+                return ans;
+    }
      const obj1={}
      sheet_namelist.forEach(el=>{
         var clData=xlsx.utils.sheet_to_json(workbook.Sheets[sheet_namelist[x]]);
@@ -107,16 +130,28 @@ router.post('/add_SData', upload.single("Excel_file"), async(req, res, next) => 
               
             //  console.log(obj);
             if( obj.name!=undefined){
-                obj1.Name= obj.name;
+                obj1.Name= camelCase(obj.name);
                 
             }
             if(obj.rollno!=undefined)
             {
                 obj1.RollNo=  obj.rollno
             }
+            if( obj.gender!=undefined){
+                obj1.Gender= camelCase(obj.gender);
+                
+            }
+            if( obj.course!=undefined){
+                obj1.Course= camelCase(obj.course);
+                
+            }
+            if( obj.profile!=undefined){
+                obj1.Profile= camelCase(obj.profile);
+                
+            }
               if(obj.branch!=undefined)
             {
-                obj1.Branch=  obj.branch
+                obj1.Branch=  camelCase(obj.branc)
             }
               if( obj.batch!=undefined)
             {
@@ -124,7 +159,7 @@ router.post('/add_SData', upload.single("Excel_file"), async(req, res, next) => 
             }
               if( obj.company!=undefined)
             {
-                obj1.Company=obj.company
+                obj1.Company=camelCase(obj.company)
             }
              if( obj.package!=undefined)
             {

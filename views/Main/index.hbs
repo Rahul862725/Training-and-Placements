@@ -4758,10 +4758,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           <div class="card-body p-10">
             <h3 class="card-title text-[30px] lg:text-[35px]" style="font-weight:bold">A one stop portal for Placements
             </h3>
-            <p class="card-text text-[15px] lg:text-[20px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Massa semper sit adipiscing faucibus id pretium. Risus sed ultrices amet, convallis purus nam. Vitae, arcu
-              vestibulum magna nulla egestas ut. Aliquet ultrices odio metus magna adipiscing elit. Risus sed ultrices
-              amet, convallis purus nam. Vitae, arcu vestibulum magna nulla egestas ut. Aliquet ultrices odio metus.</p>
+            <p class="card-text text-[15px] lg:text-[20px]">To build a rich intellectual potential embedded with
+               inter-disciplinary knowledge, human values and professional ethics among the youth, aspirant of
+                becoming engineers and technologists, so that they contribute to society and create a niche for 
+                a successful career.</p>
           </div>
         </div>
       </div>
@@ -4853,24 +4853,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           <!-- list of announcement -->
           <ul class="list-disc" id="annoucements">
             <!-- announcement 1 -->
-            <li class="ml-3 mt-1 mb-1">
-              <p style="color: #002A51; font-weight:bold; font-family: 'Open Sans'; font-size:large">Lorem ipsum dolor
-                sit amet, consectetur adipiscing elit.<span class="p-3" style="color: #FF8534; font-size: small;">06 -
-                  07 - 2022</span></p>
-            </li>
-
-            <li class="ml-3 mt-1 mb-1">
-              <p style="color: #002A51; font-weight:bold; font-family: 'Open Sans'; font-size:large">Elit faucibus
-                ultrices id convallis. A urna amet sit volutpat consequat, ut pharetra nullam phasellus.<span
-                  class="p-3" style="color: #FF8534; font-size: small;">06 - 07 - 2022</span></p>
-            </li>
-
-            <li class="ml-3 mt-1 mb-1">
-              <p style="color: #002A51; font-weight:bold; font-family: 'Open Sans'; font-size:large"
-                class="text-blue-500">A urna amet sit volutpat consequat, ut pharetra nullam phasellus.<span class="p-3"
-                  style="color: #FF8534; font-size: small;">06 - 07 - 2022</span></p>
-            </li>
-
+            
           </ul>
         </div>
       </div>
@@ -4880,30 +4863,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     <div class="flex flex-col w-1/2 ml-2 mr-5">
       <h1 class="sm:text-4xl text-3xl title-font font-medium text-gray-900 p-3">Notices</h1>
       <div id="notes">
-        <div class="xl:w-full md:w-full p-3">
-          <div class="p-6 rounded-lg"
-            style="border: 1px solid #62AAFF; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;">
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-1">This is a headline</h2>
-            <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke
-              farm.</p>
-          </div>
-        </div>
-        <div class="xl:w-full md:w-full p-3">
-          <div class="p-6 rounded-lg"
-            style="border: 1px solid #FFDF8E; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;">
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-1">This is a headline</h2>
-            <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke
-              farm.</p>
-          </div>
-        </div>
-        <div class="xl:w-full md:w-full p-3">
-          <div class="p-6 rounded-lg"
-            style="border: 1px solid #86DB94; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;">
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-1">This is a headline</h2>
-            <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke
-              farm.</p>
-          </div>
-        </div>
+         
       </div>
     </div>
   </div>
@@ -4979,7 +4939,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       itr = 0;
       //const notesTemplate='<div class="xl:w-full md:w-full p-3"><div class="p-6 rounded-lg" style="border: 1px solid #62AAFF; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;"><h2 class="text-lg text-gray-900 font-medium title-font mb-1">This is a headline</h2><p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p></div></div>'
       for (let i = data[0].Notes.length - 1; i >= 0; i--) {
-        const notesTemplate = '<div class="xl:w-full md:w-full p-3"><div class="p-6 rounded-lg" style="border: 1px solid #62AAFF; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;"><h2 class="text-lg text-gray-900 font-medium title-font mb-1">This is a headline</h2><p class="leading-relaxed text-base">' + data[0].Notes[i] + '</p></div></div>'
+        const notesTemplate = '<div class="xl:w-full md:w-full p-3"><div class="p-6 rounded-lg" style="border: 1px solid #62AAFF; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;"><h2 class="text-lg text-gray-900 font-medium title-font mb-1">Note: '+(data[0].Notes.length-i)+'</h2><p class="leading-relaxed text-base">' + data[0].Notes[i] + '</p></div></div>'
 
         notes.innerHTML += notesTemplate;
         itr++;

@@ -64,7 +64,7 @@
 
     <div class="flex items-center justify-center space-x-10">
       <!-- Process -->
-      <button class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="processClick()">
+      <button id="process" class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="processClick()">
         Process
       </button>
       <!-- Policy -->
@@ -140,36 +140,30 @@
 </body>
 
 <script>
-    const link = `{{URL}}/Internship/process`
-    const content = document.getElementById('content')
-
-    fetch(link)
-    .then(response => response.json())
-    .then(data => {
-      for(let i = 0; i < data.length; i++) {
-        if (data[i].RProcess != null) content.innerHTML = data[i].RProcess;
-      }
-    })
-
-    function policyClick() {
-      const p_link = `{{URL}}/Internship/policy`
-      fetch(p_link)
+    document.getElementById("process").click();
+  const content = document.getElementById('content')
+  function processClick() {
+    let pro_link = `{{URL}}/Why_Recruit/process`
+    fetch(pro_link)
       .then(response => response.json())
       .then(data => {
-        for (let i = 0; i < data.length; i++) {
-          if (data[i].RPolicy != null) content.innerHTML = data[i].RPolicy;
+         
+       for (let i = 0; i < data.length; i++) {
+          if (data[i].RProcess != null)
+            content.innerHTML = data[i].RProcess;
         }
+         
       })
-      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
-    }
+  }
 
-    function processClick() {
-      let pro_link = `{{URL}}/Internship/process`
-      fetch(pro_link)
+  function policyClick() {
+    const p_link = `{{URL}}/Why_Recruit/policy`
+    fetch(p_link)
       .then(response => response.json())
       .then(data => {
         for (let i = 0; i < data.length; i++) {
-          if (data[i].RProcess != null) content.innerHTML = data[i].RProcess;
+          if (data[i].RPolicy != null)
+            content.innerHTML = data[i].RPolicy;
         }
       })
       document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
@@ -186,19 +180,19 @@
       content.innerHTML = `<div class="flex flex-col space-y-7 px-3 py-3 mx-auto my-5">
         <div class="flex flex-col space-y-3 justify-center items-center px-5 py-5">
             <img class="h-[400px] w-[750px]" src="/it.jpeg" alt="">
-            <h4 class="text-2xl font-bold">IT Building</h4>
+            <h4 style="color: rgb(4, 4, 117);" class="text-2xl font-bold">IT Building</h4>
         </div>
         <div class="flex flex-col space-y-3 justify-center items-center">
             <img class="h-[400px] w-[750px]" src="/guest.jpg" alt="">
-            <h4 class="text-2xl font-bold">Guest House</h4>
+            <h4 style="color: rgb(4, 4, 117);" class="text-2xl font-bold">Guest House</h4>
         </div>
         <div class="flex flex-col space-y-3 justify-center items-center">
             <img class="h-[400px] w-[750px]" src="/canteen.jpg" alt="">
-            <h4 class="text-2xl font-bold">Canteen</h4>
+            <h4 style="color: rgb(4, 4, 117);" class="text-2xl font-bold">Canteen</h4>
         </div>
         <div class="flex flex-col space-y-3 justify-center items-center">
             <img class="h-[400px] w-[750px]" src="/lawn.jpg" alt="">
-            <h4 class="text-2xl font-bold">Central Lawn</h4>
+            <h4 style="color: rgb(4, 4, 117);" class="text-2xl font-bold">Central Lawn</h4>
         </div>
     </div>`
       document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
@@ -213,7 +207,7 @@
         content.innerHTML = "";
         let str1= `<div class="flex justify-center items-center">
         <div class="my-20 max-w-[72vw]">
-          <h6 class="text-6xl text-center font-bold">FAQ's</h6>
+          <h6 style="color: rgb(4, 4, 117);" class="text-6xl text-center font-bold">FAQ's</h6>
           <div id="faqgrid" class="grid grid-cols-1 gap-8 mt-8 lg:mt-16 md:grid-cols-2 xl:grid-cols-3" style="display: grid;">`
 
         let str2 = "";

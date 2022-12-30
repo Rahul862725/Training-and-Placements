@@ -64,16 +64,44 @@
 
   <div></div>
   <script>
-    CKEDITOR.replace('Content', { fullPage: true, allowedContent: true,
-    autoGrow_onStartup: true, enterMode: CKEDITOR.ENTER_BR }); let
-    Form=document.getElementById("myform"); function myFunction(){ let
-    flag=confirm("Check Internship Process Before Sumbit!"); if(flag){
-    Form.submit(); } } const link = `{{URL}}/Internship/process`;
-    //console.log(link) fetch(link) .then(response => response.json())
-    .then(data => { for(let i=0;i<data.length;i++){ if (data[i].IProcess !=
-    null) { CKEDITOR.instances.content.insertHtml(data[i].IProcess); break; } }
-    }); document.getElementById("myform").onkeypress = function (e) { var key =
-    e.charCode || e.keyCode || 0; if (key == 13) { e.preventDefault(); } }
+ 
+   CKEDITOR.replace('Content', {
+    fullPage: true,
+    allowedContent: true,
+    autoGrow_onStartup: true,
+    enterMode: CKEDITOR.ENTER_BR
+  });
+  
+  let Form=document.getElementById("myform"); 
+  function myFunction(){ 
+    let flag=confirm("Check Internship Process Before Sumbit!"); 
+    if(flag){
+    Form.submit();
+     }
+      }
+       
+           const link = `{{URL}}/Internship/process`;
+      //console.log(link)
+      fetch(link)
+        .then(response => response.json())
+        .then(data => {
+           console.log(data.length)
+             for(let i=0;i<data.length;i++){
+          if (data[i].IProcess != null) {
+            console.log(data[i]);
+            CKEDITOR.instances.content.insertHtml(data[i].IProcess);
+            break;
+          }
+          }
+        });
+   
+  document.getElementById("myform").onkeypress = function (e) {
+    var key = e.charCode || e.keyCode || 0;
+    if (key == 13) {
+
+      e.preventDefault();
+    }
+  }
 
   </script>
 
