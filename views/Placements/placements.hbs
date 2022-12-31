@@ -214,23 +214,29 @@
             }
           }
 
+          let userData=  [];
           let companies = [];
           let currentYearPlacements = [];
           let previousYearPlacements = [];
 
-          let i = 0;
-
           for (let k in currentData) {
-            if(i === 7){
-              break;
-            }
-            companies.push(k);
-            currentYearPlacements.push(currentData[k]['currentYear']);
-            previousYearPlacements.push(currentData[k]['previousYear']);
-            i++;
+            let obj = {};
+            obj.companies = k;
+            obj.currentYearPlacements = currentData[k]['currentYear'];
+            obj.previousYearPlacements = currentData[k]['previousYear'];
+            userData.push(obj);
           }
-          
-          console.log(currentData);
+
+          userData.sort((a,b) => (a.currentYearPlacements < b.currentYearPlacements) ? 1 : ((b.currentYearPlacements < a.currentYearPlacements) ? -1 : 0))
+
+          userData = userData.slice(0,7);
+          console.log(userData);
+
+          for(let i = 0 ; i<7; i++){
+            companies.push(userData[i].companies.split(' ')[0]);
+            currentYearPlacements.push(userData[i].currentYearPlacements);
+            previousYearPlacements.push(userData[i].previousYearPlacements);
+          }
 
           new Chart("barChart", {
             type: "bar",
@@ -255,7 +261,7 @@
                 yAxes: [
                   {
                     ticks: {
-                      display: false,
+                      display: true,
                       beginAtZero: true,
                     },
                   },
