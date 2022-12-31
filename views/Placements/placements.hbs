@@ -218,6 +218,7 @@
           let companies = [];
           let currentYearPlacements = [];
           let previousYearPlacements = [];
+          let count = 10;
 
           for (let k in currentData) {
             let obj = {};
@@ -229,10 +230,10 @@
 
           userData.sort((a,b) => (a.currentYearPlacements < b.currentYearPlacements) ? 1 : ((b.currentYearPlacements < a.currentYearPlacements) ? -1 : 0))
 
-          userData = userData.slice(0,7);
+          userData = userData.slice(0,count);
           console.log(userData);
 
-          for(let i = 0 ; i<7; i++){
+          for(let i = 0 ; i<count; i++){
             companies.push(userData[i].companies.split(' ')[0]);
             currentYearPlacements.push(userData[i].currentYearPlacements);
             previousYearPlacements.push(userData[i].previousYearPlacements);
