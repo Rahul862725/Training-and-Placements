@@ -71,6 +71,8 @@ app.use('/Information', informationRouter);
 app.get("/Information_form", (req, res) =>{
       res.render("Main/Insert.hbs")
     })
+
+    
 app.get("/", (req, res) =>{
         res.render("Main/index.hbs",{URL:process.env.URL})
       })
