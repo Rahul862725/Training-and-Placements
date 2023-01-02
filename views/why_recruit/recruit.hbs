@@ -17,11 +17,9 @@
       padding: 0;
       margin: 0;
     }
-
     body {
       font-family: "Poppins";
     }
-
     @media (max-width:800px){
       #faqgrid{
         grid-template-columns: 300px 300px;
@@ -155,7 +153,6 @@
          
       })
   }
-
   function policyClick() {
     const p_link = `{{URL}}/Why_Recruit/policy`
     fetch(p_link)
@@ -168,14 +165,10 @@
       })
       document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
     }
-
-
     function formClick() {
       content.innerHTML = `<iframe src="/jobForm.pdf" width="90%" height="1000px" style=" margin: auto; margin-top: 10px;"></iframe>`
       document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
     }
-
-
     function resourceClick() {
       content.innerHTML = `<div class="flex flex-col space-y-7 px-3 py-3 mx-auto my-5">
         <div class="flex flex-col space-y-3 justify-center items-center px-5 py-5">
@@ -197,7 +190,6 @@
     </div>`
       document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
     }
-
     function faqClick() {
       let faq_link = `{{URL}}/FAQ`
       fetch(faq_link)
@@ -209,7 +201,6 @@
         <div class="my-20 max-w-[72vw]">
           <h6 style="color: rgb(4, 4, 117);" class="text-6xl text-center font-bold">FAQ's</h6>
           <div id="faqgrid" class="grid grid-cols-1 gap-8 mt-8 lg:mt-16 md:grid-cols-2 xl:grid-cols-3" style="display: grid;">`
-
         let str2 = "";
           for(let i=0; i<data.length; i++){
             var faq = data[i];
@@ -220,26 +211,19 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
-
                 <div>
                     <h1 class="text-xl font-semibold text-gray-700 dark:text-black">`;
-
               str2 += faq.Question;
-
               str2 += `</h1> <p class="mt-2 text-sm text-gray-500 dark:text-blue-300">`;
-
               str2 += faq.Answer;
-
               str2 += `</p>
                     </div>
                 </div>`
             }
           }
-
         let str3 = `</div>
               </div>
             </div>`
-
         content.innerHTML += str1 + str2 + str3;
       })
       document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
