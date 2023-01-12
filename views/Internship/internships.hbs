@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>internships</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: "Poppins";
+    }
+
+    #header {
+      position: sticky;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+   
+  <div>
+    {{>header}}
+  </div>
+  <br><br><br><br><br><br> 
+  <div class="bg-[#002A51] text-white py-24 space-y-8">
+    <div class="text-center space-y-3">
+      <h6 class="text-4xl sm:text-7xl text-center font-bold">Internships</h6>
+      <p class="font">
+        A collection of resources for students at NIT Jalandhar
+      </p>
+    </div>
+    <div class="flex flex-col gap-3 sm:flex-row items-center justify-center sm:space-x-10">
+      <button
+          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="processClick()" id ="process">
+          Process
+        </button>
+      <button
+          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="policyClick()">
+          Policy
+        </button>
+      <button
+          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="insightClick()">
+          Insights
+        </button>
+    </div>
+  </div>
+
+  <div id="content">
+  </div>
+<br>
+  
+  <div>
+    {{>footer}}
+  </div>
+</body>
+
+<script>
+  document.getElementById("process").click();
+  
+  const link = `{{URL}}/Internship/process`
+  const content = document.getElementById('content')
+
+  fetch(link)
+  .then(response => response.json())
+  .then(data => {
+    for(let i = 0; i < data.length; i++) {
+      if (data[i].IProcess != null) content.innerHTML = data[i].IProcess;
+    }
+  })
+
+  function processClick() {
+    let pro_link = `{{URL}}/Internship/process`
+      fetch(pro_link)
+      .then(response => response.json())
+      .then(data => {
+        
+        for (let i = 0; i < data.length; i++) {
+          
+          if (data[i].IProcess != null) {
+            console.log(data[i].IProcess)
+            content.innerHTML = data[i].IProcess;break;}
+        }
+      })
+  }
+
+  function policyClick() {
+    const p_link = `{{URL}}/Internship/policy`
+      fetch(p_link)
+      .then(response => response.json())
+      .then(data => {
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].IPolicy != null){ content.innerHTML = data[i].IPolicy;break;}
+        }
+      })
+  }
+
+  function insightClick() {
+    const link = `{{URL}}/Internship/insight`
+      fetch(link)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        
+          content.innerHTML = "";
+          let str1 = ` 
+          <div `;
+
+        let str2 = "";
+        let c=0;
+        let pr=-1;
+
+           for(let i=0; i<data.length; i++){
+            var student = data[i];
+             if(c%2===0&&pr!=c)
+             {
+              pr=c;
+              console.log(i)
+              str2+=`<div class="row mb-2"  style="padding: 10px;">`
+             }
+               
+            if(student.TwoMInternship || student.SixMInternship){
+              str2+=`<div class="col-md-5" style="margin-right: 110px;">
+          <div class="row g-0 border border-primary rounded overflow-hidden flex-md-row mb-4 shadow h-md-250 position-relative">
+            <div class="col p-3 d-flex flex-column position-static">`
+              c++;
+              str2 += `<h3 class="mb-0"><b>` +student.Name+ `</b> </h3><div class="mb-1 text-info" ><b>` + student.Package + `k</b></div><h6 class="card-text mb-auto">` + student.Course+` student, `+student.Branch+` Stream Intern in <b>`+student.Company+`</b></h6>`;
+              str2+=`</div>
+          </div>
+        </div>`
+
+            }
+            if(c%2==0&&pr==c-2)
+             {
+              str2+=`</div>`
+             }
+            if(c>=15)
+            break;
+          }
+          if(c%2!=0)
+          str2+=`</div>`
+
+
+          let str3 = `</div>
+              `;
+          //console.log(str2);
+          content.innerHTML = str1 + str2 + str3;
+      })
+  }
+
+</script>
+
+</html>

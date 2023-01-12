@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>People</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: "Poppins";
+    }
+
+    #header {
+      position: sticky;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+   
+  <div>
+    {{>header}}
+  </div>
+  <br><br><br><br><br><br> 
+  <div class="bg-[#002A51] text-white py-24 space-y-8">
+    <div class="text-center space-y-3">
+      <h6 class="text-3xl sm:text-7xl text-center font-bold">People</h6>
+    </div>
+    <div class="flex flex-col gap-2 sm:flex-row items-center justify-center sm:space-x-10">
+      <button
+          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="facultyClick()" id ="faculty">
+          Faculty
+        </button>
+      <button
+          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="studentClick()">
+          Students
+        </button>
+    </div>
+  </div>
+
+  <div id="content" class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5 mx-auto w-[90%] my-5">
+  </div>
+<br>
+  
+  <div>
+    {{>footer}}
+  </div>
+</body>
+
+<script>
+
+  const link = `{{URL}}/People/`
+  const content = document.getElementById('content')
+
+  fetch(link)
+  .then(response => response.json())
+  .then(data => {
+    content.innerHTML = "";
+    for(let i=0; i<data.length; i++){
+      if(data[i].Des == 'Faculty' || data[i].Des == 'Professor' || data[i].Des == "Head"){
+        content.innerHTML += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 my-auto p-5">
+        <div class="flex flex-col items-center pb-2">
+            <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png" alt="image">
+            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">${data[i].Name}</h5>
+            <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Dept} Department</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Mob_No}</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Email}</p>
+        </div>
+      </div>`;
+      }
+    }
+  })
+
+  function facultyClick() {
+    let pro_link = `{{URL}}/People/`
+      fetch(pro_link)
+      .then(response => response.json())
+      .then(data => {
+        content.innerHTML = "";
+        for(let i=0; i<data.length; i++){
+          if(data[i].Des == 'Faculty' || data[i].Des == 'Professor' || data[i].Des == "Head"){
+            content.innerHTML += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 my-auto p-5">
+            <div class="flex flex-col items-center pb-2">
+                <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png" alt="image">
+                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">${data[i].Name}</h5>
+                <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Dept} Department</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Mob_No}</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Email}</p>
+            </div>
+          </div>`;
+          }
+        }
+      })
+  }
+
+  function studentClick() {
+    let pro_link = `{{URL}}/People/`
+      fetch(pro_link)
+      .then(response => response.json())
+      .then(data => {
+        content.innerHTML = "";
+        for(let i=0; i<data.length; i++){
+          if(data[i].Des == 'Internship Representative' || data[i].Des == 'Placement Representative'){
+            content.innerHTML += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 my-auto p-5">
+            <div class="flex flex-col items-center pb-2">
+                <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png" alt="image">
+                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">${data[i].Name}</h5>
+                <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Dept} Department</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Mob_No}</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Email}</p>
+            </div>
+          </div>`;
+          }
+        }
+      })
+  }
+
+</script>
+
+</html>
