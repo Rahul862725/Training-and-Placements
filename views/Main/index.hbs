@@ -4672,11 +4672,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 </head>
 
 <body class="2xl:container 2xl:mx-auto">
- 
+
   <div>
-      {{> header}}
-       
-    </div>
+    {{> header}}
+
+  </div>
   <div id="search_page" class="absolute top-0 z-50 hidden h-full w-full content-center bg-transparent backdrop-blur-2xl"
     onclick="showSearchPage(event)">
     <form id="search_form" onclick="showSearchPage(event)">
@@ -4750,96 +4750,87 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   <div class="relative flex w-full item-center justify-center">
     <img src="./img/bg_img.png" alt="bg_img" class="w-full h-screen xl:h-full" style="margin-top: 130px;">
 
-    <div class="absolute flex flex-col sm:flex-row w-full mt-[170px] xl:mt-[250px]">
+    <div class="absolute flex flex-col sm:flex-row w-full mt-[150px] xl:mt-[230px]">
       <!-- text box -->
       <div class="sm:p-10 mr-4 sm:mr-32 lg:mr-48 ml-4 lg:ml-8">
         <div class="card w-full" style=" background-color: #00346161; color: white; border: none; border-radius: 20px;">
           <div class="card-body p-10">
-            <h3 class="card-title text-sm sm:text-[30px] lg:text-[35px] font-bold">A one stop portal for Placements
+            <h3 class="card-title text-sm sm:text-[30px] lg:text-[35px] font-bold">Training And Placement Cell
             </h3>
-            <p class="card-text text-xs lg:text-xl">To build a rich intellectual potential embedded with
-               inter-disciplinary knowledge, human values and professional ethics among the youth, aspirant of
-                becoming engineers and technologists, so that they contribute to society and create a niche for 
-                a successful career.</p>
+            <p class="card-text text-xs sm:text-base md:text-lg lg:text-xl">National Institute of Technology, Jalandhar
+              is well known for its technical education throughout the country. It enjoys a very good and warm
+              relationship with the industry. It is one of the most favorite destination for Corporate house as they are
+              aware of the fact that NITJ is known to introduce bright, vibrant and effervescent young minds to the
+              industry. We feel pleasure to invite your esteemed Organization to participate in the Campus Recruitment
+              Programme. This is an opportunity to inform your good self that the Placement level achieved for the
+              previous batches has been fairly impressive till date.</p>
           </div>
         </div>
       </div>
 
-      <!-- options -->
-      <div class="flex sm:flex-col mx-auto sm:mr-5 p-10 gap-2 items-center">
-        <!-- student -->
-        <a href="#" class="mx-1 my-auto">
-          <button type="button" class="btn btn-primary lg:btn-lg px-3 sm:px-5 py-2 flex flex-row justify-center"
-            style="background-color: #2167A7; border: 4px solid white; border-radius: 10px;"><img
-              src="./img/student.png" alt="stud." class="mx-4 sm:mx-2 my-auto">
-              <span class="hidden sm:block">Student</span>
-              </button>
-        </a>
-
-        <!-- recruiter -->
-        <a href="#" class="mx-1 my-auto">
-          <button type="button" class="btn btn-primary lg:btn-lg px-3 sm:px-5 py-2 flex flex-row justify-center"
-            style="background-color: #2167A7; border: 4px solid white; border-radius: 10px;"><img
-              src="./img/recruiter.png" alt="rec." class="mx-4 sm:mx-2 my-auto">
-              <span class="hidden sm:block">Recruiter</span>
-              </button>
-        </a>
-
-        <!-- coordinator -->
-        <a href="#" class="mx-1 my-auto">
-          <button type="button" class="btn btn-primary lg:btn-lg px-3 sm:px-5 py-2 flex flex-row justify-center"
-            style="background-color: #2167A7; border: 4px solid white; border-radius: 10px;"><img
-              src="./img/coordinator.png" alt="" class="mx-4 sm:mx-2 my-auto">
-              <span class="hidden sm:block">Coordinator</span>
-              </button>
-        </a>
-      </div>
     </div>
 
     <!-- further pages -->
-    <div class="absolute grid grid-cols-2 gap-3 md:flex overflow-auto  mx-5 mt-[550px] sm:mt-[600px] xl:mt-[630px]" style=" width: 95%;">
+    <div
+      class="absolute grid grid-cols-2 md:grid-cols-3 gap-3 lg:flex overflow-auto  mx-5 mt-[520px] sm:mt-[570px] xl:mt-[600px]"
+      style=" width: 95%;">
       <!-- placement -->
       <a href="{{URL}}/index_placements" class="mx-auto">
-        <button type="button" class="btn btn-primary w-36 sm:w-44 xl:w-52 h-20 sm:h-28 xl:h-36 lg:btn-lg flex flex-col justify-center item-center"
+        <button type="button"
+          class="btn btn-primary w-32 sm:w-36 md:w-40 xl:w-48 h-16 sm:h-20 md:h-24 xl:h-32 lg:btn-lg flex flex-col justify-center item-center"
           style="background-color: #2167A7; color:white; border: none; border-radius: 15px;"><img
-            src="./img/placements.png" alt="" class="mx-auto">
-          <p class="mx-auto text-md sm:text-2xl font-semibold">Placements</p>
+            src="./img/placements.png" alt="" class="h-8 sm:h-10 mx-auto">
+          <p class="mx-auto text-md sm:text-lg md:text-xl lg:text-2xl font-semibold">Placements</p>
         </button>
       </a>
 
       <!-- internship -->
       <a href="{{URL}}/index_internship" class="mx-auto">
-        <button type="button" class="btn btn-primary w-36 sm:w-44 xl:w-52 h-20 sm:h-28 xl:h-36 lg:btn-lg flex flex-col justify-center item-center"
+        <button type="button"
+          class="btn btn-primary w-32 sm:w-36 md:w-40 xl:w-48 h-16 sm:h-20 md:h-24 xl:h-32 lg:btn-lg flex flex-col justify-center item-center"
           style="background-color: #2167A7; color:white; border: none; border-radius: 15px;"><img
-            src="./img/internships.png" alt="" class="mx-auto">
-          <p class="mx-auto text-md sm:text-2xl font-semibold">Internships</p>
+            src="./img/internships.png" alt="" class="h-8 sm:h-10 mx-auto">
+          <p class="mx-auto text-md sm:text-lg md:text-xl lg:text-2xl font-semibold">Internships</p>
         </button>
       </a>
 
       <!-- why recruit -->
       <a href="{{URL}}/index_wrecruit" class="mx-auto">
-        <button type="button" class="btn btn-primary w-36 sm:w-44 xl:w-52 h-20 sm:h-28 xl:h-36 lg:btn-lg flex flex-col justify-center item-center"
-          style="background-color: #2167A7; color:white; border: none; border-radius: 15px;"><img
-            src="./img/why.png" alt="" class="mx-auto">
-          <p class="mx-auto text-md sm:text-2xl font-semibold" >Why Recruit</p>
+        <button type="button"
+          class="btn btn-primary w-32 sm:w-36 md:w-40 xl:w-48 h-16 sm:h-20 md:h-24 xl:h-32 lg:btn-lg flex flex-col justify-center item-center"
+          style="background-color: #2167A7; color:white; border: none; border-radius: 15px;"><img src="./img/why.png"
+            alt="" class="h-8 sm:h-10 mx-auto">
+          <p class="mx-auto text-md sm:text-lg md:text-xl lg:text-2xl font-semibold">Why Recruit</p>
         </button>
       </a>
 
       <!-- downloads -->
-      <a href="{{URL}}/index_download" class="hidden lg:block mx-auto">
-        <button type="button" class="btn btn-primary w-36 sm:w-44 xl:w-52 h-20 sm:h-28 xl:h-36 lg:btn-lg flex flex-col justify-center item-center"
+      <a href="{{URL}}/index_download" class="mx-auto">
+        <button type="button"
+          class="btn btn-primary w-32 sm:w-36 md:w-40 xl:w-48 h-16 sm:h-20 md:h-24 xl:h-32 lg:btn-lg flex flex-col justify-center item-center"
           style="background-color: #2167A7; color:white; border: none; border-radius: 15px;"><img
-            src="./img/downloads.png" alt="" class="mx-auto">
-          <p class="mx-auto text-md sm:text-2xl font-semibold" >Downloads</p>
+            src="./img/downloads.png" alt="" class="h-8 sm:h-10 mx-auto">
+          <p class="mx-auto text-md sm:text-lg md:text-xl lg:text-2xl font-semibold">Downloads</p>
         </button>
       </a>
 
       <!-- people -->
       <a href="{{URL}}/index_people" class="mx-auto">
-        <button type="button" class="btn btn-primary w-36 sm:w-44 xl:w-52 h-20 sm:h-28 xl:h-36 lg:btn-lg flex flex-col justify-center item-center"
-          style="background-color: #2167A7; color:white; border: none; border-radius: 15px;"><img
-            src="./img/people.png" alt="" class="mx-auto">
-          <p class="mx-auto text-md sm:text-2xl font-semibold" >People</p>
+        <button type="button"
+          class="btn btn-primary w-32 sm:w-36 md:w-40 xl:w-48 h-16 sm:h-20 md:h-24 xl:h-32 lg:btn-lg flex flex-col justify-center item-center"
+          style="background-color: #2167A7; color:white; border: none; border-radius: 15px;"><img src="./img/people.png"
+            alt="" class="h-8 sm:h-10 mx-auto">
+          <p class="mx-auto text-md sm:text-lg md:text-xl lg:text-2xl font-semibold">People</p>
+        </button>
+      </a>
+
+      <!-- Login -->
+      <a href="{{URL}}/index_login" class="mx-auto">
+        <button type="button"
+          class="btn btn-primary w-32 sm:w-36 md:w-40 xl:w-48 h-16 sm:h-20 md:h-24 xl:h-32 lg:btn-lg flex flex-col justify-center item-center"
+          style="background-color: #2167A7; color:white; border: none; border-radius: 15px;"><img src="./img/login.png"
+            alt="" class="h-8 sm:h-10 mx-auto">
+          <p class="mx-auto text-md sm:text-lg md:text-xl lg:text-2xl font-semibold">Log In</p>
         </button>
       </a>
     </div>
@@ -4858,7 +4849,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           <!-- list of announcement -->
           <ul class="list-disc" id="annoucements">
             <!-- announcement 1 -->
-            
+
           </ul>
         </div>
       </div>
@@ -4868,7 +4859,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     <div class="flex flex-col w-11/12 sm:w-1/2 ml-2 mr-2 sm:mr-5">
       <h1 class="text-2xl sm:text-4xl title-font font-medium text-gray-900 p-2 sm:p-3">Notices</h1>
       <div id="notes">
-         
+
       </div>
     </div>
   </div>
@@ -4889,16 +4880,16 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   </div>
 
   <!-- footer -->
-  
+
   <div style="bottom: 0; width:100%">
-      {{> footer}}
-    </div>
+    {{> footer}}
+  </div>
 
 </body>
 
 <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
 <script type="text/javascript">
- 
+
   var tooltipTriggerList = [].slice.call(
     document.querySelectorAll('[data-bs-toggle="tooltip"]')
   );
@@ -4907,12 +4898,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   });
 </script>
 
- 
 
-{{!--  Attach Backend with frontend --}}
+
+{{!-- Attach Backend with frontend --}}
 <script>
-  const link="{{URL}}/Information/get"
-   
+  const link = "{{URL}}/Information/get"
+
   console.log(link);
   fetch(link)
     .then(response => response.json())
@@ -4929,12 +4920,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         el.classList.add("mb-1")
         let el1 = document.createElement('p');
         let span = document.createElement('span');
-        span.style.cssText= "color: #FF8534; font-size: small;"
+        span.style.cssText = "color: #FF8534; font-size: small;"
         span.classList.add("p-3");
         el1.style.cssText = "color: #002A51; font-weight:bold; font-family: 'Open Sans'; font-size:large";
-        let temp=data[0].Annoucement[i];
-        el1.textContent =  temp.substring(0,temp.length-10);
-        span.textContent=temp.substring(temp.length-10);
+        let temp = data[0].Annoucement[i];
+        el1.textContent = temp.substring(0, temp.length - 10);
+        span.textContent = temp.substring(temp.length - 10);
         el1.appendChild(span);
         el.appendChild(el1);
         annoucemnts.appendChild(el);
@@ -4944,7 +4935,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       itr = 0;
       //const notesTemplate='<div class="xl:w-full md:w-full p-3"><div class="p-6 rounded-lg" style="border: 1px solid #62AAFF; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;"><h2 class="text-lg text-gray-900 font-medium title-font mb-1">This is a headline</h2><p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p></div></div>'
       for (let i = data[0].Notes.length - 1; i >= 0; i--) {
-        const notesTemplate = '<div class="xl:w-full md:w-full p-3"><div class="p-6 rounded-lg" style="border: 1px solid #62AAFF; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;"><h2 class="text-lg text-gray-900 font-medium title-font mb-1">Note: '+(data[0].Notes.length-i)+'</h2><p class="leading-relaxed text-base">' + data[0].Notes[i] + '</p></div></div>'
+        const notesTemplate = '<div class="xl:w-full md:w-full p-3"><div class="p-6 rounded-lg" style="border: 1px solid #62AAFF; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;"><h2 class="text-lg text-gray-900 font-medium title-font mb-1">Note: ' + (data[0].Notes.length - i) + '</h2><p class="leading-relaxed text-base">' + data[0].Notes[i] + '</p></div></div>'
 
         notes.innerHTML += notesTemplate;
         itr++;

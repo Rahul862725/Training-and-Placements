@@ -80,7 +80,12 @@ app.get("/", (req, res) =>{
 app.get("/add_SData",(req,res)=>{
     res.render("Internship/addStudentData.hbs",{URL:process.env.URL});
 })
- 
+
+ // ********* Login ********
+app.get("/index_login",(req,res)=>{
+    res.render("Login/login.hbs",{ URL: process.env.URL })
+  })
+  
 
       //  ****** Internship Page *******
 
