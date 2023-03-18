@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>People</title>
+  <link rel="icon" type="image/x-icon" href="/img/favicon-16x16.png" />
 
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -29,31 +30,60 @@
 </head>
 
 <body>
-   
+
   <div>
     {{>header}}
   </div>
-  <br><br><br><br><br><br> 
-  <div class="bg-[#002A51] text-white py-24 space-y-8">
-    <div class="text-center space-y-3">
-      <h6 class="text-7xl text-center font-bold">People</h6>
+  <br><br><br><br><br><br>
+  <div>
+    <div class="bg-[#002A51] text-white flex flex-col justify-center items-start h-[224px] px-4 lg:px-[11%] py-[48px]">
+      <div class="text-center space-y-3">
+        <h6 class="font2 text-5xl sm:text-7xl text-center font-extrabold">People</h6>
+      </div>
     </div>
-    <div class="flex items-center justify-center space-x-10">
-      <button
-          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="facultyClick()" id ="faculty">
+    <nav class="flex px-4 lg:px-[11%] bg-gray-200 py-[8px] text-black" aria-label="Breadcrumb">
+      <ol class="inline-flex items-center">
+        <li class="inline-flex items-center">
+          <a href="" class="inline-flex items-center text-sm font-medium hover:text-gray-900">
+          </a><a href="{{URL}}" class="text-lg font-medium ml-2">TPO</a>
+
+        </li>
+        <li aria-current="page">
+          <div class="inline-flex items-center">
+            <i style="color: rgb(128, 128, 128); font-size: 12px; margin-left: 12px"
+              class="fa-solid fa-angle-right ml-2"></i>
+            <a href="{{URL}}/index_people" class="text-lg font-medium ml-2">People</a>
+          </div>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="grid grid-cols-1 m-[5%] lg:grid-cols-2 gap-8 max-w-4xl lg:mx-auto">
+    <div
+      class="group transition delay-100 duration-300 hover:shadow-xl hover:bg-sky-400 hover:shadow-sky-500 hover:scale-110 flex flex-col space-y-4 items-center justify-center w-full h-full px-3 py-5 bg-white shadow shadow-gray-400 rounded-xl"
+      onclick="facultyClick()">
+      <div class="flex flex-col space-y-4 items-center justify-center">
+        <p class="group-hover:text-white text-lg lg:text-xl whitespace-nowrap text-center text-dark-purple uppercase">
           Faculty
-        </button>
-      <button
-          class="border-2 py-2 w-[10rem] hover:bg-[#2069aa] rounded-md" onclick="studentClick()">
-          Students
-        </button>
+        </p>
+      </div>
+    </div>
+    <div
+      class="group transition delay-100 duration-300 hover:shadow-xl hover:bg-sky-400 hover:shadow-sky-500 hover:scale-110 flex flex-col space-y-4 items-center justify-center w-full h-full px-3 py-5 bg-white shadow shadow-gray-400 rounded-xl"
+      onclick="studentClick()">
+      <div class="flex flex-col space-y-4 items-center justify-center">
+        <p class="group-hover:text-white text-lg lg:text-xl whitespace-nowrap text-center text-dark-purple uppercase">
+          Student
+        </p>
+      </div>
     </div>
   </div>
 
-  <div id="content" class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5 mx-auto w-[90%] my-5">
+  <div id="content" class="flex flex-col space-y-5 m-5">
   </div>
-<br>
-  
+  <br>
+
   <div>
     {{>footer}}
   </div>
@@ -65,65 +95,85 @@
   const content = document.getElementById('content')
 
   fetch(link)
-  .then(response => response.json())
-  .then(data => {
-    content.innerHTML = "";
-    for(let i=0; i<data.length; i++){
-      if(data[i].Des == 'Faculty' || data[i].Des == 'Professor' || data[i].Des == "Head"){
-        content.innerHTML += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 my-auto p-5">
-        <div class="flex flex-col items-center pb-2">
-            <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png" alt="image">
-            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">${data[i].Name}</h5>
-            <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Dept} Department</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Mob_No}</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Email}</p>
-        </div>
-      </div>`;
+    .then(response => response.json())
+    .then(data => {
+      content.innerHTML = "";
+
+      let str1 = "";
+      let str2 = "";
+      let str3 = "</div>";
+      // str1 += `<h6 class="font2 text-2xl sm:text-4xl text-center font-bold uppercase">Faculty</h6>`;
+      str1 += `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5 mx-auto w-[90%] my-5">`;
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].Des == 'Faculty' || data[i].Des == 'Professor' || data[i].Des == "Head") {
+          str2 += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md my-auto p-5">
+            <div class="flex flex-col items-center pb-2">
+                <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png" alt="image">
+                <h5 class="mb-1 text-xl font-medium text-gray-900">${data[i].Name}</h5>
+                <p class="text-sm text-gray-500">${data[i].Dept} Department</p>
+                <p class="text-sm text-gray-500">${data[i].Mob_No}</p>
+                <p class="text-sm text-gray-500">${data[i].Email}</p>
+            </div>
+          </div>`;
+        }
       }
-    }
-  })
+      content.innerHTML = str1 + str2 + str3;
+    })
 
   function facultyClick() {
     let pro_link = `{{URL}}/People/`
-      fetch(pro_link)
+    fetch(pro_link)
       .then(response => response.json())
       .then(data => {
         content.innerHTML = "";
-        for(let i=0; i<data.length; i++){
-          if(data[i].Des == 'Faculty' || data[i].Des == 'Professor' || data[i].Des == "Head"){
-            content.innerHTML += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 my-auto p-5">
+        let str1 = "";
+        let str2 = "";
+        let str3 = "</div>";
+        // str1 += `<h6 class="font2 text-2xl sm:text-4xl text-center font-bold uppercase">Faculty</h6>`;
+        str1 += `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5 mx-auto w-[90%] my-5">`;
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].Des == 'Faculty' || data[i].Des == 'Professor' || data[i].Des == "Head") {
+            str2 += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md my-auto p-5">
             <div class="flex flex-col items-center pb-2">
                 <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png" alt="image">
-                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">${data[i].Name}</h5>
-                <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Dept} Department</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Mob_No}</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Email}</p>
+                <h5 class="mb-1 text-xl font-medium text-gray-900">${data[i].Name}</h5>
+                <p class="text-sm text-gray-500">${data[i].Dept} Department</p>
+                <p class="text-sm text-gray-500">${data[i].Mob_No}</p>
+                <p class="text-sm text-gray-500">${data[i].Email}</p>
             </div>
           </div>`;
           }
         }
+
+        content.innerHTML = str1 + str2 + str3;
       })
   }
 
   function studentClick() {
     let pro_link = `{{URL}}/People/`
-      fetch(pro_link)
+    fetch(pro_link)
       .then(response => response.json())
       .then(data => {
         content.innerHTML = "";
-        for(let i=0; i<data.length; i++){
-          if(data[i].Des == 'Internship Representative' || data[i].Des == 'Placement Representative'){
-            content.innerHTML += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 my-auto p-5">
+        let str1 = "";
+        let str2 = "";
+        let str3 = "</div>";
+        // str1 += `<h6 class="font2 text-2xl sm:text-4xl text-center font-bold uppercase">Faculty</h6>`;
+        str1 += `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5 mx-auto w-[90%] my-5">`;
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].Des == 'Internship Representative' || data[i].Des == 'Placement Representative') {
+            str2 += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md my-auto p-5">
             <div class="flex flex-col items-center pb-2">
                 <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png" alt="image">
-                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">${data[i].Name}</h5>
-                <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Dept} Department</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Mob_No}</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">${data[i].Email}</p>
+                <h5 class="mb-1 text-xl font-medium text-gray-900">${data[i].Name}</h5>
+                <p class="text-sm text-gray-500">${data[i].Dept} Department</p>
+                <p class="text-sm text-gray-500">${data[i].Mob_No}</p>
+                <p class="text-sm text-gray-500">${data[i].Email}</p>
             </div>
           </div>`;
           }
         }
+        content.innerHTML = str1 + str2 + str3;
       })
   }
 
