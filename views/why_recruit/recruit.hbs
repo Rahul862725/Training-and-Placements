@@ -17,11 +17,9 @@
       padding: 0;
       margin: 0;
     }
-
     body {
       font-family: "Poppins";
     }
-
     #header {
       position: sticky;
       top: 0;
@@ -237,7 +235,6 @@
       })
     document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
   }
-
   function policyClick() {
     const p_link = `{{URL}}/Why_Recruit/policy`
     fetch(p_link)
@@ -312,7 +309,6 @@
         let str3 = `</div>
               </div>
             </div>`
-
         content.innerHTML += str1 + str2 + str3;
       })
     document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });

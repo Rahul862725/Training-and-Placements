@@ -203,8 +203,6 @@
     fetch(link)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-
         content.innerHTML = "";
         let str1 = `
           <div>
@@ -230,9 +228,7 @@
           </div>`;
 
         content.innerHTML += str1 + str2 + str3;
-
         var script = document.createElement("script");
-
         let currentData = {};
 
         for (let i = 0; i < data.length; i++) {
@@ -247,64 +243,53 @@
           }
 
           // checking if it is currentYear
-
           let currYear = new Date().getFullYear().toString();
           if (Number(studentBatch) === Number(currYear)) {
 
-
-            currentData[key]['currentYear'] += 1;
+            let currYear = new Date().getFullYear().toString();
+            if (Number(studentBatch) === Number(currYear)) {
+              currentData[key]['currentYear'] += 1;
+            }
+            if (Number(studentBatch) === Number(currYear) - 1) {
+              currentData[key]['previousYear'] += 1;
+            }
           }
-          if (Number(studentBatch) === Number(currYear) - 1) {
-            currentData[key]['previousYear'] += 1;
+
+          let userData = [];
+          let companies = [];
+          let currentYearPlacements = [];
+          let previousYearPlacements = [];
+          let count = 10;
+
+          for (let k in currentData) {
+            let obj = {};
+            obj.companies = k;
+            obj.currentYearPlacements = currentData[k]['currentYear'];
+            obj.previousYearPlacements = currentData[k]['previousYear'];
+            userData.push(obj);
           }
-        }
 
-        let userData = [];
-        let companies = [];
-        let currentYearPlacements = [];
-        let previousYearPlacements = [];
-        let count = 10;
+          userData.sort((a, b) => (a.currentYearPlacements < b.currentYearPlacements) ? 1 : ((b.currentYearPlacements < a.currentYearPlacements) ? -1 : 0))
 
-        for (let k in currentData) {
-          let obj = {};
-          obj.companies = k;
-          obj.currentYearPlacements = currentData[k]['currentYear'];
-          obj.previousYearPlacements = currentData[k]['previousYear'];
-          userData.push(obj);
-        }
+          userData = userData.slice(0, count);
+          console.log(userData);
 
-        userData.sort((a, b) => (a.currentYearPlacements < b.currentYearPlacements) ? 1 : ((b.currentYearPlacements < a.currentYearPlacements) ? -1 : 0))
+          for (let i = 0; i < count; i++) {
+            companies.push(userData[i].companies.split(' ')[0]);
+            currentYearPlacements.push(userData[i].currentYearPlacements);
+            previousYearPlacements.push(userData[i].previousYearPlacements);
+          }
 
-        userData = userData.slice(0, count);
-        console.log(userData);
-
-        for (let i = 0; i < count; i++) {
-          companies.push(userData[i].companies.split(' ')[0]);
-          currentYearPlacements.push(userData[i].currentYearPlacements);
-          previousYearPlacements.push(userData[i].previousYearPlacements);
-        }
-
-        new Chart("barChart", {
-          type: "bar",
-          data: {
-            labels: companies,
-            datasets: [
-              {
-                label: "This Year",
-                backgroundColor: "#2167A7",
-                data: currentYearPlacements,
-              },
-              {
-                label: "Last Year",
-                backgroundColor: "#FF9E5E",
-                data: previousYearPlacements,
-              },
-            ],
-          },
-
-          options: {
-            scales: {
-              yAxes: [
+          new Chart("barChart", {
+            type: "bar",
+            data: {
+              labels: companies,
+              datasets: [
+                {
+                  label: "This Year",
+                  backgroundColor: "#2167A7",
+                  data: currentYearPlacements,
+                },
                 {
                   ticks: {
                     display: true,
@@ -313,10 +298,22 @@
                 },
               ],
             },
-          },
-        });
+            options: {
+              scales: {
+                yAxes: [
+                  {
+                    ticks: {
+                      display: true,
+                      beginAtZero: true,
+                    },
+                  },
+                ],
+              },
+            },
+          });
+        }
       });
-  }
+  };
 </script>
 
 </html>

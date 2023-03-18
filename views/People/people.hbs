@@ -17,11 +17,9 @@
       padding: 0;
       margin: 0;
     }
-
     body {
       font-family: "Poppins";
     }
-
     #header {
       position: sticky;
       top: 0;
@@ -90,10 +88,8 @@
 </body>
 
 <script>
-
   const link = `{{URL}}/People/`
   const content = document.getElementById('content')
-
   fetch(link)
     .then(response => response.json())
     .then(data => {
@@ -148,7 +144,6 @@
         content.innerHTML = str1 + str2 + str3;
       })
   }
-
   function studentClick() {
     let pro_link = `{{URL}}/People/`
     fetch(pro_link)
@@ -176,7 +171,6 @@
         content.innerHTML = str1 + str2 + str3;
       })
   }
-
 </script>
 
 </html>
