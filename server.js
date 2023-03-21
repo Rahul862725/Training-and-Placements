@@ -8,12 +8,14 @@ const handlebars = require("express-handlebars");
 var hb = require("express-handlebars").create();
 
 // All routes
+const panelData=require("./data/PanelData.json");
 const informationRouter = require("./routes/InformationRouter");
 const internshipRouter = require("./routes/InternshipRouter");
 const placementrouter = require("./routes/PlacementRouter");
 const whyrecruitRouter = require("./routes/WhyRecruitRouter");
 const peopleRouter = require("./routes/FacultyRouter");
 const faqRouter = require("./routes/FAQRouter");
+const userRouter=require("./routes/UserRouter")
 
 require("dotenv").config();
 const hbs = require("hbs");
@@ -73,6 +75,10 @@ app.get("/Information_form", (req, res) => {
 app.get("/", (req, res) => {
   res.render("Main/index.hbs", { URL: process.env.URL });
 });
+
+// ******* Auth Route *************
+
+app.user('/auth',userRouter);
 
 // ******* General Backend related Page ******
 
@@ -144,3 +150,11 @@ app.get("/index_login", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
+
+
+
+// ***** Changeble Data Routes ********
+
+app.get('/panel_data',(req,res)=>{
+  res.json(panelData);
+})

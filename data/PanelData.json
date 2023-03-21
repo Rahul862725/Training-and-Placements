@@ -1,0 +1,45 @@
+{
+    "data":[
+        {
+            "name":"Announcement",
+            "link":"/Information_form"
+        },
+        {
+            "name":"Add Student Data",
+            "link":"/add_SData"
+        },
+        {
+            "name":"Internship Process",
+            "link":"/add_iprocess"
+        },
+        {
+            "name":"Add Internship Policy",
+            "link":"/add_ipolicy"
+        },
+        {
+            "name":"Add Placement Process",
+            "link":"/add_pprocess"
+        },
+        {
+            "name":"Add Placement Policy",
+            "link":"/add_ppolicy"
+        },
+        {
+            "name":"Add FAQ",
+            "link":"/add_faq"
+        },
+        {
+            "name":"Add Recruiter Process",
+            "link":"/add_rprocess"
+        },
+        {
+            "name":"Add Recruiter Policy",
+            "link":"/add_rpolicy"
+        },
+        {
+            "name":"Add Faculty data",
+            "link":"/add_Faculty"
+        }
+        
+    ]
+}
