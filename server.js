@@ -78,7 +78,7 @@ app.get("/", (req, res) => {
 
 // ******* Auth Route *************
 
-app.user('/auth',userRouter);
+app.use('/auth',userRouter);
 
 // ******* General Backend related Page ******
 
