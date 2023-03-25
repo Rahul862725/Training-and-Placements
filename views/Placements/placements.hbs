@@ -36,6 +36,9 @@
         position: sticky;
         top: 0;
       }
+      #content {
+     margin: 20px;
+    }
     </style>
   </head>
 
@@ -370,6 +373,23 @@
               chart.update();
             };
         });
+
+        
     }
+      // Add bullots
+  setInterval(()=>{
+  const ulists = document.getElementById("content").getElementsByTagName('ul');
+   
+ 
+  const olists=document.getElementById("content").getElementsByTagName('ol');
+
+  for(let i=0;i<ulists.length;i++){
+    ulists[i].style.listStyle="disc"
+  }
+  for(let i=0;i<olists.length;i++)
+  {
+    olists[i].style.listStyle="auto"
+  }
+  },2000)
   </script>
 </html>
