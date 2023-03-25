@@ -108,40 +108,36 @@
 </body>
 
 <script>
-  document.getElementById("insight").click();  
+  document.getElementById("insight").click();
 
   const content = document.getElementById("content");
 
   function processClick() {
-    let pro_link = `{{URL}}/Internship/process`
-      fetch(pro_link)
+    let pro_link = `{{URL}}/Processes/Internship Process`
+    fetch(pro_link)
       .then(response => response.json())
       .then(data => {
-        
-        for (let i = 0; i < data.length; i++) {
-          
-          if (data[i].IProcess != null) {
-            console.log(data[i].IProcess)
-            content.innerHTML = data[i].IProcess;break;}
+        if (data.length > 0) {
+          content.innerHTML = data[data.length - 1].content;
         }
       })
-      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
   }
 
   function policyClick() {
-    const p_link = `{{URL}}/Internship/policy`
-      fetch(p_link)
+    const p_link = `{{URL}}/Policies/Internship Policy`
+    fetch(p_link)
       .then(response => response.json())
       .then(data => {
-        for (let i = 0; i < data.length; i++) {
-          if (data[i].IPolicy != null){ content.innerHTML = data[i].IPolicy;break;}
+        if (data.length > 0) {
+          content.innerHTML = data[data.length - 1].content;
         }
       })
-      document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
   }
 
   function insightClick() {
-    const link = `{{URL}}/Internship/insight`;
+    const link = `{{URL}}/Students/`;
     fetch(link)
       .then((response) => response.json())
       .then(async (data) => {
@@ -155,7 +151,7 @@
         for (let i = 0; i < data.length; i++) {
           var student = data[i];
 
-          if(student.TwoMInternship || student.SixMInternship){
+          if (student.TwoMInternship || student.SixMInternship) {
             str2 += `
             <div class="w-full max-w-md bg-white border border-gray-200 rounded-lg shadow shadow-sky-500 px-3 py-5">
                 <div class="flex flex-col items-center space-y-2">
@@ -172,11 +168,11 @@
           }
           cnt++;
 
-          if(cnt==16) break;
+          if (cnt == 16) break;
         }
 
         let str3 = `</div>`;
-        content.innerHTML = str1 + str2 + str3;        
+        content.innerHTML = str1 + str2 + str3;
       });
   }
 

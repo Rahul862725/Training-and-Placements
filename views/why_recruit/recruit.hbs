@@ -17,9 +17,11 @@
       padding: 0;
       margin: 0;
     }
+
     body {
       font-family: "Poppins";
     }
+
     #header {
       position: sticky;
       top: 0;
@@ -213,36 +215,34 @@
 
   const content = document.getElementById('content')
 
-  let temp = `{{URL}}/Why_Recruit/process`
+  let temp = `{{URL}}/Processes/Recruitment Process`
   fetch(temp)
     .then(response => response.json())
     .then(data => {
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].RProcess != null)
-          content.innerHTML = data[i].RProcess;
+      if (data.length > 0) {
+        content.innerHTML = data[data.length - 1].content;
       }
     })
 
   function processClick() {
-    let pro_link = `{{URL}}/Why_Recruit/process`
+    let pro_link = `{{URL}}/Processes/Recruitment Process`
     fetch(pro_link)
       .then(response => response.json())
       .then(data => {
-        for (let i = 0; i < data.length; i++) {
-          if (data[i].RProcess != null)
-            content.innerHTML = data[i].RProcess;
+        if (data.length > 0) {
+          content.innerHTML = data[data.length - 1].content;
         }
       })
     document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
   }
+
   function policyClick() {
-    const p_link = `{{URL}}/Why_Recruit/policy`
+    const p_link = `{{URL}}/Policies/Recruitment Policy`
     fetch(p_link)
       .then(response => response.json())
       .then(data => {
-        for (let i = 0; i < data.length; i++) {
-          if (data[i].RPolicy != null)
-            content.innerHTML = data[i].RPolicy;
+        if (data.length > 0) {
+          content.innerHTML = data[data.length - 1].content;
         }
       })
     document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
@@ -278,7 +278,7 @@
   }
 
   function faqClick() {
-    let faq_link = `{{URL}}/FAQ`
+    let faq_link = `{{URL}}/FAQs/Company`
     fetch(faq_link)
       .then(response => response.json())
       .then(data => {
@@ -288,17 +288,17 @@
         let str2 = "";
 
         let cnt = 0;
-        
+
         for (let i = 0; i < data.length; i++) {
           var faq = data[i];
-         
-          if (faq.Related === "company") {
+
+          if (faq.related === "Company") {
             str2 += `
             <div class="w-full max-w-md bg-white border border-gray-200 rounded-lg shadow shadow-sky-500 px-3 py-5">
                 <div class="flex flex-col space-y-2">
-                    <h5 class="mb-1 font2 text-xl font-bold text-black">${faq.Question}</h5>
+                    <h5 class="mb-1 font2 text-xl font-bold text-black">${faq.question}</h5>
                     <span class="text-lg font2 font-bold text-sky-500">Answer</span>
-                    <p class="font2 text-sm text-black">${faq.Answer}</p>
+                    <p class="font2 text-sm text-black">${faq.answer}</p>
                 </div>
             </div>
             `;

@@ -179,16 +179,12 @@
     const content = document.getElementById("content");
 
     function processClick() {
-      let pro_link = `{{URL}}/Placement/process`;
+      let pro_link = `{{URL}}/Processes/Placement Process`;
       fetch(pro_link)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
-          for (let i = 0; i < data.length; i++) {
-            if (data[i].PProcess != null) {
-              content.innerHTML = data[i].PProcess;
-              break;
-            }
+          if(data.length > 0) {
+            content.innerHTML = data[data.length-1].content;
           }
         });
 
@@ -198,15 +194,12 @@
     }
 
     function policyClick() {
-      const p_link = `{{URL}}/Placement/policy`;
+      const p_link = `{{URL}}/Policies/Placement Policy`;
       fetch(p_link)
         .then((response) => response.json())
         .then((data) => {
-          for (let i = 0; i < data.length; i++) {
-            if (data[i].PPolicy != null) {
-              content.innerHTML = data[i].PPolicy;
-              break;
-            }
+          if(data.length > 0) {
+            content.innerHTML = data[data.length-1].content;
           }
         });
       document
@@ -215,7 +208,7 @@
     }
 
     function insightClick() {
-      const link = `{{URL}}/Placement/insight`;
+      const link = `{{URL}}/Students/`;
       fetch(link)
         .then((response) => response.json())
         .then(async (data) => {
@@ -254,7 +247,7 @@
     }
 
     function statsClick() {
-      const link = `{{URL}}/Internship/insight`;
+      const link = `{{URL}}/Students/`;
       fetch(link)
         .then((response) => response.json())
         .then((data) => {

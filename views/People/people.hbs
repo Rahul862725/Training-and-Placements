@@ -17,9 +17,11 @@
       padding: 0;
       margin: 0;
     }
+
     body {
       font-family: "Poppins";
     }
+
     #header {
       position: sticky;
       top: 0;
@@ -88,7 +90,7 @@
 </body>
 
 <script>
-  const link = `{{URL}}/People/`
+  const link = `{{URL}}/People/Faculty`
   const content = document.getElementById('content')
   fetch(link)
     .then(response => response.json())
@@ -98,77 +100,75 @@
       let str1 = "";
       let str2 = "";
       let str3 = "</div>";
-      // str1 += `<h6 class="font2 text-2xl sm:text-4xl text-center font-bold uppercase">Faculty</h6>`;
+
       str1 += `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5 mx-auto w-[90%] my-5">`;
       for (let i = 0; i < data.length; i++) {
-        if (data[i].Des == 'Faculty' || data[i].Des == 'Professor' || data[i].Des == "Head") {
-          str2 += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md my-auto p-5">
+        str2 += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md my-auto p-5">
             <div class="flex flex-col items-center pb-2">
                 <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png" alt="image">
-                <h5 class="mb-1 text-xl font-medium text-gray-900">${data[i].Name}</h5>
-                <p class="text-sm text-gray-500">${data[i].Dept} Department</p>
-                <p class="text-sm text-gray-500">${data[i].Mob_No}</p>
-                <p class="text-sm text-gray-500">${data[i].Email}</p>
+                <h5 class="mb-1 text-xl font-medium text-gray-900">${data[i].name}</h5>
+                <p class="text-sm text-gray-500">${data[i].department} Department</p>
+                <p class="text-sm text-gray-500">${data[i].designation}</p>
+                <p class="text-sm text-gray-500">${data[i].mobileno}</p>
+                <p class="text-sm text-gray-500">${data[i].email}</p>
             </div>
           </div>`;
-        }
       }
       content.innerHTML = str1 + str2 + str3;
     })
 
   function facultyClick() {
-    let pro_link = `{{URL}}/People/`
+    let pro_link = `{{URL}}/People/Faculty`
     fetch(pro_link)
       .then(response => response.json())
       .then(data => {
         content.innerHTML = "";
+
         let str1 = "";
         let str2 = "";
         let str3 = "</div>";
-        // str1 += `<h6 class="font2 text-2xl sm:text-4xl text-center font-bold uppercase">Faculty</h6>`;
+
         str1 += `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5 mx-auto w-[90%] my-5">`;
         for (let i = 0; i < data.length; i++) {
-          if (data[i].Des == 'Faculty' || data[i].Des == 'Professor' || data[i].Des == "Head") {
-            str2 += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md my-auto p-5">
+          str2 += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md my-auto p-5">
             <div class="flex flex-col items-center pb-2">
                 <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png" alt="image">
-                <h5 class="mb-1 text-xl font-medium text-gray-900">${data[i].Name}</h5>
-                <p class="text-sm text-gray-500">${data[i].Dept} Department</p>
-                <p class="text-sm text-gray-500">${data[i].Mob_No}</p>
-                <p class="text-sm text-gray-500">${data[i].Email}</p>
+                <h5 class="mb-1 text-xl font-medium text-gray-900">${data[i].name}</h5>
+                <p class="text-sm text-gray-500">${data[i].department} Department</p>
+                <p class="text-sm text-gray-500">${data[i].designation}</p>
+                <p class="text-sm text-gray-500">${data[i].mobileno}</p>
+                <p class="text-sm text-gray-500">${data[i].email}</p>
             </div>
           </div>`;
-          }
         }
-
         content.innerHTML = str1 + str2 + str3;
       })
   }
   function studentClick() {
-    let pro_link = `{{URL}}/People/`
+    let pro_link = `{{URL}}/People/Student`
     fetch(pro_link)
       .then(response => response.json())
       .then(data => {
         content.innerHTML = "";
+
         let str1 = "";
         let str2 = "";
         let str3 = "</div>";
-        // str1 += `<h6 class="font2 text-2xl sm:text-4xl text-center font-bold uppercase">Faculty</h6>`;
+
         str1 += `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5 mx-auto w-[90%] my-5">`;
         for (let i = 0; i < data.length; i++) {
-          if (data[i].Des == 'Internship Representative' || data[i].Des == 'Placement Representative') {
-            str2 += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md my-auto p-5">
+          str2 += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md my-auto p-5">
             <div class="flex flex-col items-center pb-2">
                 <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png" alt="image">
-                <h5 class="mb-1 text-xl font-medium text-gray-900">${data[i].Name}</h5>
-                <p class="text-sm text-gray-500">${data[i].Dept} Department</p>
-                <p class="text-sm text-gray-500">${data[i].Mob_No}</p>
-                <p class="text-sm text-gray-500">${data[i].Email}</p>
+                <h5 class="mb-1 text-xl font-medium text-gray-900">${data[i].name}</h5>
+                <p class="text-sm text-gray-500">${data[i].department} Department</p>
+                <p class="text-sm text-gray-500">${data[i].designation}</p>
+                <p class="text-sm text-gray-500">${data[i].mobileno}</p>
+                <p class="text-sm text-gray-500">${data[i].email}</p>
             </div>
           </div>`;
-          }
         }
-        content.innerHTML = str1 + str2 + str3;
+        content.innerHTML = str1 + str2 + str3;;
       })
   }
 </script>
