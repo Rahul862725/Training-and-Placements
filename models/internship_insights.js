@@ -4,28 +4,29 @@ const mongoose = require("mongoose");
 //Schema---------------------------->
 const Schema = new mongoose.Schema(
     {
-        category: {
+        name: {
             type: String,
             required: true,
         },
-        name: {
+        course: {
             type: String,
+            required: true,
         },
         department: {
             type: String,
+            required: true,
         },
-        designation: {
-            type: String,
+        stipend: {
+            type: Number,
+            required: true,
         },
-        mobileno: {
-            type: String,
+        year: {
+            type: Number,
+            required: true,
         },
-        email: {
+        company: {
             type: String,
-        },
-        link: {
-            type: String,
-            default: "https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png",
+            required: true,
         },
         show: {
             type: Boolean,
@@ -38,7 +39,7 @@ const Schema = new mongoose.Schema(
 );
 
 //Model---------------------------->
-const Model = mongoose.model("people", Schema);
+const Model = mongoose.model("internship_insights", Schema);
 
 //Export----------------------------->
 module.exports = Model;

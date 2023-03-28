@@ -28,7 +28,7 @@
     }
 
     #content {
-     margin: 20px;
+      margin: 20px;
     }
   </style>
 
@@ -237,6 +237,9 @@
           content.innerHTML = data[data.length - 1].content;
         }
       })
+
+    addStylingToContent()
+    
     document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -249,6 +252,9 @@
           content.innerHTML = data[data.length - 1].content;
         }
       })
+
+    addStylingToContent();
+
     document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -318,21 +324,51 @@
     document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
 
   }
+  
+  function addStylingToContent() {
     // Add bullots
-  setInterval(()=>{
-  const ulists = document.getElementById("content").getElementsByTagName('ul');
-   
- 
-  const olists=document.getElementById("content").getElementsByTagName('ol');
+    setInterval(() => {
+      const ulists = document.getElementById("content").getElementsByTagName('ul');
+      const olists = document.getElementById("content").getElementsByTagName('ol');
+      const lists = document.getElementById("content").getElementsByTagName('li');
+      const headings = document.getElementById("content").getElementsByTagName('h2');
 
-  for(let i=0;i<ulists.length;i++){
-    ulists[i].style.listStyle="disc"
+      for (let i = 0; i < headings.length; i++) {
+        headings[i].classList.add("font2");
+        headings[i].classList.add("font-medium");
+        headings[i].classList.add("text-[28px]");
+        headings[i].classList.add("lg:text-[32px]");
+        headings[i].classList.add("mx-5");
+        headings[i].classList.add("my-2");
+        headings[i].classList.add("lg:mx-10");
+        headings[i].classList.add("lg:my-5");
+      }
+      for (let i = 0; i < ulists.length; i++) {
+        ulists[i].classList.add("list-disc");
+        ulists[i].classList.add("font-body");
+        ulists[i].classList.add("mx-5");
+        ulists[i].classList.add("my-2");
+        ulists[i].classList.add("lg:mx-10");
+        ulists[i].classList.add("lg:my-5");
+        ulists[i].style.listStylePosition = "inside";
+      }
+      for (let i = 0; i < olists.length; i++) {
+        olists[i].classList.add("list-decimal");
+        olists[i].classList.add("font-body");
+        olists[i].classList.add("mx-5");
+        olists[i].classList.add("my-2");
+        olists[i].classList.add("lg:mx-10");
+        olists[i].classList.add("lg:my-5");
+        olists[i].style.listStylePosition = "inside";
+      }
+      for (let i = 0; i < lists.length; i++) {
+        lists[i].classList.add("p-0.5");
+        lists[i].classList.add("text-md");
+        lists[i].classList.add("lg:text-lg");
+      }
+    }, 1000);
   }
-  for(let i=0;i<olists.length;i++)
-  {
-    olists[i].style.listStyle="auto"
-  }
-  },2000)
+
 </script>
 
 </html>

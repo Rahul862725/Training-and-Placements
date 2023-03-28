@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="" />
   <meta name="author" content="" />
+  <link rel="icon" type="image/x-icon" href="../img/favicon-16x16.png" />
 
   <title>Admin Panel</title>
 
@@ -22,145 +23,170 @@
   <!--whole page wrapper -->
   <div id="wrapper">
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-      <!-- brand name header  -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="{{URL}}/admin" style="color: #045942">NITJ TPO - SuperUser
-        </a>
-      </div>
-
-      <!-- side navigation div  -->
-      <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-          <!-- side menu list -->
-          <ul class="nav" id="side-menu">
-            <!-- navbar list item  -->
-            <li class="sidebar-search">
-              <div class="input-group custom-search-form">
-                <input type="text" class="form-control" placeholder="Search..." />
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </span>
-              </div>
-            </li>
-
-            <!-- navbar list item  -->
-            <li>
-              <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> Announcements<span
-                  class="fa arrow"></span></a>
-              <ul class="nav nav-second-level">
-                <li>
-                  <a href="{{URL}}/admin/announcements"><i class="fa fa-edit fa-fw"></i> Add New Announcement</a>
-                </li>
-                <li>
-                  <a href="{{URL}}/admin/announcements"><i class="fa fa-edit fa-fw"></i> Edit Announcement</a>
-                </li>
-              </ul>
-            </li>
-
-            <!-- navbar list item  -->
-            <li>
-              <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Notices<span class="fa arrow"></span></a>
-              <ul class="nav nav-second-level">
-                <li>
-                  <a href="{{URL}}/admin/notices"><i class="fa fa-edit fa-fw"></i> Add New Notice</a>
-                </li>
-                <li>
-                  <a href="{{URL}}/admin/notices"><i class="fa fa-edit fa-fw"></i> Edit Notice</a>
-                </li>
-              </ul>
-            </li>
-
-            <!-- navbar list item  -->
-            <li>
-              <a href="#"><i class="fa fa-history"></i> Processes<span class="fa arrow"></span></a>
-              <ul class="nav nav-second-level">
-                <li>
-                  <a href="{{URL}}/admin/processes"><i class="fa fa-edit fa-fw"></i> Add New Process</a>
-                </li>
-                <li>
-                  <a href="{{URL}}/admin/processes"><i class="fa fa-edit fa-fw"></i> Edit Process</a>
-                </li>
-              </ul>
-            </li>
-
-            <!-- navbar list item  -->
-            <li>
-              <a href="#"><i class="fa fa-institution" aria-hidden="true"></i> Policies<span
-                  class="fa arrow"></span></a>
-              <ul class="nav nav-second-level">
-                <li>
-                  <a href="{{URL}}/admin/policies"><i class="fa fa-edit fa-fw"></i> Add New Policy</a>
-                </li>
-                <li>
-                  <a href="{{URL}}/admin/policies"><i class="fa fa-edit fa-fw"></i> Edit Policy</a>
-                </li>
-              </ul>
-            </li>
-
-            <!-- navbar list item  -->
-            <li>
-              <a href="#"><i class="fa fa-question" aria-hidden="true"></i> FAQ's<span class="fa arrow"></span></a>
-              <ul class="nav nav-second-level">
-                <li>
-                  <a href="{{URL}}/admin/faqs"><i class="fa fa-edit fa-fw"></i> Add New FAQ</a>
-                </li>
-                <li>
-                  <a href="{{URL}}/admin/faqs"><i class="fa fa-edit fa-fw"></i> Edit FAQ</a>
-                </li>
-              </ul>
-            </li>
-
-            <!-- navbar list item  -->
-            <li>
-              <a href="#"><i class="fa fa-users" aria-hidden="true"></i> People<span class="fa arrow"></span></a>
-              <ul class="nav nav-second-level">
-                <li>
-                  <a href="{{URL}}/admin/people"><i class="fa fa-edit fa-fw"></i> Add New Person</a>
-                </li>
-                <li>
-                  <a href="{{URL}}/admin/people"><i class="fa fa-edit fa-fw"></i> Edit Person</a>
-                </li>
-              </ul>
-            </li>
-
-            <!-- navbar list item  -->
-            <li>
-              <a href="#"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Student Data<span
-                  class="fa arrow"></span></a>
-              <ul class="nav nav-second-level">
-                <li>
-                  <a href="{{URL}}/admin/students"><i class="fa fa-edit fa-fw"></i> Add New Data</a>
-                </li>
-              </ul>
-            </li>
-
-            <!-- navbar list item  -->
-            <li>
-              <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Users<span class="fa arrow"></span></a>
-              <ul class="nav nav-second-level">
-                <li>
-                  <a href="{{URL}}/admin/users"><i class="fa fa-edit fa-fw"></i> Add New Person</a>
-                </li>
-                <li>
-                  <a href="{{URL}}/admin/users"><i class="fa fa-edit fa-fw"></i> Edit Person</a>
-                </li>
-              </ul>
-            </li>
-
-          </ul>
+    <nav
+        class="navbar navbar-default navbar-static-top"
+        role="navigation"
+        style="margin-bottom: 0"
+      >
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target=".navbar-collapse"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{URL}}/admin" style="color: #045942"
+            >NITJ TPO - SuperUser
+          </a>
         </div>
-      </div>
-      <!-- side navigation div ends  -->
-    </nav>
+
+        <div class="navbar-default sidebar" role="navigation">
+          <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+              <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search..."
+                  />
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </span>
+                </div>
+              </li>
+
+              <li>
+                <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> Announcements<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="{{URL}}/admin/announcements"><i class="fa fa-edit fa-fw"></i> Add New Announcement</a>
+                  </li>
+                  <li>
+                    <a href="{{URL}}/admin/announcements"><i class="fa fa-edit fa-fw"></i> Edit Announcement</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Notices<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="{{URL}}/admin/notices"><i class="fa fa-edit fa-fw"></i> Add New Notice</a>
+                  </li>
+                  <li>
+                    <a href="{{URL}}/admin/notices"><i class="fa fa-edit fa-fw"></i> Edit Notice</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#"><i class="fa fa-history"></i> Processes<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="{{URL}}/admin/processes"><i class="fa fa-edit fa-fw"></i> Add New Process</a>
+                  </li>
+                  <li>
+                    <a href="{{URL}}/admin/processes"><i class="fa fa-edit fa-fw"></i> Edit Process</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#"><i class="fa fa-institution" aria-hidden="true"></i> Policies<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="{{URL}}/admin/policies"><i class="fa fa-edit fa-fw"></i> Add New Policy</a>
+                  </li>
+                  <li>
+                    <a href="{{URL}}/admin/policies"><i class="fa fa-edit fa-fw"></i> Edit Policy</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Placement Insights<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="{{URL}}/admin/placement_insights"><i class="fa fa-edit fa-fw"></i> Add New Insight</a>
+                  </li>
+                  <li>
+                    <a href="{{URL}}/admin/placement_insights"><i class="fa fa-edit fa-fw"></i> Edit Insight</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Internship Insights<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="{{URL}}/admin/internship_insights"><i class="fa fa-edit fa-fw"></i> Add New Insight</a>
+                  </li>
+                  <li>
+                    <a href="{{URL}}/admin/internship_insights"><i class="fa fa-edit fa-fw"></i> Edit Insight</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#"><i class="fa fa-question" aria-hidden="true"></i> FAQ's<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="{{URL}}/admin/faqs"><i class="fa fa-edit fa-fw"></i> Add New FAQ</a>
+                  </li>
+                  <li>
+                    <a href="{{URL}}/admin/faqs"><i class="fa fa-edit fa-fw"></i> Edit FAQ</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#"><i class="fa fa-users" aria-hidden="true"></i> People<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="{{URL}}/admin/people"><i class="fa fa-edit fa-fw"></i> Add New Person</a>
+                  </li>
+                  <li>
+                    <a href="{{URL}}/admin/people"><i class="fa fa-edit fa-fw"></i> Edit Person</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#"><i class="fa fa-line-chart" aria-hidden="true"></i> Placement Stats<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="{{URL}}/admin/placement_stats"><i class="fa fa-edit fa-fw"></i> Add New Stats</a>
+                  </li>
+                  <li>
+                    <a href="{{URL}}/admin/placement_stats"><i class="fa fa-edit fa-fw"></i> Edit Stats</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Users<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="{{URL}}/admin/users"><i class="fa fa-edit fa-fw"></i> Add New Person</a>
+                  </li>
+                  <li>
+                    <a href="{{URL}}/admin/users"><i class="fa fa-edit fa-fw"></i> Edit Person</a>
+                  </li>
+                </ul>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
     <!-- navbar ends  -->
 
     <!-- page wrapper div  -->
@@ -190,21 +216,46 @@
                       <label>Name</label>
                       <input class="form-control" placeholder="Enter Name of Person" id="addname" name="Person_name" />
                     </div>
+
                     <div class="form-group">
                       <label>Department</label>
-                      <input class="form-control" placeholder="Enter Department of Person" id="adddepartment"
-                        name="Department_name" />
+                      <select id="adddepartment" name="menu" class="form-control">
+                        <option value="">
+                          Select Department of Person.
+                        </option>
+                        <option value="Biotechnology">Biotechnology</option>
+                        <option value="Training and Placement Centre">Training and Placement Centre</option>
+                        <option value="Chemical Engineering">Chemical Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                        <option value="Electronics and Communication Engineering">Electronics and Communication
+                          Engineering</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Industrial and Production Engineering">Industrial and Production Engineering
+                        </option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Instrumentation and Control Engineering">Instrumentation and Control Engineering
+                        </option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Textile Technology">Textile Technology</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Humanities & Management">Humanities & Management</option>
+                      </select>
                     </div>
+
                     <div class="form-group">
                       <label>Designation</label>
                       <select id="adddesignation" name="Designation" class="form-control">
                         <option value="">
                           Select type of the person.
                         </option>
-                        <option value="Head">Head</option>
-                        <option value="Assistant Training Officer">Assistant Training Officer</option>
-                        <option value="Assistant Placement Officer">Assistant Placement Officer</option>
+                        <option value="Head (Training & Placement)">Head (Training & Placement)</option>
+                        <option value="Professor Incharge">Professor Incharge</option>
+                        <option value="Assistant Training & Placement Officer">Assistant Training & Placement Officer</option>
                         <option value="Training & Placement Officer">Training & Placement Officer</option>
+                        <option value="Training Officer">Training Officer</option>
                         <option value="Placement Representative">Placement Representative</option>
                         <option value="Internship Representative">Internship Representative</option>
                       </select>
@@ -219,6 +270,12 @@
                       <label>Email</label>
                       <input class="form-control" placeholder="Enter Email of Person" id="addemail"
                         name="Person_email" />
+                    </div>
+
+                    <div class="form-group">
+                      <label>Image Link</label>
+                      <input class="form-control" placeholder="Enter Link of Image" id="addlink"
+                        name="Person_image" />
                     </div>
 
                     <button type="submit" name="action" value="add_menu" class="btn btn-default">
@@ -240,7 +297,7 @@
         <div class="col-lg-12">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3>Edit Person</h3>
+              <h3>Edit Notice</h3>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -265,11 +322,35 @@
                       <label>Name</label>
                       <input class="form-control" placeholder="Enter Name of Person" id="editname" name="Person_name" />
                     </div>
+
                     <div class="form-group">
                       <label>Department</label>
-                      <input class="form-control" placeholder="Enter Department of Person" id="editdepartment"
-                        name="Department_name" />
+                      <select id="editdepartment" name="menu" class="form-control">
+                        <option value="">
+                          Select Department of Person.
+                        </option>
+                        <option value="Biotechnology">Biotechnology</option>
+                        <option value="Training and Placement Centre">Training and Placement Centre</option>
+                        <option value="Chemical Engineering">Chemical Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                        <option value="Electronics and Communication Engineering">Electronics and Communication
+                          Engineering</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Industrial and Production Engineering">Industrial and Production Engineering
+                        </option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Instrumentation and Control Engineering">Instrumentation and Control Engineering
+                        </option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Textile Technology">Textile Technology</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Humanities & Management">Humanities & Management</option>
+                      </select>
                     </div>
+
                     <div class="form-group">
                       <label>Designation</label>
                       <select id="editdesignation" name="Designation" class="form-control">
@@ -280,6 +361,7 @@
                         <option value="Assistant Training Officer">Assistant Training Officer</option>
                         <option value="Assistant Placement Officer">Assistant Placement Officer</option>
                         <option value="Training & Placement Officer">Training & Placement Officer</option>
+                        <option value="Training Officer">Training Officer</option>
                         <option value="Placement Representative">Placement Representative</option>
                         <option value="Internship Representative">Internship Representative</option>
                       </select>
@@ -294,6 +376,12 @@
                       <label>Email</label>
                       <input class="form-control" placeholder="Enter Email of Person" id="editemail"
                         name="Person_email" />
+                    </div>
+
+                    <div class="form-group">
+                      <label>Image Link</label>
+                      <input class="form-control" placeholder="Enter Link of Image" id="editlink"
+                        name="Person_image" />
                     </div>
 
                     <button type="submit" class="btn btn-default">
@@ -324,6 +412,7 @@
                 <th>Designation</th>
                 <th>Mobile No.</th>
                 <th>Email</th>
+                <th>Link</th>
                 <th>Date</th>
                 <th>UpdateDate</th>
                 <th>options</th>
@@ -376,6 +465,7 @@
       editdesignation.value = data.designation;
       editmobileno.value = data.mobileno;
       editemail.value = data.email;
+      editlink.value = data.link;
     }
 
     function deleteNotice(e) {
@@ -411,6 +501,7 @@
         <td>${data[i].designation}</td>
         <td>${data[i].mobileno}</td>
         <td>${data[i].email}</td>
+        <td>${data[i].link}</td>
         <td>${new Date(data[i].createdAt).toDateString()}</td>
         <td>${new Date(data[i].updatedAt).toDateString()}</td>
         <td>
@@ -444,6 +535,7 @@
       const designation = document.getElementById("adddesignation").value;
       const mobileno = document.getElementById("addmobileno").value;
       const email = document.getElementById("addemail").value;
+      const link = document.getElementById("addlink").value;
 
       if (
         category == "" ||
@@ -465,6 +557,7 @@
           designation: designation,
           mobileno: mobileno,
           email: email,
+          link: link || "https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png",
         })
         .then((response) => {
           console.log(response);
@@ -487,6 +580,7 @@
       const designation = document.getElementById("editdesignation").value;
       const mobileno = document.getElementById("editmobileno").value;
       const email = document.getElementById("editemail").value;
+      const link = document.getElementById("editlink").value;
 
       if (
         category == "" ||
@@ -508,6 +602,7 @@
           designation: designation,
           mobileno: mobileno,
           email: email,
+          link: link || "https://www.iconpacks.net/icons/1/free-user-icon-244-thumb.png",
         })
         .then((response) => {
           console.log(response);

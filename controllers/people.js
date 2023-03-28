@@ -12,6 +12,7 @@ exports.addPerson = async (req, res) => {
     designation: req.body?.designation,
     mobileno: req.body?.mobileno,
     email: req.body?.email,
+    link: req.body?.link,
   });
 
   person
@@ -42,6 +43,7 @@ exports.updatePerson = async (req, res) => {
         designation: req.body?.designation,
         mobileno: req.body?.mobileno,
         email: req.body?.email,
+        link: req.body?.link,
         show: true,
     })
         .then(() => res.status(200).send("Person updated."))

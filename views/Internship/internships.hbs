@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>internships</title>
+  <link rel="icon" type="image/x-icon" href="/img/favicon-16x16.png" />
+  <title>Internships</title>
 
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -126,6 +127,9 @@
           content.innerHTML = data[data.length - 1].content;
         }
       })
+
+    addStylingToContent();
+
     document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -138,15 +142,17 @@
           content.innerHTML = data[data.length - 1].content;
         }
       })
+
+    addStylingToContent();
+    
     document.getElementById("come_here").scrollIntoView({ behavior: 'smooth' });
   }
 
   function insightClick() {
-    const link = `{{URL}}/Students/`;
+    const link = `{{URL}}/Internship_Insights/`;
     fetch(link)
       .then((response) => response.json())
       .then(async (data) => {
-
         content.innerHTML = "";
         let str1 = `<div class="grid grid-cols-1 m-[5%] lg:grid-cols-2 gap-8 max-w-5xl lg:mx-auto">`;
         let str2 = "";
@@ -156,45 +162,72 @@
         for (let i = 0; i < data.length; i++) {
           var student = data[i];
 
-          if (student.TwoMInternship || student.SixMInternship) {
-            str2 += `
+          str2 += `
             <div class="w-full max-w-md bg-white border border-gray-200 rounded-lg shadow shadow-sky-500 px-3 py-5">
                 <div class="flex flex-col items-center space-y-2">
-                    <h5 class="mb-1 font2 text-xl font-bold text-black">${student.Name}</h5>
-                    <span class="font2 text-sm text-black">${student.Branch}</span>
-                    <span class="font2 text-sm text-black">${student.Course}</span>
+                    <h5 class="mb-1 font2 text-xl font-bold text-black">${student.name}</h5>
+                    <span class="font2 text-sm text-black">${student.department}</span>
+                    <span class="font2 text-sm text-black">${student.course}</span>
                     <div class="flex flex-col lg:flex-row items-center w-[80%] justify-between">
-                        <span class="text-xl font2 font-bold text-sky-500">${student.Package} LPA</span>
-                        <span class="text-xl font2 font-bold max-w-[70%] text-sky-500">${student.Company}</span>
+                        <span class="text-xl font2 font-bold text-sky-500">${student.stipend} K</span>
+                        <span class="text-xl font2 font-bold max-w-[70%] text-sky-500">${student.company}</span>
                     </div>
                 </div>
             </div>
             `;
-          }
           cnt++;
 
-          if (cnt == 16) break;
+          if (cnt == 10) break;
         }
 
         let str3 = `</div>`;
         content.innerHTML = str1 + str2 + str3;
       });
   }
-  // Add bullots
-  setInterval(()=>{
-  const ulists = document.getElementById("content").getElementsByTagName('ul');
-   
- 
-  const olists=document.getElementById("content").getElementsByTagName('ol');
 
-  for(let i=0;i<ulists.length;i++){
-    ulists[i].style.listStyle="disc"
+  function addStylingToContent() {
+    // Add bullots
+    setInterval(() => {
+      const ulists = document.getElementById("content").getElementsByTagName('ul');
+      const olists = document.getElementById("content").getElementsByTagName('ol');
+      const lists = document.getElementById("content").getElementsByTagName('li');
+      const headings = document.getElementById("content").getElementsByTagName('h2');
+
+      for (let i = 0; i < headings.length; i++) {
+        headings[i].classList.add("font2");
+        headings[i].classList.add("font-medium");
+        headings[i].classList.add("text-[28px]");
+        headings[i].classList.add("lg:text-[32px]");
+        headings[i].classList.add("mx-5");
+        headings[i].classList.add("my-2");
+        headings[i].classList.add("lg:mx-10");
+        headings[i].classList.add("lg:my-5");
+      }
+      for (let i = 0; i < ulists.length; i++) {
+        ulists[i].classList.add("list-disc");
+        ulists[i].classList.add("font-body");
+        ulists[i].classList.add("mx-5");
+        ulists[i].classList.add("my-2");
+        ulists[i].classList.add("lg:mx-10");
+        ulists[i].classList.add("lg:my-5");
+        ulists[i].style.listStylePosition = "inside";
+      }
+      for (let i = 0; i < olists.length; i++) {
+        olists[i].classList.add("list-decimal");
+        olists[i].classList.add("font-body");
+        olists[i].classList.add("mx-5");
+        olists[i].classList.add("my-2");
+        olists[i].classList.add("lg:mx-10");
+        olists[i].classList.add("lg:my-5");
+        olists[i].style.listStylePosition = "inside";
+      }
+      for (let i = 0; i < lists.length; i++) {
+        lists[i].classList.add("p-0.5");
+        lists[i].classList.add("text-md");
+        lists[i].classList.add("lg:text-lg");
+      }
+    }, 1000);
   }
-  for(let i=0;i<olists.length;i++)
-  {
-    olists[i].style.listStyle="auto"
-  }
-  },2000)
 
 </script>
 

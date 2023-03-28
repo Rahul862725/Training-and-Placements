@@ -16,8 +16,10 @@ const faqsRouter = require("./routes/faqs");
 const peopleRouter = require("./routes/people");
 const processesRouter = require("./routes/processes");
 const policiesRouter = require("./routes/policies");
-const studentsRouter = require("./routes/students");
 const usersRouter = require("./routes/users");
+const placement_insightsRouter = require("./routes/placement_insights");
+const internship_insightsRouter = require("./routes/internship_insights");
+const placement_statsRouter = require("./routes/placement_stats");
 
 require("dotenv").config();
 const hbs = require("hbs");
@@ -74,8 +76,10 @@ app.use("/FAQs", faqsRouter);
 app.use("/People", peopleRouter);
 app.use("/Processes", processesRouter);
 app.use("/Policies", policiesRouter);
-app.use("/Students", studentsRouter);
 app.use("/Users", usersRouter);
+app.use("/Internship_Insights", internship_insightsRouter);
+app.use("/Placement_Insights", placement_insightsRouter);
+app.use("/Placement_Stats", placement_statsRouter);
 
 app.get("/", (req, res) => {
   res.render("Main/index.hbs", { URL: process.env.URL });
@@ -102,8 +106,8 @@ app.get("/index_people", (req, res) => {
   res.render("People/people.hbs", { URL: process.env.URL });
 });
 
-app.get("/index_login", (req, res) => {
-    res.render("Login/login.hbs", { URL: process.env.URL});
+app.get("/index_student_faqs", (req, res) => {
+    res.render("Student_FAQ/student_faqs.hbs", { URL: process.env.URL});
 })
 
 app.get("/auth", (req, res) => {
@@ -139,14 +143,21 @@ app.get("/admin/processes", (req, res) => {
   res.render("admin_panel/processes.hbs", { URL: process.env.URL});
 });
 
-app.get("/admin/students", (req, res) => {
-  res.render("admin_panel/students.hbs", { URL: process.env.URL});
-});
-
 app.get("/admin/users", (req, res) => {
   res.render("admin_panel/users.hbs", { URL: process.env.URL});
 });
 
+app.get("/admin/placement_insights", (req, res) => {
+  res.render("admin_panel/placement_insights.hbs", { URL: process.env.URL});
+});
+
+app.get("/admin/internship_insights", (req, res) => {
+  res.render("admin_panel/internship_insights.hbs", { URL: process.env.URL});
+});
+
+app.get("/admin/placement_stats", (req, res) => {
+  res.render("admin_panel/placement_stats.hbs", { URL: process.env.URL});
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
