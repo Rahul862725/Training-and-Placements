@@ -7,7 +7,7 @@ const Handlebars = require("handlebars");
 var path = require("path");
 const handlebars = require("express-handlebars");
 var hb = require("express-handlebars").create();
-const authenticate = require("./middleware/authenticate")
+const authenticate = require("./middleware/authenticate");
 
 // All routes
 const announcementsRouter = require("./routes/announcements");
@@ -30,7 +30,6 @@ const port = process.env.PORT || 8080;
 app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
-
 
 // mongo db connections
 const uri = process.env.ATLAS_URI;
@@ -85,7 +84,6 @@ app.get("/", (req, res) => {
   res.render("Main/index.hbs", { URL: process.env.URL });
 });
 
-
 app.get("/index_internship", (req, res) => {
   res.render("Internship/internships.hbs", { URL: process.env.URL });
 });
@@ -107,56 +105,61 @@ app.get("/index_people", (req, res) => {
 });
 
 app.get("/index_student_faqs", (req, res) => {
-    res.render("Student_FAQ/student_faqs.hbs", { URL: process.env.URL});
-})
+  res.render("Student_FAQ/student_faqs.hbs", { URL: process.env.URL });
+});
 
 app.get("/auth", (req, res) => {
-  res.render("auth/index.hbs", { URL: process.env.URL});
-})
+  res.render("auth/index.hbs", { URL: process.env.URL });
+});
 
 app.use(authenticate);
 app.get("/admin", (req, res) => {
-  res.render("admin_panel/index.hbs", { URL: process.env.URL});
-})
+  res.render("admin_panel/index.hbs", { URL: process.env.URL });
+});
 
 app.get("/admin/announcements", (req, res) => {
-  res.render("admin_panel/announcements.hbs", { URL: process.env.URL});
+  res.render("admin_panel/announcements.hbs", { URL: process.env.URL });
 });
 
 app.get("/admin/faqs", (req, res) => {
-  res.render("admin_panel/faqs.hbs", { URL: process.env.URL});
+  res.render("admin_panel/faqs.hbs", { URL: process.env.URL });
 });
 
 app.get("/admin/notices", (req, res) => {
-  res.render("admin_panel/notices.hbs", { URL: process.env.URL});
+  res.render("admin_panel/notices.hbs", { URL: process.env.URL });
 });
 
 app.get("/admin/people", (req, res) => {
-  res.render("admin_panel/people.hbs", { URL: process.env.URL});
+  res.render("admin_panel/people.hbs", { URL: process.env.URL });
 });
 
 app.get("/admin/policies", (req, res) => {
-  res.render("admin_panel/policies.hbs", { URL: process.env.URL});
+  res.render("admin_panel/policies.hbs", { URL: process.env.URL });
 });
 
 app.get("/admin/processes", (req, res) => {
-  res.render("admin_panel/processes.hbs", { URL: process.env.URL});
+  res.render("admin_panel/processes.hbs", { URL: process.env.URL });
 });
 
 app.get("/admin/users", (req, res) => {
-  res.render("admin_panel/users.hbs", { URL: process.env.URL});
+  res.render("admin_panel/users.hbs", { URL: process.env.URL });
 });
 
 app.get("/admin/placement_insights", (req, res) => {
-  res.render("admin_panel/placement_insights.hbs", { URL: process.env.URL});
+  res.render("admin_panel/placement_insights.hbs", { URL: process.env.URL });
 });
 
 app.get("/admin/internship_insights", (req, res) => {
-  res.render("admin_panel/internship_insights.hbs", { URL: process.env.URL});
+  res.render("admin_panel/internship_insights.hbs", { URL: process.env.URL });
 });
 
 app.get("/admin/placement_stats", (req, res) => {
-  res.render("admin_panel/placement_stats.hbs", { URL: process.env.URL});
+  res.render("admin_panel/placement_stats.hbs", { URL: process.env.URL });
+});
+
+app.get("/logout", (req, res) => {
+  res.clearCookie("jwtoken");
+  res.status(200).send("Admin Logout");
 });
 
 app.listen(port, () => {
