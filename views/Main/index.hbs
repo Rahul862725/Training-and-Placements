@@ -14,89 +14,37 @@
       background-position: center;
       background-size: cover;
     }
+
+    #btn-back-to-top {
+      position: fixed;
+      display: none;
+    }
   </style>
 </head>
 
 <body class="2xl:container 2xl:mx-auto">
-
   <div>
     {{> header}}
-
-  </div>
-  <div id="search_page" class="absolute top-0 z-50 hidden h-full w-full content-center bg-transparent backdrop-blur-2xl"
-    onclick="showSearchPage(event)">
-    <form id="search_form" onclick="showSearchPage(event)">
-      <div class="flex px-28">
-        <label for="search-dropdown" class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
-          Email</label>
-        <button id="dropdown-button" data-dropdown-toggle="dropdown"
-          class="z-10 inline-flex flex-shrink-0 items-center rounded-l-lg border border-gray-300 bg-gray-100 py-2.5 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
-          type="button" onclick="openDropdown()">
-          All categories
-          <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd"></path>
-          </svg>
-        </button>
-        <div id="dropdown"
-          class="absolute z-10 hidden w-44 translate-y-11 divide-y divide-gray-100 rounded bg-white shadow dark:bg-gray-700"
-          data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top">
-          <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-            <li>
-              <button type="button"
-                class="inline-flex w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                Faculty
-              </button>
-            </li>
-            <li>
-              <button type="button"
-                class="inline-flex w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                Links
-              </button>
-            </li>
-            <li>
-              <button type="button"
-                class="inline-flex w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                Library
-              </button>
-            </li>
-            <li>
-              <button type="button"
-                class="inline-flex w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                Research
-              </button>
-            </li>
-            <li>
-              <button type="button"
-                class="inline-flex w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                Everything
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div class="relative w-full">
-          <input type="search" id="search-dropdown"
-            class="z-20 block w-full rounded-r-lg border border-l-2 border-gray-300 border-l-gray-50 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:border-l-gray-700 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500"
-            placeholder="Search Faculty, Books, Events, Researches..." required="">
-          <button type="submit"
-            class="absolute top-0 right-0 rounded-r-lg border border-blue-700 bg-blue-700 p-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </form>
   </div>
   <br><br><br><br><br><br>
+
+  <!-- Back to top button -->
+  <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
+    class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out bottom-5 right-5"
+    id="btn-back-to-top">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-4 h-4" role="img"
+      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+      <path fill="currentColor"
+        d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z">
+      </path>
+    </svg>
+  </button>
 
   {{!-- Starting Image --}}
   <div>
     <div class="tpo flex flex-col justify-center items-start h-[224px] px-4 lg:px-[11%] py-[48px]">
-      <p class="font2 font-bold text-[52px] lg:text-[68px] uppercase text-white leading-[1]">Training and Placement Cell
+      <p class="font2 font-bold text-[52px] lg:text-[68px] uppercase text-white leading-[1]">Centre Training and
+        Placement
       </p>
     </div>
   </div>
@@ -105,7 +53,7 @@
   <div class="main-body m-10">
     <div class="container flex flex-col items-start gap-[20px] lg:gap-[16px]">
       <div class="w-full flex flex-col items-start">
-        <p class="font2 font-medium text-[28px] lg:text-[32px]">TPO NIT Jalandhar</p>
+        <p class="font2 font-medium text-[28px] lg:text-[32px]">About Us</p>
         <div class="bg-accent w-full lg:w-[111px] h-[1px] lg:h-[3px]"></div>
       </div>
       <div id="Introduction">
@@ -212,12 +160,12 @@
   <div class="flex flex-col sm:flex-row overflow-auto mb-4" style="margin-top: 60px;">
     <!-- announcement section -->
     <div class="w-11/12 sm:w-3/4 flex flex-col ml-2 sm:ml-5 mr-2">
-      <h1 class="text-2xl sm:text-4xl title-font font-medium text-gray-900 p-2 sm:p-3">Announcements from TPO</h1>
+      <h1 class="text-2xl sm:text-4xl title-font font-medium text-gray-900 p-2 sm:p-3">Announcements from CTP</h1>
       <div class="xl:w-full md:w-full p-3">
-        <div class="p-6 rounded-lg"
-          style="height: 550px; border: 1px solid #2167A7; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;">
+        <div class="p-6 rounded-lg overflow-scroll"
+          style="height: 550px; border: 1px solid #2167A7; box-shadow: 0px 6px 10px 4px rgba(79, 154, 239, 0.2); border-radius: 6px;">
           <!-- list of announcement -->
-          <ul class="list-disc" id="annoucements">
+          <ul class="list-disc font2" id="annoucements">
             <!-- announcement 1 -->
 
           </ul>
@@ -228,7 +176,7 @@
     <!-- notice board -->
     <div class="flex flex-col w-11/12 sm:w-1/2 ml-2 mr-2 sm:mr-5">
       <h1 class="text-2xl sm:text-4xl title-font font-medium text-gray-900 p-2 sm:p-3">Notices</h1>
-      <div id="notes">
+      <div id="notes" class="font2 font-semibold">
 
       </div>
     </div>
@@ -274,13 +222,10 @@
   fetch(link1)
     .then(response => response.json())
     .then(data => {
-      console.log(data)
-
-      let annoucemnts = document.getElementById('annoucements');      
-      let itr = 0;
+      console.log(data);
+      let annoucemnts = document.getElementById('annoucements');
 
       for (let i = data.length - 1; i >= 0; i--) {
-
         let el = document.createElement('li');
         el.classList.add("ml-3")
         el.classList.add("mt-1")
@@ -290,18 +235,16 @@
         let span = document.createElement('span');
         span.style.cssText = "color: #FF8534; font-size: small;"
         span.classList.add("p-3");
-        el1.style.cssText = "color: #002A51; font-weight:bold; font-family: 'Open Sans'; font-size:large";
+        el1.style.cssText = "color: #002A51; font-weight:bold; font-size:large";
 
         el1.target = "_blank";
         el1.href = data[i].link;
         el1.innerText = data[i].text;
 
-        span.textContent = data[i].updatedAt.substring(0,10);
+        span.textContent = data[i].updatedAt.substring(0, 10);
         el1.appendChild(span);
         el.appendChild(el1);
         annoucemnts.appendChild(el);
-        itr++;
-        if (itr == 15) break;
       }
     });
 
@@ -312,14 +255,40 @@
 
       let notes = document.getElementById("notes");
       let itr = 0;
-      
+
       for (let i = data.length - 1; i >= 0; i--) {
-        const notesTemplate = '<div class="xl:w-full md:w-full p-3"><div class="p-6 rounded-lg" style="border: 1px solid #62AAFF; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;"><p class="leading-relaxed text-base">' + data[i].text + '</p></div></div>'
+        const notesTemplate = '<div class="xl:w-full md:w-full p-3"><div class="p-6 rounded-lg" style="border: 2px solid #62AAFF; background-color: #F1FFFF; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;"><p class="leading-relaxed text-base">' + data[i].text + '</p></div></div>'
         notes.innerHTML += notesTemplate;
         itr++;
         if (itr == 5) break;
       }
     });
+
+  // Get the button
+  let mybutton = document.getElementById("btn-back-to-top");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  // When the user clicks on the button, scroll to the top of the document
+  mybutton.addEventListener("click", backToTop);
+
+  function backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
 
 </script>
 
