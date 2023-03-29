@@ -296,7 +296,7 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12" id="come_here">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3>Edit Placement Insight</h3>
@@ -463,6 +463,10 @@
             editpackage.value = data.package;
             edityear.value = data.year;
             editcompany.value = data.company;
+
+            document
+                .getElementById("come_here")
+                .scrollIntoView({ behavior: "smooth" });
         }
 
         function deleteNotice(e) {

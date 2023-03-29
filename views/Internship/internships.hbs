@@ -72,7 +72,7 @@
           <div class="inline-flex items-center">
             <i style="color: rgb(128, 128, 128); font-size: 12px; margin-left: 12px"
               class="fa-solid fa-angle-right ml-2"></i>
-            <a href="{{URL}}/index_internship" class="text-lg font-medium ml-2">Internships</a>
+            <a href="{{URL}}/index_internship" id="come_here" class="text-lg font-medium ml-2">Internships</a>
           </div>
         </li>
       </ol>
@@ -114,7 +114,7 @@
           style="font-size: 48px">
           policy
         </span>
-        <p id="come_here"
+        <p
           class="group-hover:text-white text-lg lg:text-xl whitespace-nowrap text-center text-dark-purple uppercase">
           Policy
         </p>
@@ -209,6 +209,7 @@
       const olists = document.getElementById("content").getElementsByTagName('ol');
       const lists = document.getElementById("content").getElementsByTagName('li');
       const headings = document.getElementById("content").getElementsByTagName('h2');
+      const para = document.getElementById("content").getElementsByTagName('p');
 
       for (let i = 0; i < headings.length; i++) {
         headings[i].classList.add("font2");
@@ -242,6 +243,16 @@
         lists[i].classList.add("p-0.5");
         lists[i].classList.add("text-md");
         lists[i].classList.add("lg:text-lg");
+      }
+      for (let i = 0; i < lists.length; i++) {
+        para[i].classList.add("font-body");
+        para[i].classList.add("mx-5");
+        para[i].classList.add("my-2");
+        para[i].classList.add("lg:mx-10");
+        para[i].classList.add("lg:my-5");
+        para[i].classList.add("p-0.5");
+        para[i].classList.add("text-md");
+        para[i].classList.add("lg:text-lg");
       }
     });
   }

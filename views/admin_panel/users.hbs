@@ -226,7 +226,7 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12" id="come_here">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3>Edit User</h3>
@@ -320,6 +320,9 @@
       editname.value = data.name;
       editemail.value = data.email;
       editpassword.value = data.password;
+      document
+        .getElementById("come_here")
+        .scrollIntoView({ behavior: "smooth" });
     }
 
     function deleteUser(e) {

@@ -225,7 +225,7 @@
       console.log(data);
       let annoucemnts = document.getElementById('annoucements');
 
-      for (let i = data.length - 1; i >= 0; i--) {
+      for (let i =0; i<data.length; i++) {
         let el = document.createElement('li');
         el.classList.add("ml-3")
         el.classList.add("mt-1")
@@ -256,7 +256,7 @@
       let notes = document.getElementById("notes");
       let itr = 0;
 
-      for (let i = data.length - 1; i >= 0; i--) {
+      for (let i =0; i<data.length; i++) {
         const notesTemplate = '<div class="xl:w-full md:w-full p-3"><div class="p-6 rounded-lg" style="border: 2px solid #62AAFF; background-color: #F1FFFF; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 6px;"><p class="leading-relaxed text-base">' + data[i].text + '</p></div></div>'
         notes.innerHTML += notesTemplate;
         itr++;

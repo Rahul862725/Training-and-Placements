@@ -23,7 +23,7 @@ exports.getAnnouncement = async (req, res) => {
             .catch((err) => res.status(400).send("Error: " + err));
     }
     else {
-        Announcement.find({ show: true })
+        Announcement.find({ show: true }).sort({updatedAt: -1})
             .then((announcements) => res.status(200).send(announcements))
             .catch((err) => res.status(400).send("Error: " + err));
     }
@@ -48,7 +48,7 @@ exports.deleteAnnouncement = async (req, res) => {
 };
 
 exports.showallAnnouncements = async (req, res) => {
-    Announcement.find()
+    Announcement.find().sort({updatedAt: -1})
         .then((announcements) => res.status(200).send(announcements))
         .catch((err) => res.status(404).send("Error: " + err));
 };

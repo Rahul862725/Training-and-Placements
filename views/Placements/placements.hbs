@@ -262,6 +262,7 @@
       const olists = document.getElementById("content").getElementsByTagName('ol');
       const lists = document.getElementById("content").getElementsByTagName('li');
       const headings = document.getElementById("content").getElementsByTagName('h2');
+      const para = document.getElementById("content").getElementsByTagName('p');
 
       for (let i = 0; i < headings.length; i++) {
         headings[i].classList.add("font2");
@@ -295,6 +296,16 @@
         lists[i].classList.add("p-0.5");
         lists[i].classList.add("text-md");
         lists[i].classList.add("lg:text-lg");
+      }
+      for (let i = 0; i < lists.length; i++) {
+        para[i].classList.add("font-body");
+        para[i].classList.add("mx-5");
+        para[i].classList.add("my-2");
+        para[i].classList.add("lg:mx-10");
+        para[i].classList.add("lg:my-5");
+        para[i].classList.add("p-0.5");
+        para[i].classList.add("text-md");
+        para[i].classList.add("lg:text-lg");
       }
     });
   }

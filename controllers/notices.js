@@ -22,7 +22,7 @@ exports.getNotice = async (req, res) => {
             .catch((err) => res.status(400).send("Error: " + err));
     }
     else {
-        Notice.find({ show: true })
+        Notice.find({ show: true }).sort({updatedAt: -1})
             .then((notices) => res.status(200).send(notices))
             .catch((err) => res.status(400).send("Error: " + err));
     }
@@ -46,7 +46,7 @@ exports.deleteNotice = async (req, res) => {
 };
 
 exports.showallNotices = async (req, res) => {
-    Notice.find()
+    Notice.find().sort({updatedAt: -1})
         .then((notices) => res.status(200).send(notices))
         .catch((err) => res.status(404).send("Error: " + err));
 };

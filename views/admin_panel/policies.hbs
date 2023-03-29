@@ -239,7 +239,7 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12" id="come_here">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3>Edit Policy</h3>
@@ -320,14 +320,14 @@
       fullPage: true,
       allowedContent: true,
       autoGrow_onStartup: true,
-      enterMode: CKEDITOR.ENTER_BR,
+      enterMode: CKEDITOR.ENTER_P,
     });
 
     CKEDITOR.replace("editcontent", {
       fullPage: true,
       allowedContent: true,
       autoGrow_onStartup: true,
-      enterMode: CKEDITOR.ENTER_BR,
+      enterMode: CKEDITOR.ENTER_P,
     });
   </script>
 
@@ -364,6 +364,9 @@
       editid.value = data._id;
       editcategory.value = data.category;
       CKEDITOR.instances['editcontent'].setData(data.content);
+      document
+        .getElementById("come_here")
+        .scrollIntoView({ behavior: "smooth" });
     }
 
     function deleteNotice(e) {
