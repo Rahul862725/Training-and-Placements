@@ -307,6 +307,8 @@
     const tableBodyDom = document.getElementById("tablebody");
     const addFormDom = document.getElementById("addForm");
     const editFormDom = document.getElementById("editForm");
+    const editdiv = document.getElementById("come_here");
+    editdiv.style.display = "none";
 
     let apiData;
 
@@ -320,9 +322,10 @@
       editname.value = data.name;
       editemail.value = data.email;
       editpassword.value = data.password;
-      document
-        .getElementById("come_here")
-        .scrollIntoView({ behavior: "smooth" });
+      if (editdiv.style.display === "none") {
+        editdiv.style.display = "block";
+      }
+      editdiv.scrollIntoView({ behavior: "smooth" });
     }
 
     function deleteUser(e) {

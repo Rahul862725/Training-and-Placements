@@ -290,6 +290,8 @@
     const tableBodyDom = document.getElementById("tablebody");
     const addFormDom = document.getElementById("addForm");
     const editFormDom = document.getElementById("editForm");
+    const editdiv = document.getElementById("come_here");
+    editdiv.style.display = "none";
 
     let apiData;
 
@@ -303,9 +305,10 @@
       edittext.value = data.text;
       editlink.value = data.link;
 
-      document
-        .getElementById("come_here")
-        .scrollIntoView({ behavior: "smooth" });
+      if (editdiv.style.display === "none") {
+        editdiv.style.display = "block";
+      }
+      editdiv.scrollIntoView({ behavior: "smooth" });
     }
 
     function deleteAnnouncement(e) {
