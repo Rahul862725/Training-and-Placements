@@ -18,6 +18,8 @@
 }
 .navtext {
   font-size: large;
+  color: #0054A6;
+  font-weight: bold;
 }
 .navitems {
   display: flex;
@@ -36,3 +38,68 @@
   text-shadow: 2px 2px 8px rgb(125, 203, 255);
   font-size: 20px;
 }
+.wave {
+  position: relative;
+  -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0, 0, 0, .2));
+}
+
+ 
+#a1{
+  position: relative;
+  display: inline-block;
+  color: #0054A6;
+ 
+  text-transform: uppercase;
+  animation: animate 4s ease-in-out infinite;
+  animation-delay: calc(1s*var(--i));
+}
+#a2{
+  position: relative;
+  display: inline-block;
+  color: #0054A6;
+ 
+  text-transform: uppercase;
+  animation: animate 4.2s ease-in-out infinite;
+  animation-delay: calc(.1s*var(--i));
+}
+#a3{
+  position: relative;
+  display: inline-block;
+  color: #0054A6;
+ 
+  text-transform: uppercase;
+  animation: animate 4.4s ease-in-out infinite;
+  animation-delay: calc(.1s*var(--i));
+}
+#a4{
+  position: relative;
+  display: inline-block;
+  color: #0054A6;
+ 
+  text-transform: uppercase;
+  animation: animate 4.6s ease-in-out infinite;
+  animation-delay: calc(.1s*var(--i));
+}
+.wave img {
+  position: relative;
+  display: inline-block;
+  animation: animate 4.8s ease-in-out infinite;
+  animation-delay: calc(.2s*var(--i));
+}
+ 
+
+@keyframes animate {
+  0% {
+      transform: translateY(0px);
+  }
+
+  20% {
+      transform: translateY(-20px);
+  }
+
+  40%,
+  100% {
+      transform: translateY(0px);
+  }
+}
+ 
