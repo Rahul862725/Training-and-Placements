@@ -2,3 +2,34 @@
   --tw-bg-opacity: 1;
   background-color: hsl(201 96% 32% / var(--tw-bg-opacity));
 }
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color:rgba(146, 215, 245, 0.05) ;
+}
+.navtext {
+  font-size: large;
+}
+.navitems {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+ 
+}
+ 
+.navlist {
+  margin: 20px;
+  color: rgb(19, 15, 127);
+  font-weight: bold;
+}
+.navlist:hover {
+  margin: 20px;
+  text-shadow: 2px 2px 8px rgb(125, 203, 255);
+  font-size: 20px;
+}
+
