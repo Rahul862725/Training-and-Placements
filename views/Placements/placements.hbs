@@ -31,13 +31,16 @@
       top: 0;
     }
 
-    #content {
-      margin: 20px;
-    }
-
     #btn-back-to-top {
       position: fixed;
       display: none;
+    }
+
+    .tpoplacements {
+      background: linear-gradient(90.09deg, rgba(0, 0, 0, 0.7) 0.08%, rgba(70, 70, 70, 0.70) 99.11%), url(../img/bg_placements.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
     }
   </style>
 </head>
@@ -58,14 +61,10 @@
     </svg>
   </button>
 
-  {{!-- Write code here. --}}
+  <!-- backgroud pic and heading -->
   <div>
-    <div class="bg-[#002A51] text-white flex flex-col justify-center items-start h-[224px] px-4 lg:px-[11%] py-[48px]">
-      <div class="text-center space-y-3">
-        <h6 class="font2 text-5xl sm:text-7xl text-center font-extrabold">
-          Placements
-        </h6>
-      </div>
+    <div class="tpoplacements flex flex-col justify-center items-start h-[224px] px-4 lg:px-[11%] py-[48px]">
+      <p class="font2 font-bold text-[52px] lg:text-[68px] uppercase text-white leading-[1]">Placements</p>
     </div>
     <nav class="flex px-4 lg:px-[11%] bg-gray-200 py-[8px] text-black" aria-label="Breadcrumb">
       <ol class="inline-flex items-center">
@@ -75,12 +74,9 @@
         </li>
         <li aria-current="page">
           <div class="inline-flex items-center">
-            <i style="
-                  color: rgb(128, 128, 128);
-                  font-size: 12px;
-                  margin-left: 12px;
-                " class="fa-solid fa-angle-right ml-2"></i>
-            <a href="{{URL}}/index_placements" id="come_here" class="text-lg font-medium ml-2">Placements</a>
+            <i style="color: rgb(128, 128, 128); font-size: 12px; margin-left: 12px"
+              class="fa-solid fa-angle-right ml-2"></i>
+            <a href="{{URL}}/index_placements" class="text-lg font-medium ml-2">Placements</a>
           </div>
         </li>
       </ol>
@@ -144,7 +140,7 @@
   </div>
 
   {{!-- to fill content --}}
-  <div id="content"></div>
+  <div id="content" class="main-body mx-5 sm:mx-10 md:mx-28 my-10"></div>
   <br />
 
   <div>{{>footer}}</div>
@@ -294,8 +290,12 @@
       }
       for (let i = 0; i < lists.length; i++) {
         lists[i].classList.add("p-0.5");
+        lists[i].classList.add("my-2");
         lists[i].classList.add("text-md");
-        lists[i].classList.add("lg:text-lg");
+        lists[i].classList.add("text-gray-800");
+        lists[i].classList.add("lg:text-[18px]");
+        lists[i].classList.add("lg:leading-[30px]");
+        lists[i].classList.add("text-justify");
       }
       for (let i = 0; i < lists.length; i++) {
         para[i].classList.add("font-body");
@@ -305,7 +305,10 @@
         para[i].classList.add("lg:my-5");
         para[i].classList.add("p-0.5");
         para[i].classList.add("text-md");
-        para[i].classList.add("lg:text-lg");
+        para[i].classList.add("text-gray-800");
+        para[i].classList.add("lg:text-[18px]");
+        para[i].classList.add("lg:leading-[30px]");
+        para[i].classList.add("text-justify");
       }
     });
   }

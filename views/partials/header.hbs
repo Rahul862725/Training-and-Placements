@@ -6,9 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - NITJ</title>
-    <!-- CSS -->
-    {{!--
-    <link rel="stylesheet" href="partials/style.css" /> --}}
 
     <!-- ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -26,11 +23,68 @@
     <!-- font-family: 'Barlow', sans-serif;
     font-family: 'Poppins', sans-serif; -->
 
+    <script>
+        let leastpri = 5
+        function executor() {
+            if (priority < leastpri) {
+                leastpri = priority
+            } else {
+                leastpri++
+                return
+            }
+            switch (leastpri) {
+                case 1:
+                    close_menu()
+                    break
+                case 2:
+                    keep_menu_open()
+                    break
+                case 3:
+                    close_menu()
+                    break
+                case 4:
+                    close_menu()
+                    break
+            }
+            leastpri++
+        }
+        function open_menu() {
+            let sideMenu = document.querySelector('#nav-menu')
+            if (sideMenu.style.display == 'none') {
+                sideMenu.setAttribute('style', 'display:block;')
+                leastpri = 5
+            }
+        }
+        function keep_menu_open() {
+            let sideMenu = document.querySelector('#nav-menu')
+            if (sideMenu.style.display == 'block') {
+                sideMenu.setAttribute('style', 'display:block;')
+            }
+            if (onmenu) {
+                closeDropDowns()
+                openDropDowns(9)
+            }
+            onmenu = true
+        }
+        function close_menu() {
+            let sideMenu = document.querySelector('#nav-menu')
+            if (sideMenu.style.display == 'block') {
+                sideMenu.setAttribute('style', 'display:none;')
+            }
+        }
+    </script>
+
     <style>
         /* Customizing the Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
         }
+
+        .bg-accent {
+            --tw-bg-opacity: 1;
+            background-color: hsl(201 96% 32% / var(--tw-bg-opacity));
+        }
+
 
         ::-webkit-scrollbar-thumb {
             background-color: rgba(30, 58, 138, 1);
@@ -81,7 +135,6 @@
 
 <body>
     <script src="partials/header.js"></script>
-
 </body>
 
 </html>

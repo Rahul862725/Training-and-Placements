@@ -35,6 +35,13 @@
             position: fixed;
             display: none;
         }
+
+        .tpofaqs {
+            background: linear-gradient(90.09deg, rgba(0, 0, 0, 0.7) 0.08%, rgba(211, 211, 211, 0.7) 99.11%), url(../img/bg_faqs.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
     </style>
 
 
@@ -60,19 +67,16 @@
         </svg>
     </button>
 
+    <!-- backgroud pic and heading -->
     <div>
-        <div
-            class="bg-[#002A51] text-white flex flex-col justify-center items-start h-[224px] px-4 lg:px-[11%] py-[48px]">
-            <div class="text-center space-y-3">
-                <h6 class="font2 text-5xl sm:text-7xl text-center font-extrabold">FAQ's</h6>
-            </div>
+        <div class="tpofaqs flex flex-col justify-center items-start h-[224px] px-4 lg:px-[11%] py-[48px]">
+            <p class="font2 font-bold text-[52px] lg:text-[68px] uppercase text-white leading-[1]">FAQ's</p>
         </div>
         <nav class="flex px-4 lg:px-[11%] bg-gray-200 py-[8px] text-black" aria-label="Breadcrumb">
             <ol class="inline-flex items-center">
                 <li class="inline-flex items-center">
                     <a href="" class="inline-flex items-center text-sm font-medium hover:text-gray-900">
                     </a><a href="{{URL}}" class="text-lg font-medium ml-2"><i class="fa fa-home"></i> CTP</a>
-
                 </li>
                 <li aria-current="page">
                     <div class="inline-flex items-center">
