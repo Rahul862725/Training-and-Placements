@@ -25,6 +25,7 @@
     #header {
       position: sticky;
       top: 0;
+      
     }
 
     #btn-back-to-top {
@@ -90,7 +91,7 @@
   </div>
 
   <!-- option section -->
-  <div class="flex flex-col gap-3 md:flex-row w-full my-20">
+  <!-- <div class="flex flex-col gap-3 md:flex-row w-full my-20">
     <div class="mx-auto px-20 py-10"
       style="background-color: #E8E8E8;border: 1px solid #E8E8E8; box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2); border-radius: 2px;">
       <a href="/pr.pdf" class="flex-col item-center justify-content " download="Placement_Report">
@@ -112,8 +113,74 @@
         <h6 class="text-md text-center font-bold">Policies</h6>
       </a>
     </div>
+  </div> -->
+  <!-- Student and Department Links -->
+     
+     {{!-- <h1 class="text-2xl sm:text-4xl title-font font-medium text-gray-900 p-2 sm:p-3">Student</h1> 
+   <div  class="flex h-screen">
+    <div class="xl:w-full md:w-full p-3">
+        <div class="p-6 rounded-lg overflow-scroll"
+          style="height: 550px; border: 1px solid #2167A7; box-shadow: 0px 6px 10px 4px rgba(79, 154, 239, 0.2); border-radius: 6px;">
+           
+          <ul class="list-disc font2" id="student">
+
+          </ul>
+        </div>
+      </div>
+       </div>
+     <h1 class="text-2xl sm:text-4xl title-font font-medium text-gray-900 p-2 sm:p-3">Department</h1> 
+      <div class="flex h-screen">
+      <div class="xl:w-full md:w-full p-3">
+        <div class="p-6 rounded-lg overflow-scroll"
+          style="height: 550px; border: 1px solid #2167A7; box-shadow: 0px 6px 10px 4px rgba(79, 154, 239, 0.2); border-radius: 6px;">
+           
+          <ul class="list-disc font2" id="department">
+             
+
+          </ul>
+        </div>
+ 
+       </div>
+   </div> --}}
+   <div class="flex flex-col sm:flex-row overflow-auto mb-4" style="margin-top: 60px;">
+    <!-- announcement section -->
+    <div class="w-11/12 sm:w-3/4 flex flex-col ml-2 sm:ml-5 mr-2">
+      <h1 class="text-2xl sm:text-4xl title-font font-medium text-gray-900 p-2 sm:p-3">Student</h1>
+      <div class="xl:w-full md:w-full p-3">
+        <div class="p-6 rounded-lg overflow-scroll"
+          style="height: 550px; border: 1px solid #2167A7; box-shadow: 0px 6px 10px 4px rgba(79, 154, 239, 0.2); border-radius: 6px;">
+          <!-- list of announcement -->
+          <ul class="list-disc font2" id="student">
+            <!-- announcement 1 -->
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="w-11/12 sm:w-3/4 flex flex-col ml-2 sm:ml-5 mr-2">
+      <h1 class="text-2xl sm:text-4xl title-font font-medium text-gray-900 p-2 sm:p-3">Department</h1>
+      <div class="xl:w-full md:w-full p-3">
+        <div class="p-6 rounded-lg overflow-scroll"
+          style="height: 550px; border: 1px solid #2167A7; box-shadow: 0px 6px 10px 4px rgba(79, 154, 239, 0.2); border-radius: 6px;">
+          <!-- list of announcement -->
+          <ul class="list-disc font2" id="department">
+            <!-- announcement 1 -->
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- notice board -->
+    {{!-- <div class="flex flex-col w-11/12 sm:w-1/2 ml-2 mr-2 sm:mr-5">
+      <h1 class="text-2xl sm:text-4xl title-font font-medium text-gray-900 p-2 sm:p-3">Notices</h1>
+      <div id="notes" class="font2 font-semibold">
+
+      </div>
+    </div> --}}
   </div>
 
+   
   <!-- footer -->
   <br>
   <div>
@@ -122,6 +189,68 @@
 </body>
 
 <script>
+
+  const link1 = `{{URL}}/Download/Student`
+  const link2 = `{{URL}}/Download/Department`
+
+   fetch(link1)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      console.log("come");
+      let student = document.getElementById('student');
+
+      for (let i =0; i<data.length; i++) {
+        let el = document.createElement('li');
+        el.classList.add("ml-3")
+        el.classList.add("mt-1")
+        el.classList.add("mb-1")
+
+        let el1 = document.createElement('a');
+        let span = document.createElement('span');
+        span.style.cssText = "color: #FF8534; font-size: small;"
+        span.classList.add("p-3");
+        el1.style.cssText = "color: #002A51; font-weight:bold; font-size:large";
+
+        el1.target = "_blank";
+        el1.href = data[i].link;
+        el1.innerText = data[i].text;
+
+        span.textContent = data[i].updatedAt.substring(0, 10);
+        el1.appendChild(span);
+        el.appendChild(el1);
+        student.appendChild(el);
+      }
+    });
+
+      fetch(link2)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      let department = document.getElementById('department');
+
+      for (let i =0; i<data.length; i++) {
+        let el = document.createElement('li');
+        el.classList.add("ml-3")
+        el.classList.add("mt-1")
+        el.classList.add("mb-1")
+
+        let el1 = document.createElement('a');
+        let span = document.createElement('span');
+        span.style.cssText = "color: #FF8534; font-size: small;"
+        span.classList.add("p-3");
+        el1.style.cssText = "color: #002A51; font-weight:bold; font-size:large";
+
+        el1.target = "_blank";
+        el1.href = data[i].link;
+        el1.innerText = data[i].text;
+
+        span.textContent = data[i].updatedAt.substring(0, 10);
+        el1.appendChild(span);
+        el.appendChild(el1);
+        department.appendChild(el);
+      }
+    });  
   // Get the button
   let mybutton = document.getElementById("btn-back-to-top");
 
